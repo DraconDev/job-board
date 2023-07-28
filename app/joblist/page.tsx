@@ -1,4 +1,8 @@
 import Button from "@/components/Button";
+import Description from "@/components/Description";
+import Filter from "@/components/Filter";
+import JobList from "@/components/JobList";
+
 import { use } from "react";
 
 async function fetchData() {
@@ -9,15 +13,16 @@ async function fetchData() {
 }
 
 export default function Page() {
-    // needs async func
-    // const data = await fetchData();
-    const data = use(fetchData());
+    // const data = use(fetchData());
     return (
-        <>
-            {/* <div>{JSON.stringify(data)}</div> */}
-            <div>{data[0].word}</div>
-            {/* <div className="">{JSON.stringify(data)}</div> */}
-            <Button>hell</Button>
-        </>
+        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+            <Filter />
+            <div className="">
+                <Description />
+                <JobList />
+            </div>
+            {/* <div>{data[0].word}</div> */}
+            {/* <Button text="hello"></Button> */}
+        </div>
     );
 }
