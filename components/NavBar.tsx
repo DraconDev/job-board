@@ -9,12 +9,15 @@ export default function NavBar() {
                     <LogoButton>home</LogoButton>
                 </div>
                 <div className="flex p-1  mx-2">
-                    <SearchBar />
-
+                    <SearchBar placeholder="Search..." />
+                    <SearchBar placeholder="Where" />
                 </div>
                 <div className="flex p-1 mx-2">
+                    <LogoButton>postjob</LogoButton>
                     <LogoButton>work</LogoButton>
                     <LogoButton>notifications</LogoButton>
+
+                    <span className="material-icons">home</span>
                 </div>
             </div>
         </div>

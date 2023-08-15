@@ -15,14 +15,13 @@ async function fetchData() {
 export default function Page() {
     // const data = use(fetchData());
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <div className="flex flex-col  justify-center content-center min-h-screen py-2 w-full">
             <Filter />
             <div className="">
-                <Description />
                 <JobList />
+                <Description />
             </div>
-            {/* <div>{data[0].word}</div> */}
-            {/* <Button text="hello"></Button> */}
+            {/* <Button text="Search" action={() => getAvailableJobs("")}></Button> */}
         </div>
     );
 }
