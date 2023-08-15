@@ -6,7 +6,6 @@ export default function Home() {
         <main>
             <Link href="/joblist">joblist</Link>
             <Link href="/API/mozi">get hello</Link>
-            heya
         </main>
     );
 }

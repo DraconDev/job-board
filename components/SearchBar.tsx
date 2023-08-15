@@ -1,18 +1,25 @@
+import { TypeFormatFlags } from "typescript";
 import LogoButton from "./LogoButton";
 
-export default function Search(children: { placeholder: string }) {
+export default function Search({
+    placeholder,
+    logo,
+}: {
+    placeholder: string;
+    logo: string;
+}) {
     return (
-        <div className="flex items-center justify-center w-full h-full grow bg-slate-800 rounded mx-1">
+        <div className="flex items-center justify-center w-full h-full grow bg-slate-800 rounded mx-0.5">
+            <LogoButton type={`${logo}`} />
             <input
                 type="text"
                 className=" flex grow bg-slate-800 p-1
-                outline-none
+                outline-none rounded
                 w-full
 
                 "
-                placeholder={`${children.placeholder}`}
+                placeholder={`${placeholder}`}
             />
-            <LogoButton>search</LogoButton>
         </div>
     );
 }
