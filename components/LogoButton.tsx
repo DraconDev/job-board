@@ -9,8 +9,8 @@ export default function Logo({ type }: { type: string }) {
                     <Image
                         src={`${type}.svg`}
                         alt={type}
-                        width={50}
-                        height={50}
+                        width={25}
+                        height={25}
                         title={type}
                         objectFit="contain"
                         className="invert"

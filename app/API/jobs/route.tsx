@@ -1,4 +1,5 @@
 export async function GET() {
-    const data = await getAvailableJobs("job");
-    return data;
+    // const data = await getAvailableJobs("job");
+    checkDB().catch(console.dir);
+    return 'hey';
 }

@@ -18,11 +18,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <NavBar />
-                <div className="flex justify-center items-center h-screen w-full">
-                    {" "}
-                    <div className="flex  justify-center items-center h-screen max-w-5xl w-full">
-                        {children}
+                <div className="flex w-full h-full flex-col">
+                    <NavBar />
+                    <div className="flex justify-center items-center h-screen w-full ">
+                        <div className="flex  justify-center items-center h-screen max-w-5xl w-full ">
+                            {children}
+                        </div>
                     </div>
                 </div>
             </body>

@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 
 export default function NavBar() {
     return (
-        <div className="w-screen bg-slate-700  justify-center flex fixed">
+        <div className="w-screen bg-slate-700  justify-center flex">
             <div className="flex max-w-3xl p-1 grow justify-between">
                 <div className="flex p-1 ">
                     <LogoButton type="home" />

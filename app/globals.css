@@ -30,3 +30,7 @@ body {
         )
         rgb(var(--background-start-rgb));
 }
+
+.btn {
+    @apply py-2 px-4 rounded bg-accent text-secondary;
+}
