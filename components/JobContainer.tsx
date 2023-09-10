@@ -15,11 +15,10 @@ async function fetchData() {
 export default function JobContainer() {
     // const data = use(fetchData());
     return (
-        <div className="flex flex-col justify-center content-center min-h-screen w-full">
+        <div className="flex flex-col w-full h-full">
             <Filter />
-            <div className="flex grow">
+            <div className="flex">
                 <JobList />
-                <div className=""></div>
                 <Description />
             </div>
             {/* <Button text="Search" action={() => getAvailableJobs("")}></Button> */}
