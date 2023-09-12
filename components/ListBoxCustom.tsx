@@ -1,30 +1,20 @@
 import { Listbox } from "@headlessui/react";
 import React, { useState } from "react";
 
-type Props = {};
+type listOptions = {
+    list: { id: number; value: string }[];
+};
 
-const people = [
-    { id: 1, name: "Durward Reynolds", unavailable: false },
-    { id: 2, name: "Kenton Towne", unavailable: false },
-    { id: 3, name: "Therese Wunsch", unavailable: false },
-    { id: 4, name: "Benedict Kessler", unavailable: true },
-    { id: 5, name: "Katelyn Rohan", unavailable: false },
-];
-
-const ListBoxCustom = (props: Props) => {
-    const [selectedPerson, setSelectedPerson] = useState(people[0]);
+const ListBoxCustom = ({ list }: listOptions) => {
+    const [selectedPerson, setSelectedPerson] = useState(list[0]);
     return (
-        <div className="relative inline-block p-1 bg-black  justify-center items-center">
+        <div className="relative inline-block p-1 bg-secondary  justify-center items-center rounded-3xl">
             <Listbox value={selectedPerson} onChange={setSelectedPerson}>
-                <Listbox.Button>{selectedPerson.name}</Listbox.Button>
+                <Listbox.Button>{selectedPerson.value}</Listbox.Button>
                 <Listbox.Options className="bg-black">
-                    {people.map((person) => (
-                        <Listbox.Option
-                            key={person.id}
-                            value={person}
-                            disabled={person.unavailable}
-                        >
-                            {person.name}
+                    {list.map((person) => (
+                        <Listbox.Option key={person.id} value={person}>
+                            {person.value}
                         </Listbox.Option>
                     ))}
                 </Listbox.Options>
