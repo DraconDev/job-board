@@ -30,7 +30,7 @@ export default function Filter() {
 
     return (
         <div className="p-1 bg-primary ">
-            <div className="w-full  h-8 flex gap-1">
+            <div className="w-full  h-8 flex gap-1 ">
                 <ListBoxCustom list={people} />
                 <ListBoxCustom list={whenPosted} />
                 <ListBoxCustom list={jobLocation} />
