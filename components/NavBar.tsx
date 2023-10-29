@@ -18,6 +18,7 @@ export default function NavBar() {
                     {/* <LogoButton type="postjob" /> */}
                     <LogoButton type="work" />
                     <LogoButton type="notifications" />
+                    <LogoButton type="postjob" />
                 </div>
             </div>
         </div>

@@ -17,8 +17,8 @@ const PostJob = () => {
     }
     return (
         <div>
-            PostJob
-            <button onClick={() => handleClick()}>Add job</button>
+            PostJob HELLO
+            {/* <button onClick={() => handleClick()}>Add job</button> */}
         </div>
     );
 };
