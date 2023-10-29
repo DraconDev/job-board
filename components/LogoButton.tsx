@@ -4,7 +4,8 @@ import Link from "next/link";
 export default function Logo({ type }: { type: string }) {
     return (
         <>
-            <Link href={"home" ? "/" : `/${type}`}>
+            <Link href={type === "home" ? "/" : `/${type}`}>
+                {/* <Link href="work"> */}
                 <div className="flex items-center justify-center w-8 h-8 mx-1">
                     <Image
                         src={`${type}.svg`}
