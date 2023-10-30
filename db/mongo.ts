@@ -26,7 +26,7 @@ export async function checkDB() {
     }
 }
 
-async function addJob() {
+export async function addJob() {
     try {
         // Connect the mongoClient to the server	(optional starting in v4.7)
         await mongoClient.connect();

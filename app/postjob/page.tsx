@@ -1,12 +1,16 @@
-"use client";
-import { useForm } from "react-hook-form";
+import { Job } from "@/type/types";
+import { data } from "autoprefixer";
+import { watch } from "fs";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function PostJob() {
     const { register, handleSubmit } = useForm();
 
-    const onSubmit = (data: any) => {
-        console.log(data);
-    };
+    // const onSubmit<Job> = (data: Job) => {
+    //     console.log(data);
+    // };
+
+    const onSubmit: SubmitHandler<Job> = (data) => console.log(data);
 
     return (
         <div className="flex items-center justify-center h-screen flex-column">
