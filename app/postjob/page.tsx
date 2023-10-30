@@ -1,40 +1,41 @@
-import Button from "@/components/Button";
-import { JobPost } from "@/db/schema";
-import axios from "axios";
-import React from "react";
+import { useForm } from "next/form-events";
 
-const PostJob = () => {
-    function handleClick() {
-        //     const post = new JobPost({
-        //         title: "Software Engineer",
-        //         description:
-        //             "We are looking for a software engineer to join our team.",
-        //         location: "San Francisco, CA",
-        //         salaryMin: 10000,
-        //         salaryMax: 15000,
-        //         date: new Date().toLocaleDateString(),
-        //     });
-        //     post.save();
+export default function PostJob() {
+    const jobSchema = {
+        title: "",
+        description: "",
+        salaryMin: 0,
+        salaryMax: 0,
+        location: "",
+        date: "",
+        jobType: "",
+        company: "",
+    };
 
-        //     axios
-        //         .post("/api/jobs", post)
-        //         .then((response) => {
-        //             console.log("Job posted successfully:", response.data);
-        //             // Handle the response from the backend
-        //         })
-        //         .catch((error) => {
-        //             console.error("Error posting job:", error);
-        //             // Handle the error
-        //         });
-        // }
-        return (
-            <div className="flex items-center justify-center h-screen flex-column">
-                <div className="">PostJob HELLO</div>
-                {/* <button onClick={() => handleClick()}>Add job</button> */}
-                <button onClick={() => console.log("hello")}>test</button>
-            </div>
-        );
-    }
-};
+    const form = useForm({
+        defaultValues: jobSchema,
+        onSubmit: (data) => {
+            // Handle form submission
+            console.log(data);
+        },
+    });
 
-export default PostJob;
+    return (
+        <div className="flex items-center justify-center h-screen flex-column">
+            <div className="">PostJob HELLO</div>
+            <form {...form}>
+                <label>
+                    Name:
+                    <input type="text" name="name" />
+                </label>
+                <br />
+                <label>
+                    Email:
+                    <input type="email" name="email" />
+                </label>
+                <br />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    );
+}
