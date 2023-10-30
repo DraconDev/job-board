@@ -5,7 +5,7 @@ import { checkDB } from "@/db/mongo";
 export async function POST() {
     // const data = await getAvailableJobs("job");
     // checkDB().catch(console.dir);
-    return ;
+    return new Response("Hello, Next.js!", {});
 }
 // export default async function handler(
 //     req: NextApiRequest,

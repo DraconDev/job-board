@@ -10,12 +10,6 @@ export default function PostJob() {
 
     return (
         <div className="flex items-center justify-center h-screen flex-column">
-            <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => fetch("/api/mozi").then((res) => res.json())}
-            >
-                Testing
-            </button>
             <div className="">PostJob HELLO</div>
             <form
                 onSubmit={handleSubmit(onSubmit)}
