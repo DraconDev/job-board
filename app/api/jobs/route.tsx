@@ -2,9 +2,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 import { checkDB } from "@/db/mongo";
 
-export async function GET() {
+export async function POST() {
+    console.log("testing");
     // const data = await getAvailableJobs("job");
-    checkDB().catch(console.dir);
+    // checkDB().catch(console.dir);
     return "hey";
 }
 // export default async function handler(
