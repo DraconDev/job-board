@@ -28,8 +28,8 @@ const PostJob = () => {
         //         });
         // }
         return (
-            <div>
-                PostJob HELLO
+            <div className="flex items-center justify-center h-screen flex-column">
+                <div className="">PostJob HELLO</div>
                 {/* <button onClick={() => handleClick()}>Add job</button> */}
                 <button onClick={() => console.log("hello")}>test</button>
             </div>
