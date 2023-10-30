@@ -3,10 +3,9 @@ import axios from "axios";
 import { checkDB } from "@/db/mongo";
 
 export async function POST() {
-    console.log("testing");
     // const data = await getAvailableJobs("job");
     // checkDB().catch(console.dir);
-    return "hey";
+    return ;
 }
 // export default async function handler(
 //     req: NextApiRequest,
