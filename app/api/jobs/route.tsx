@@ -1,12 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-    console.log(req.body);
-    if (req.method === "POST") {
-        const { title, description, location, salaryMin, salaryMax, date } =
-            req.body;
-
-        // console.log(title, description, location, salaryMin, salaryMax, date);
-        return new Response("Hello, Next.js!", {});
-    }
+export async function POST(request: Request) {
+    const res = await request.json();
+    const { title, description, location, salaryMin, salaryMax, date } =
+        await res;
+    return new Response("Job saved", {});
 }
