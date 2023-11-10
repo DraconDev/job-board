@@ -1,18 +1,38 @@
 "use client";
 import { Job } from "@/type/types";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function PostJob() {
     const { register, handleSubmit } = useForm();
+    const [submitting, setSubmitting] = useState(false);
 
-    // const onSubmit<Job> = (data: Job) => {
-    //     console.log(data);
-    // };
+    const onSubmit: SubmitHandler<any> = async (data) => {
+        setSubmitting(true);
 
-    const onSubmit: SubmitHandler<any> = (data) => console.log(data);
+        try {
+            const response = await fetch("/api/jobs", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                console.log("Job posted successfully");
+            } else {
+                console.error("Failed to post job");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+
+        setSubmitting(false);
+    };
 
     return (
-        <div className="justify-center flex flex-col items-center color text-black">
+        <div className="justify-center flex flex-col items-center color">
             <p className="text-3xl">Post a job</p>
             <div className="flex flex-wrap">
                 <div className="w-1/1 p-4">

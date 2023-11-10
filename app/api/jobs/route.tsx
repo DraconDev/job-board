@@ -5,6 +5,8 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "POST") {
         const { title, description, location, salaryMin, salaryMax, date } =
             req.body;
+
+        console.log(title, description, location, salaryMin, salaryMax, date);
         // checkDB().catch(console.dir);
         // addJob(title, description, location, salaryMin, salaryMax, date);
         return new Response("Hello, Next.js!", {});
