@@ -1,14 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { addJob } from "@/db/mongo";
 
 export async function POST(req: NextApiRequest, res: NextApiResponse) {
+    console.log(req.body);
     if (req.method === "POST") {
         const { title, description, location, salaryMin, salaryMax, date } =
             req.body;
 
-        console.log(title, description, location, salaryMin, salaryMax, date);
-        // checkDB().catch(console.dir);
-        // addJob(title, description, location, salaryMin, salaryMax, date);
+        // console.log(title, description, location, salaryMin, salaryMax, date);
         return new Response("Hello, Next.js!", {});
     }
 }
