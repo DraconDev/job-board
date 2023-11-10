@@ -31,6 +31,31 @@ body {
         rgb(var(--background-start-rgb));
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form input {
+    margin-bottom: 10px;
+}
+
+.form button {
+    margin-top: 10px;
+}
+
 .btn {
     @apply py-2 px-4 rounded bg-accent text-secondary;
 }

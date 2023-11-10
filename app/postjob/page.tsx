@@ -1,6 +1,5 @@
+"use client";
 import { Job } from "@/type/types";
-import { data } from "autoprefixer";
-import { watch } from "fs";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function PostJob() {
@@ -10,26 +9,68 @@ export default function PostJob() {
     //     console.log(data);
     // };
 
-    const onSubmit: SubmitHandler<Job> = (data) => console.log(data);
+    const onSubmit: SubmitHandler<any> = (data) => console.log(data);
 
     return (
-        <div className="flex items-center justify-center h-screen flex-column">
-            <div className="">PostJob HELLO</div>
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                action="/api/jobs"
-                method="POST"
-            >
-                <input {...register("title")} placeholder="Title" />
-                <input {...register("description")} placeholder="Description" />
-                <input {...register("salaryMin")} placeholder="Salary Min" />
-                <input {...register("salaryMax")} placeholder="Salary Max" />
-                <input {...register("location")} placeholder="Location" />
-                <input {...register("date")} placeholder="Date" />
-                <input {...register("jobType")} placeholder="Job Type" />
-                <input {...register("company")} placeholder="Company" />
-                <button type="submit">Submit</button>
-            </form>
+        <div className="justify-center flex flex-col items-center color text-black">
+            <p className="text-3xl">Post a job</p>
+            <div className="flex flex-wrap">
+                <div className="w-1/1 p-4">
+                    <form
+                        className="flex flex-col"
+                        onSubmit={handleSubmit(onSubmit)}
+                        action="/api/jobs"
+                        method="POST"
+                    >
+                        <input
+                            {...register("title")}
+                            className="mb-2 p-2 rounded outline-none"
+                            placeholder="Title"
+                        />
+                        <input
+                            {...register("description")}
+                            className="mb-2 p-2 rounded outline-none"
+                            placeholder="Description"
+                        />
+                        <input
+                            {...register("salaryMin")}
+                            className="mb-2 p-2 rounded outline-none"
+                            placeholder="Salary Min"
+                        />
+                        <input
+                            {...register("salaryMax")}
+                            className="mb-2 p-2 rounded outline-none"
+                            placeholder="Salary Max"
+                        />
+                        <input
+                            {...register("location")}
+                            className="mb-2 p-2 rounded outline-none"
+                            placeholder="Location"
+                        />
+                        <input
+                            {...register("date")}
+                            className="mb-2 p-2 rounded outline-none"
+                            placeholder="Date"
+                        />
+                        <input
+                            {...register("jobType")}
+                            className="mb-2 p-2 rounded outline-none"
+                            placeholder="Job Type"
+                        />
+                        <input
+                            {...register("company")}
+                            className="mb-2 p-2 rounded outline-none"
+                            placeholder="Company"
+                        />
+                        <button
+                            type="submit"
+                            className="bg-blue-500 text-white px-4 py-2 rounded"
+                        >
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 }
