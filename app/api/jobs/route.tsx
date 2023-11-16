@@ -1,8 +1,8 @@
-import { addJob, checkDB } from "@/db/mongo";
+import { addJob } from "@/db/mongo";
 import { Job } from "@/type/types";
 
 export async function POST(request: Request) {
-    checkDB();
+
     const data = await request.json();
     const {
         title,
