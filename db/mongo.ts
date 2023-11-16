@@ -1,4 +1,5 @@
 import { Job } from "@/type/types";
+import { JobPost } from "./schema";
 
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.cc5lbfe.mongodb.net/?retryWrites=true&w=majority`;
@@ -31,6 +32,8 @@ export async function addJob(job: Job) {
     try {
         // Connect the mongoClient to the server	(optional starting in v4.7)
         await mongoClient.connect();
+        const jobPost = new JobPost(job);
+        await jobPost.save();
         // Send a ping to confirm a successful connection
     } finally {
         // Ensures that the mongoClient will close when you finish/error
