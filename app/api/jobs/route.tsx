@@ -2,7 +2,6 @@ import { addJob } from "@/db/mongo";
 import { Job } from "@/type/types";
 
 export async function POST(request: Request) {
-
     const data = await request.json();
     const {
         title,

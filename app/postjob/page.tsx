@@ -9,7 +9,6 @@ export default function PostJob() {
     const onSubmit: SubmitHandler<any> = async (data) => {
         const currentDate = new Date();
         setSubmitting(true);
-
         try {
             const response = await fetch("/api/jobs", {
                 method: "POST",
@@ -32,10 +31,10 @@ export default function PostJob() {
     };
 
     return (
-        <div className="justify-center flex flex-col items-center color">
+        <div className="justify-center flex flex-col items-center  ">
             <p className="text-3xl">Post a job</p>
             <div className="flex flex-wrap">
-                <div className="w-1/1 p-4">
+                <div className="w-1/1 p-4 text-black">
                     <form
                         className="flex flex-col"
                         onSubmit={handleSubmit(onSubmit)}
