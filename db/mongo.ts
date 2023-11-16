@@ -1,6 +1,7 @@
+import { Job } from "@/type/types";
+
 const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri =
-    "mongodb+srv://angelboard:angeljobs@cluster0.cc5lbfe.mongodb.net/?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.cc5lbfe.mongodb.net/?retryWrites=true&w=majority`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 export const mongoClient = new MongoClient(uri, {
@@ -26,7 +27,7 @@ export async function checkDB() {
     }
 }
 
-export async function addJob() {
+export async function addJob(job: Job) {
     try {
         // Connect the mongoClient to the server	(optional starting in v4.7)
         await mongoClient.connect();

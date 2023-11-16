@@ -1,5 +1,4 @@
 "use client";
-import { Job } from "@/type/types";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -8,6 +7,7 @@ export default function PostJob() {
     const [submitting, setSubmitting] = useState(false);
 
     const onSubmit: SubmitHandler<any> = async (data) => {
+        const currentDate = new Date();
         setSubmitting(true);
 
         try {
@@ -16,7 +16,7 @@ export default function PostJob() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify({ ...data, date: currentDate }),
             });
 
             if (response.ok) {
@@ -66,11 +66,6 @@ export default function PostJob() {
                             {...register("location")}
                             className="mb-2 p-2 rounded outline-none"
                             placeholder="Location"
-                        />
-                        <input
-                            {...register("date")}
-                            className="mb-2 p-2 rounded outline-none"
-                            placeholder="Date"
                         />
                         <input
                             {...register("jobType")}
