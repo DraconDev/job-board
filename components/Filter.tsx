@@ -1,6 +1,8 @@
 "use client";
+
 import { useState } from "react";
 import ListBoxCustom from "./ListBoxCustom";
+import OverlayMenu from "./OverlayMenu";
 
 export const experience = [
     { id: 1, value: "Internship" },
@@ -10,20 +12,20 @@ export const experience = [
     { id: 5, value: "Director" },
     { id: 6, value: "Executive" },
 ];
-const date = [
+export const date = [
     { id: 1, value: "Past day" },
     { id: 2, value: "Past week" },
     { id: 3, value: "Past month" },
     { id: 4, value: "Any time" },
 ];
 
-const jobLocation = [
+export const jobLocation = [
     { id: 1, value: "Remote" },
     { id: 2, value: "Hybrid" },
     { id: 3, value: "On-site" },
 ];
 
-const salary = [
+export const salary = [
     { id: 1, value: "20,000+" },
     { id: 2, value: "30,000+" },
     { id: 3, value: "40,000+" },
@@ -48,11 +50,8 @@ export default function Filter() {
                     <ListBoxCustom list={salary} />
                 </div>
             </div>
-            <div className="p-1 bg-primary md:hidden">
-                TEST
-                <div className="w-full  h-12 flex gap-2 justify-center">
-                    <ListBoxCustom list={date} />
-                </div>
+            <div className="p-1 bg-primary md:hidden sm:block">
+                <OverlayMenu />
             </div>
         </div>
     );

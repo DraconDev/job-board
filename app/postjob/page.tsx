@@ -1,15 +1,8 @@
+"use client";
+import { experience } from "@/components/Filter";
 import ListBoxCustom from "@/components/ListBoxCustom";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-export const experience = [
-    { id: 1, value: "Internship" },
-    { id: 2, value: "Entry level" },
-    { id: 3, value: "Associate" },
-    { id: 4, value: "Mid-Senior level" },
-    { id: 5, value: "Director" },
-    { id: 6, value: "Executive" },
-];
 
 export default function PostJob() {
     const { register, handleSubmit } = useForm();
