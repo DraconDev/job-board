@@ -1,10 +1,20 @@
-"use client";
+import ListBoxCustom from "@/components/ListBoxCustom";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+
+export const experience = [
+    { id: 1, value: "Internship" },
+    { id: 2, value: "Entry level" },
+    { id: 3, value: "Associate" },
+    { id: 4, value: "Mid-Senior level" },
+    { id: 5, value: "Director" },
+    { id: 6, value: "Executive" },
+];
 
 export default function PostJob() {
     const { register, handleSubmit } = useForm();
     const [submitting, setSubmitting] = useState(false);
+    const [formExperience, setFormExperience] = useState("");
 
     const onSubmit: SubmitHandler<any> = async (data) => {
         const currentDate = new Date();
@@ -30,56 +40,61 @@ export default function PostJob() {
         setSubmitting(false);
     };
 
+    const handleExperienceChange = (selectedOption: any) => {
+        setFormExperience(selectedOption.value);
+    };
+
     return (
-        <div className="justify-center flex flex-col items-center  ">
+        <div className="justify-center flex flex-col items-center">
             <p className="text-3xl">Post a job</p>
             <div className="flex flex-wrap">
                 <div className="w-1/1 p-4 text-black">
                     <form
-                        className="flex flex-col"
+                        className="flex flex-col gap-1"
                         onSubmit={handleSubmit(onSubmit)}
                         action="/api/jobs"
                         method="POST"
                     >
                         <input
                             {...register("title")}
-                            className="mb-2 p-2 rounded outline-none"
+                            className="p-2 rounded outline-none"
                             placeholder="Title"
                         />
-                        <input
-                            {...register("description")}
-                            className="mb-2 p-2 rounded outline-none"
-                            placeholder="Description"
-                        />
+
                         <input
                             {...register("salaryMin")}
-                            className="mb-2 p-2 rounded outline-none"
+                            className="p-2 rounded outline-none"
                             placeholder="Salary Min"
                         />
                         <input
                             {...register("salaryMax")}
-                            className="mb-2 p-2 rounded outline-none"
+                            className="p-2 rounded outline-none"
                             placeholder="Salary Max"
                         />
                         <input
                             {...register("location")}
-                            className="mb-2 p-2 rounded outline-none"
+                            className="p-2 rounded outline-none"
                             placeholder="Location"
                         />
                         <input
                             {...register("jobType")}
-                            className="mb-2 p-2 rounded outline-none"
+                            className="p-2 rounded outline-none"
                             placeholder="Job Type"
                         />
                         <input
                             {...register("company")}
-                            className="mb-2 p-2 rounded outline-none"
+                            className="p-2 rounded outline-none"
                             placeholder="Company"
                         />
-                        <input
+                        <textarea
+                            {...register("description")}
+                            className="p-2 rounded outline-none h-60"
+                            placeholder="Description"
+                        />
+                        <ListBoxCustom
+                            list={experience}
                             {...register("experience")}
-                            className="mb-2 p-2 rounded outline-none"
-                            placeholder="experience"
+                            onChange={handleExperienceChange}
                         />
                         <button
                             type="submit"
