@@ -6,7 +6,7 @@ export default function Logo({ type }: { type: string }) {
         <>
             <Link href={type === "home" ? "/" : `/${type}`}>
                 {/* <Link href="work"> */}
-                <div className="flex items-center justify-center w-8 h-8 mx-1">
+                <div className="flex items-center justify-center w-8 h-8 ">
                     <Image
                         src={`${type}.svg`}
                         alt={type}

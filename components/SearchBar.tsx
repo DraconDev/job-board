@@ -1,4 +1,3 @@
-import { TypeFormatFlags } from "typescript";
 import LogoButton from "./LogoButton";
 
 export default function Search({
@@ -9,7 +8,7 @@ export default function Search({
     logo: string;
 }) {
     return (
-        <div className="flex items-center justify-center w-full h-full grow bg-slate-800 rounded mx-0.5">
+        <div className="flex items-center justify-center w-full h-full grow bg-slate-800 rounded">
             <LogoButton type={`${logo}`} />
             <input
                 type="text"
