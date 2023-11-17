@@ -12,6 +12,7 @@ export async function POST(request: Request) {
         date,
         jobType,
         company,
+        experience,
     } = (await data) as Job;
 
     addJob({
@@ -23,6 +24,7 @@ export async function POST(request: Request) {
         date,
         jobType,
         company,
+        experience,
     });
 
     return new Response("Job saved", {});

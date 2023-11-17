@@ -20,4 +20,5 @@ export interface Job {
     date: Date;
     jobType: string;
     company: string;
+    experience: string;
 }
