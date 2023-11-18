@@ -1,10 +1,11 @@
 "use client";
+import { useAppState } from "@/state/state";
 import { useState } from "react";
-import { date, experience, jobLocation, salary } from "./Filter";
-import ListBoxCustom from "./ListBoxCustom";
+import ListBoxes from "./ListBoxes";
 
 const OverlayMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const state = useAppState((state) => state);
 
     const toggleOverlayMenu = () => {
         setIsOpen(!isOpen);
@@ -24,10 +25,7 @@ const OverlayMenu = () => {
             {isOpen && (
                 <div className="flex justify-center mt-2">
                     <div className="flex  flex-col gap-1 mt-2 w-2/3">
-                        <ListBoxCustom list={date} />
-                        <ListBoxCustom list={experience} />
-                        <ListBoxCustom list={jobLocation} />
-                        <ListBoxCustom list={salary} />
+                        <ListBoxes />
                         <button
                             className="p-2 bg-secondary hover:bg-blue-700 text-white font-bold rounded w-full"
                             onClick={toggleOverlayMenu}

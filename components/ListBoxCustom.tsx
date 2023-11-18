@@ -1,21 +1,30 @@
+import { useAppState } from "@/state/state";
 import { Listbox } from "@headlessui/react";
-import { useState } from "react";
 
 type listOptions = {
-    list: { id: number; value: string }[];
-    name?: string;
-    onChange?: (value: string) => void;
+    name: string;
+    type: {
+        id: number;
+        value: string;
+    }[];
 };
 
-const ListBoxCustom = ({ list }: listOptions) => {
-    const [dropdownMenu, setDropdownMenu] = useState(list[0]);
+const ListBoxCustom = ({ type, name }: listOptions) => {
+    const state = useAppState((state) => state);
+    console.log(state);
+
+    const setSelectedOptions = (key: string, value: string) => {
+        state.setSelectedOptions(key, value);
+        // console.log(state.selectedOptions);
+    };
 
     return (
         <div className="relative inline-block justify-center items-center rounded-3xl text-black w-60">
-            <Listbox value={dropdownMenu} onChange={setDropdownMenu}>
+            <Listbox value={type}>
                 <div className="relative">
+                    {/* main button */}
                     <Listbox.Button className="py-2 px-4 bg-white border rounded-md shadow-sm w-full flex justify-between items-center w-50 ">
-                        <span>{dropdownMenu.value}</span>
+                        <span>{state.selectedOptions[name]}</span>
                         <svg
                             className="w-5 h-5 text-gray-400"
                             fill="none"
@@ -30,6 +39,7 @@ const ListBoxCustom = ({ list }: listOptions) => {
                             />
                         </svg>
                     </Listbox.Button>
+                    {/*  */}
                     <Listbox.Options
                         className="dropdown-container"
                         style={{
@@ -38,14 +48,18 @@ const ListBoxCustom = ({ list }: listOptions) => {
                             marginTop: "10px",
                         }}
                     >
-                        {list.map((field) => (
+                        {type.map((field) => (
                             <Listbox.Option
                                 key={field.id}
                                 value={field}
                                 className="py-2 px-4 hover:bg-gray-200 flex justify-between items-center"
+                                onClick={() =>
+                                    setSelectedOptions(name, field.value)
+                                }
                             >
                                 <span>{field.value}</span>
-                                {dropdownMenu.id === field.id && (
+                                {state.selectedOptions[name] ===
+                                    field.value && (
                                     <svg
                                         className="w-5 h-5 text-blue-600"
                                         fill="none"
