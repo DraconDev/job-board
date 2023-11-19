@@ -1,17 +1,12 @@
-import Description from "@/components/Description";
 import Filter from "@/components/Filter";
-import JobList from "@/components/JobList";
+import JobPanel from "./JobPanel";
 
 export default function JobContainer() {
     // const data = use(fetchData());
     return (
         <div className="flex flex-col w-full h-full">
             <Filter />
-            <div className="flex">
-                <JobList />
-                <Description />
-            </div>
-            {/* <Button text="Search" action={() => getAvailableJobs("")}></Button> */}
+            <JobPanel />
         </div>
     );
 }

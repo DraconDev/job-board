@@ -1,3 +1,4 @@
+import FetchJobsButton from "./FetchJobsButton";
 import LogoButton from "./LogoButton";
 import SearchBar from "./SearchBar";
 
@@ -10,6 +11,7 @@ export default function NavBar() {
                 </div>
                 <div className="flex gap-1 px-1 grow">
                     <SearchBar placeholder="Job" logo="search" />
+                    <FetchJobsButton />
                     <SearchBar placeholder="Where" logo="pindrop" />
                 </div>
                 <div className="flex gap-1">

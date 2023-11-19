@@ -17,3 +17,14 @@ export async function addJob(job: Job) {
         await mongoose.disconnect();
     }
 }
+
+// * fetch jobs
+export async function fetchJobs() {
+    await connectDb();
+    try {
+        const jobs = await JobPost.find();
+        return jobs;
+    } finally {
+        await mongoose.disconnect();
+    }
+}

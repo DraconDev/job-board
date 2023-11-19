@@ -1,4 +1,5 @@
 "use client";
+import FetchJobsButton from "@/components/FetchJobsButton";
 import { useAppState } from "@/state/state";
 
 type Props = {};
@@ -7,7 +8,7 @@ const Testing = (props: Props) => {
     const state = useAppState((state) => state);
 
     return (
-        <div className="x  mt-2">
+        <div className=" mt-2">
             <button
                 className="p-4 bg-primary hover:bg-blue-700 text-white font-bold rounded w-full"
                 // onClick={() => state.setSelectedOptions("name", "field.value")}
@@ -24,6 +25,7 @@ const Testing = (props: Props) => {
             >
                 Test state options 2
             </button>
+            <FetchJobsButton />
         </div>
     );
 };

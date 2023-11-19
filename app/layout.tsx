@@ -1,7 +1,7 @@
 import NavBar from "@/components/NavBar";
-import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
             <body className={`${inter.className} overflow-hidden`}>
                 <div className="flex w-full h-full flex-col">
                     <NavBar />
-                    <div className="flex justify-center h-screen w-full ">
+                    <div className="flex justify-center h-screen w-full mt-1">
                         <div className="flex  justify-center h-screen max-w-5xl w-full ">
                             {children}
                         </div>
