@@ -16,7 +16,7 @@ const OverlayMenu = () => {
         <div className="">
             {!isOpen && (
                 <button
-                    className="p-2 bg-secondary  text-white font-bold rounded w-full flex justify-center items-center gap-1 text-1xl border-accent border-2"
+                    className="p-2 bg-secondary  text-white font-bold rounded w-full flex justify-center items-center gap-1 text-1xl border-2 border-accent "
                     onClick={toggleOverlayMenu}
                 >
                     <BsSliders /> <p className="">Filters</p>
