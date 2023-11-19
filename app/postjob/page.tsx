@@ -1,8 +1,10 @@
 "use client";
-import { experience } from "@/components/Filter";
+
 import ListBoxCustom from "@/components/ListBoxCustom";
+import { useAppState } from "@/state/state";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+
 
 export default function PostJob() {
     const { register, handleSubmit } = useForm();
@@ -37,13 +39,15 @@ export default function PostJob() {
         setFormExperience(selectedOption.value);
     };
 
+    const state = useAppState((state) => state);
+
     return (
         <div className="justify-center flex flex-col items-center">
             <p className="text-3xl">Post a job</p>
             <div className="flex flex-wrap">
-                <div className="w-1/1 p-4 text-black">
+                <div className="w-1/1 p-4 text-black ">
                     <form
-                        className="flex flex-col gap-1"
+                        className="flex flex-col gap-1 w-full justify-center items-center"
                         onSubmit={handleSubmit(onSubmit)}
                         action="/api/jobs"
                         method="POST"
@@ -81,17 +85,17 @@ export default function PostJob() {
                         />
                         <textarea
                             {...register("description")}
-                            className="p-2 rounded outline-none h-60"
+                            className="p-2 rounded outline-none h-60 w-full"
                             placeholder="Description"
                         />
                         <ListBoxCustom
-                            list={experience}
+                            type={state.experience}
                             {...register("experience")}
-                            onChange={handleExperienceChange}
+                            name="experience"
                         />
                         <button
                             type="submit"
-                            className="bg-blue-500 text-white px-4 py-2 rounded"
+                            className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded w-full "
                         >
                             Submit
                         </button>

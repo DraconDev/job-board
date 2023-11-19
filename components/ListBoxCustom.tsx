@@ -19,7 +19,7 @@ const ListBoxCustom = ({ type, name }: listOptions) => {
     };
 
     return (
-        <div className="relative inline-block justify-center items-center rounded-3xl text-black w-60">
+        <div className="relative inline-block justify-center items-center rounded-3xl text-black min-w-60 w-full">
             <Listbox value={type}>
                 <div className="relative">
                     {/* main button */}

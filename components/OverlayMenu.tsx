@@ -1,6 +1,7 @@
 "use client";
 import { useAppState } from "@/state/state";
 import { useState } from "react";
+import { BsSliders } from "react-icons/bs";
 import ListBoxes from "./ListBoxes";
 
 const OverlayMenu = () => {
@@ -12,29 +13,34 @@ const OverlayMenu = () => {
     };
 
     return (
-        <div
-            className={`fixed top-0 left-0 h-screen bg-gray-200 ${
-                isOpen ? "w-full" : "w-0"
-            } transition-width duration-50`}
-        >
+        <div className="">
             {!isOpen && (
-                <button className="p-4 w-full" onClick={toggleOverlayMenu}>
-                    Toggle Filters
+                <button
+                    className="p-2 bg-secondary  text-white font-bold rounded w-full flex justify-center items-center gap-1 text-1xl border-accent border-2"
+                    onClick={toggleOverlayMenu}
+                >
+                    <BsSliders /> <p className="">Filters</p>
                 </button>
             )}
-            {isOpen && (
-                <div className="flex justify-center mt-2">
-                    <div className="flex  flex-col gap-1 mt-2 w-2/3">
-                        <ListBoxes />
-                        <button
-                            className="p-2 bg-secondary hover:bg-blue-700 text-white font-bold rounded w-full"
-                            onClick={toggleOverlayMenu}
-                        >
-                            Toggle Sidebar
-                        </button>
+            <div
+                className={`fixed top-0 left-0 h-screen bg-gray-200 ${
+                    isOpen ? "w-full" : "w-0"
+                } transition-width duration-50`}
+            >
+                {isOpen && (
+                    <div className="flex justify-center mt-2">
+                        <div className="flex  flex-col gap-1 mt-2 w-2/3">
+                            <ListBoxes />
+                            <button
+                                className="p-2 bg-secondary hover:bg-blue-700 text-white font-bold rounded w-full"
+                                onClick={toggleOverlayMenu}
+                            >
+                                Toggle Sidebar
+                            </button>
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 };
