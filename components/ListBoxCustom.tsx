@@ -11,7 +11,7 @@ type listOptions = {
 
 const ListBoxCustom = ({ type, name }: listOptions) => {
     const state = useAppState((state) => state);
-    console.log(state);
+    // console.log(state);
 
     const setSelectedOptions = (key: string, value: string) => {
         state.setSelectedOptions(key, value);
