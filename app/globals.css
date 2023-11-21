@@ -69,3 +69,12 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 999;
 }
+
+.inverse-hover {
+    --button-color: #fff;
+    --button-background-color: #3b82f6;
+}
+
+.inverse-hover:hover {
+    filter: invert(100%);
+}

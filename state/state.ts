@@ -11,11 +11,15 @@ type AppState = {
     setSelectedOptions: (key: string, value: string) => void;
     jobList: Job[];
     setJobList: (jobList: Job[]) => void;
+    activeJobPost?: Job;
+    updateActiveJobPost: (job: Job) => void;
 };
 export const useAppState = create<AppState>()(
     devtools(
         persist(
             (set) => ({
+                activeJobPost: undefined,
+                updateActiveJobPost: (job: Job) => set({ activeJobPost: job }),
                 jobList: [],
                 setJobList: (jobList: Job[]) => set({ jobList }),
                 selectedOptions: {
