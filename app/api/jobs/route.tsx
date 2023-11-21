@@ -1,4 +1,4 @@
-import { addJob } from "@/db/mongo";
+import { addJob, fetchJobs } from "@/db/mongo";
 import { Job } from "@/type/types";
 
 export async function POST(request: Request) {
@@ -29,3 +29,4 @@ export async function POST(request: Request) {
 
     return new Response("Job saved", {});
 }
+
