@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${inter.className} overflow-hidden`}>
+            <body className={`${inter.className} overflow-hiddens`}>
                 <div className="flex w-full h-full flex-col">
                     <NavBar />
                     <div className="flex justify-center h-screen w-full mt-1">

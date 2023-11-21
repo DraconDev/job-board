@@ -11,7 +11,7 @@ const FetchJobsButton = (props: Props) => {
         const jobs = await fetch("/api/joblist");
         const data = await jobs.json();
         console.log(data);
-        // state.setJobList([...data]);
+        state.setJobList([...data]);
     };
 
     return (
