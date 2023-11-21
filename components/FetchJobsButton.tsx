@@ -1,18 +1,18 @@
 "use client";
-import { fetchJobs } from "@/db/mongo";
 import { useAppState } from "@/state/state";
 
 type Props = {};
 
 const FetchJobsButton = (props: Props) => {
     const state = useAppState((state) => state);
-    async function handleSearch() {
-        console.log("searching");
-        const jobs = await fetchJobs();
-        console.log(jobs);
-        // state.setJobList(jobs);
-        // state.setJobList([{ }]);
-    }
+
+    // * GET joblist from server joblist route
+    const handleSearch = async () => {
+        const jobs = await fetch("/api/joblist");
+        const data = await jobs.json();
+        console.log(data);
+        // state.setJobList([...data]);
+    };
 
     return (
         <div>

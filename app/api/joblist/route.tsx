@@ -1,6 +1,6 @@
 import { fetchJobs } from "@/db/mongo";
 
-export async function GET(request: Request) {
+export async function GET() {
     const jobs = await fetchJobs();
 
     return new Response(JSON.stringify(jobs), {
