@@ -13,7 +13,6 @@ export default function Logo({ type }: { type: string }) {
                         width={25}
                         height={25}
                         title={type}
-                        objectFit="contain"
                         className="invert"
                     />
                 </div>

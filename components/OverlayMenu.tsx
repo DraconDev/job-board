@@ -13,7 +13,7 @@ const OverlayMenu = () => {
     };
 
     return (
-        <div className="">
+        <div>
             {!isOpen && (
                 <button
                     className="p-2 bg-secondary  text-white font-bold rounded w-full flex justify-center items-center gap-1 text-1xl border-2 border-accent "

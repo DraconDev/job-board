@@ -1,3 +1,4 @@
+"use client";
 import { fetchJobs } from "@/db/mongo";
 import { useAppState } from "@/state/state";
 
@@ -18,7 +19,7 @@ const FetchJobsButton = (props: Props) => {
             <button
                 //  href="/"
                 onClick={handleSearch}
-                className="p-4 bg-primary hover:bg-blue-700 text-white font-bold rounded w-full"
+                className="p-1 bg-primary hover:bg-blue-700 text-white font-bold rounded w-full"
             >
                 Search
             </button>

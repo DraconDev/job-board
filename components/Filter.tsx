@@ -5,7 +5,7 @@ import OverlayMenu from "./OverlayMenu";
 
 export default function Filter() {
     return (
-        <div className="">
+        <div >
             <div className="p-1 bg-primary hidden md:block">
                 <div className="w-full  h-12 flex gap-2 justify-center">
                     <ListBoxes></ListBoxes>
