@@ -5,7 +5,6 @@ import { useAppState } from "@/state/state";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-
 export default function PostJob() {
     const { register, handleSubmit } = useForm();
     const [submitting, setSubmitting] = useState(false);
@@ -42,50 +41,50 @@ export default function PostJob() {
     const state = useAppState((state) => state);
 
     return (
-        <div className="justify-center flex flex-col items-center">
-            <p className="text-3xl">Post a job</p>
-            <div className="flex flex-wrap">
-                <div className="w-1/1 p-4 text-black ">
+        <div className="justify-center flex flex-col items-center w-full">
+            <p className="text-3xl">Post job</p>
+            <div className="flex flex-wrap w-full justify-center">
+                <div className="max-w-lg w-full p-4 text-black ">
                     <form
-                        className="flex flex-col gap-1 w-full justify-center items-center"
+                        className="flex flex-col gap-2 w-full justify-center items-center placeholder-gray-500"
                         onSubmit={handleSubmit(onSubmit)}
                         action="/api/jobs"
                         method="POST"
                     >
                         <input
                             {...register("title")}
-                            className="p-2 rounded outline-none"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
                             placeholder="Title"
                         />
 
                         <input
                             {...register("salaryMin")}
-                            className="p-2 rounded outline-none"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
                             placeholder="Salary Min"
                         />
                         <input
                             {...register("salaryMax")}
-                            className="p-2 rounded outline-none"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
                             placeholder="Salary Max"
                         />
                         <input
                             {...register("location")}
-                            className="p-2 rounded outline-none"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
                             placeholder="Location"
                         />
                         <input
                             {...register("jobType")}
-                            className="p-2 rounded outline-none"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
                             placeholder="Job Type"
                         />
                         <input
                             {...register("company")}
-                            className="p-2 rounded outline-none"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
                             placeholder="Company"
                         />
                         <textarea
                             {...register("description")}
-                            className="p-2 rounded outline-none h-60 w-full"
+                            className="p-2 rounded outline-none h-60 w-full placeholder-gray-500"
                             placeholder="Description"
                         />
                         <ListBoxCustom

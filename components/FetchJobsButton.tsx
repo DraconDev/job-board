@@ -1,10 +1,12 @@
 "use client";
 import { useAppState } from "@/state/state";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
 const FetchJobsButton = (props: Props) => {
     const state = useAppState((state) => state);
+    const router = useRouter();
 
     // * GET joblist from server joblist route
     const handleSearch = async () => {
@@ -12,6 +14,7 @@ const FetchJobsButton = (props: Props) => {
         const data = await jobs.json();
         console.log(data);
         state.setJobList([...data]);
+        router.push("/");
     };
 
     return (

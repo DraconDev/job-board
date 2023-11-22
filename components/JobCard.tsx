@@ -1,6 +1,7 @@
 "use client";
 import { useAppState } from "@/state/state";
 import { Job } from "@/type/types";
+import { FaMoneyBill } from "react-icons/fa";
 
 const JobCard = ({ job }: { job: Job }) => {
     const state = useAppState((state) => state);
@@ -15,7 +16,14 @@ const JobCard = ({ job }: { job: Job }) => {
             onClick={updateDescription}
         >
             <h2 className="text-xl font-semibold">{job.title}</h2>
-            <p className="text-gray-500">{job.company}</p>
+            <div className="flex justify-between text-gray-400">
+                <p className="">{job.company}</p>
+                <div className="text-gl flex gap-2 items-center">
+                    <FaMoneyBill />
+                    {job.salaryMin} - {job.salaryMax}
+                </div>
+            </div>
+
             <p className="mt-2">{job.description}</p>
             <div className="mt-4 flex justify-between items-center">
                 <span className="text-gray-400">{job.location}</span>

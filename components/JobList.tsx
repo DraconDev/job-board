@@ -5,7 +5,7 @@ import JobCard from "./JobCard";
 export default function JobList() {
     const state = useAppState((state) => state);
     return (
-        <div className="flex  p-1 bg-primary flex-col h-screen gap-2">
+        <div className="flex  p-1 bg-primary flex-col h-full gap-2">
             {state.jobList.map((job, index) => (
                 <JobCard job={job} key={index} />
             ))}

@@ -11,11 +11,7 @@ export default function Description() {
                 <div className="text-xl rounded ">
                     {state?.activeJobPost?.title}
                 </div>
-                <div className="text-gl flex gap-2 items-center">
-                    <FaMoneyBill />
-                    {state?.activeJobPost?.salaryMin} -{" "}
-                    {state?.activeJobPost?.salaryMax}
-                </div>
+
 
                 <div className="">{state?.activeJobPost?.description}</div>
             </div>
