@@ -7,11 +7,11 @@ export default function Description() {
 
     return (
         <div className="flex  p-1 bg-primary">
-            <div className="flex rounded p-2 shadow-md bg-secondary w-full gap-3 flex-col">
+            <div className="flex rounded p-2 shadow-md bg-secondary w-full gap-2 flex-col">
                 <div className="text-xl rounded ">
                     {state?.activeJobPost?.title}
                 </div>
-                <div className="text-xl flex gap-2 items-center">
+                <div className="text-gl flex gap-2 items-center">
                     <FaMoneyBill />
                     {state?.activeJobPost?.salaryMin} -{" "}
                     {state?.activeJobPost?.salaryMax}
