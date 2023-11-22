@@ -4,9 +4,9 @@ import SearchBar from "./SearchBar";
 
 export default function NavBar() {
     return (
-        <div className="w-screen bg-slate-700  justify-center flex item ">
-            <div className="flex max-w-3xl py-1 grow justify-between w-full items-center">
-                <div className="flex  gap-1 items-center">
+        <div className="bg-secondary justify-center flex items-center">
+            <div className="max-w-3xl py-1 gap-1 justify-between w-full flex items-center">
+                <div className="flex gap-1 items-center">
                     <LogoButton type="home" />
                 </div>
                 <div className="flex gap-1 px-1 grow items-center">
