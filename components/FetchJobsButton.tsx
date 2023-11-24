@@ -22,7 +22,7 @@ const FetchJobsButton = (props: Props) => {
             <button
                 //  href="/"
                 onClick={handleSearch}
-                className="p-2 bg-primary  text-white font-bold rounded w-full border border-white hover:bg-blue-700"
+                className="p-2  bg-primary  text-white font-bold rounded w-full border border-accent hover:bg-blue-700 h-full"
             >
                 Search
             </button>
