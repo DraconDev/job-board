@@ -4,7 +4,7 @@ import JobPanel from "./JobPanel";
 export default function JobContainer() {
     // const data = use(fetchData());
     return (
-        <div className="flex flex-col w-full h-full">
+        <div className="flex flex-col w-full h-full gap-2">
             <Filter />
             <JobPanel />
         </div>

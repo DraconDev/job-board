@@ -11,8 +11,8 @@ export default function NavBar() {
                 </div>
                 <div className="flex gap-2 px-1 grow items-center">
                     <SearchBar placeholder="Job" logo="search" />
-                    <FetchJobsButton />
                     <SearchBar placeholder="Where" logo="pindrop" />
+                    <FetchJobsButton />
                 </div>
                 <div className="flex gap-2 items-center ">
                     <LogoButton type="work" />

@@ -8,7 +8,7 @@
 }
 
 :root {
-    --foreground-rgb: 0, 0, 0;
+    --foreground-rgb: "#141414";
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
 }
@@ -29,6 +29,11 @@ body {
             rgb(var(--background-end-rgb))
         )
         rgb(var(--background-start-rgb));
+}
+
+.dark {
+    color: white;
+    background-color: red;
 }
 
 .container {

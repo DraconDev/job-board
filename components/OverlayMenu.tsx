@@ -13,7 +13,7 @@ const OverlayMenu = () => {
     };
 
     return (
-        <div>
+        <div className="">
             {!isOpen && (
                 <button
                     className="p-2 bg-secondary  text-white font-bold rounded w-full flex justify-center items-center gap-1 text-1xl border-2 border-accent "
@@ -23,7 +23,7 @@ const OverlayMenu = () => {
                 </button>
             )}
             <div
-                className={`fixed top-0 left-0 h-screen bg-gray-200 ${
+                className={`fixed top-0 left-0 h-full bg-gray-200 ${
                     isOpen ? "w-full" : "w-0"
                 } transition-width duration-50`}
             >
