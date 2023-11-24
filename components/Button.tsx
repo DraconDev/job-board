@@ -1,15 +1,14 @@
 "use client";
-import { text } from "stream/consumers";
 
 interface Props {
     text: string;
     action?: () => void;
 }
 
-export default function Button({ text, action }: Props) {
+export default function CustomButton({ text, action }: Props) {
     return (
         <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="p-2 bg-accent hover:bg-blue-700 text-white font-bold  w-full"
             onClick={action}
         >
             {text}

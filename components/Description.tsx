@@ -1,12 +1,13 @@
 "use client";
 import { useAppState } from "@/state/state";
+import CustomButton from "./Button";
 
 export default function Description() {
     const state = useAppState((state) => state);
 
     return (
-        <div className="flex  p-1 bg-primary flex-col h-full">
-            <div className="flex rounded p-2 shadow-md bg-secondary w-full gap-2 flex-col min-h-[400px]">
+        <div className="flex  p-1 bg-primary flex-col h-full gap-1">
+            <div className="flex rounded p-2 shadow-md bg-secondary w-full gap-2 flex-col min-h-[400px] ">
                 <div className="text-xl rounded font-semibold">
                     {state?.activeJobPost?.title}
                 </div>
@@ -14,13 +15,8 @@ export default function Description() {
                 <div className="">{state?.activeJobPost?.description}</div>
             </div>
             <div className="flex gap-1">
-                <button className="p-2 bg-accent hover:bg-blue-700 text-white font-bold  w-full ">
-                    Save
-                </button>
-
-                <button className="p-2 bg-accent hover:bg-blue-700 text-white font-bold  w-full ">
-                    Apply
-                </button>
+                <CustomButton text="Save" />
+                <CustomButton text="Apply" />
             </div>
         </div>
     );
