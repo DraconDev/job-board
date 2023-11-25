@@ -8,7 +8,7 @@ export default function Filter() {
         <div>
             <div className="p-1 bg-primary hidden md:block">
                 <div className="w-full  h-12 flex gap-2 justify-center">
-                    <ListBoxes></ListBoxes>
+                    <ListBoxes />
                 </div>
             </div>
             <div className="p-1 bg-primary md:hidden sm:block">

@@ -23,7 +23,6 @@ const ListBoxCustom = ({ type, name }: listOptions) => {
         <div className="relative inline-block justify-center items-center rounded-3xl text-black min-w-60 w-full">
             <Listbox value={type}>
                 <div className="relative">
-                    {/* main button */}
                     <Listbox.Button className="py-2 px-4 bg-white border rounded-md shadow-sm w-full flex justify-between items-center w-50 ">
                         <span>{state.selectedOptions[name]}</span>
                         <svg

@@ -2,7 +2,7 @@ import { Job } from "@/type/types";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
-type AppState = {
+export type AppState = {
     experience: { id: number; value: string }[];
     date: { id: number; value: string }[];
     jobLocation: { id: number; value: string }[];
