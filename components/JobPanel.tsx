@@ -3,7 +3,7 @@ import JobList from "./JobList";
 
 type Props = {};
 
-export default async function JobPanel() {
+export default function JobPanel() {
     return (
         <div className="flex bg-primary w-full">
             <div className="flex flex-col grow w-2/5">
