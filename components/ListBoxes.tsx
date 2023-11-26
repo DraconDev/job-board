@@ -5,12 +5,23 @@ type Props = {};
 
 const ListBoxes = (props: Props) => {
     const state = useAppState((state) => state);
+
+    const menus = [
+        { name: "date", type: state.date },
+        { name: "experience", type: state.experience },
+        { name: "jobLocation", type: state.jobLocation },
+        { name: "salary", type: state.salary },
+    ];
+
     return (
         <>
-            <ListBoxCustom type={state.date} name="date" />
-            <ListBoxCustom type={state.experience} name="experience" />
-            <ListBoxCustom type={state.jobLocation} name="jobLocation" />
-            <ListBoxCustom type={state.salary} name="salary" />
+            {menus.map((menu, index) => (
+                <ListBoxCustom
+                    key={index}
+                    type={menu.type}
+                    name={menu.name}
+                />
+            ))}
         </>
     );
 };

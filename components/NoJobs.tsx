@@ -12,7 +12,7 @@ const NoJobs = (props: Props) => {
                     width={500} // set the width
                     height={300} // set the height
                     layout="responsive" // make the image responsive
-                    objectFit="cover"
+                    style={{ objectFit: "cover" }}
                     loading="lazy"
                 />
             </div>
