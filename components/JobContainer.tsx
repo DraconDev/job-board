@@ -1,6 +1,6 @@
 "use client";
-import Filter from "@/components/Filter";
 import { useAppState } from "@/state/state";
+import Filter from "./Filter";
 import JobPanel from "./JobPanel";
 import NoJobs from "./NoJobs";
 export default function JobContainer() {
