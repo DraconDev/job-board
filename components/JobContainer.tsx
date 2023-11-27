@@ -13,11 +13,14 @@ export default function JobContainer() {
         setIsClient(true);
     }, []);
 
-    return !isClient || !state.jobList ? (
-        <NoJobs />
+    return state.jobList.length == 0 ? (
+        <div className="flex flex-col w-full h-full gap-2">
+            <div className="h-10">{isClient && <Filter />}</div>
+            <NoJobs />
+        </div>
     ) : (
         <div className="flex flex-col w-full h-full gap-2">
-            <Filter />
+            {isClient && <Filter />}
             <JobPanel />
         </div>
     );
