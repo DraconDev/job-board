@@ -1,6 +1,6 @@
 "use client";
 import { useAppState } from "@/state/state";
-import CustomButton from "./Button";
+import CustomButton from "./CustomButton";
 
 export default function Description() {
     const state = useAppState((state) => state);

@@ -1,3 +1,4 @@
+"use client";
 import { useAppState } from "@/state/state";
 import ListBoxCustom from "./ListBoxCustom";
 

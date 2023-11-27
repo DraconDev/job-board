@@ -1,6 +1,6 @@
 "use client";
 import { useAppState } from "@/state/state";
-import CustomButton from "./Button";
+import CustomButton from "./CustomButton";
 
 export default function Description({ toggleOverlayMenu }: any) {
     const state = useAppState((state) => state);
@@ -18,7 +18,10 @@ export default function Description({ toggleOverlayMenu }: any) {
                     </div>
                 </div>
                 <div className="flex gap-1">
-                    <CustomButton text="Back" action={toggleOverlayMenu} />
+                    <CustomButton
+                        text="Back"
+                        action={toggleOverlayMenu}
+                    />
                     <CustomButton text="Apply" />
                 </div>
             </div>
