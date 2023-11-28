@@ -8,7 +8,7 @@ const Testing = (props: Props) => {
     const state = useAppState((state) => state);
 
     return (
-        <div className=" mt-2">
+        <div className="flex flex-col items-center justify-center w-full h-full">
             <NoJobs />
             {/* <button
                 className="p-4 bg-primary hover:bg-blue-700 text-white font-bold rounded w-full"
