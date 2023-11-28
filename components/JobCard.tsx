@@ -21,7 +21,7 @@ const JobCard = ({ job }: { job: Job }) => {
 
     return (
         <div
-            className="p-3 bg-secondary shadow-md rounded-md hover:cursor-pointer hover:transform hover:scale-[1.02] duration-150"
+            className="p-3 bg-secondary shadow-md rounded-md hover:cursor-pointer hover:transform hover:scale-[1.01] duration-150"
             onClick={showDescription}
         >
             {isJobSidebarOpen && <JobSideBar setIsJobSidebarOpen />}
