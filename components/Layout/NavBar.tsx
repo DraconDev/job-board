@@ -30,6 +30,9 @@ export default function NavBar() {
                     <div className="">
                         <LogoButton type="work" />
                     </div>
+                    <div className="">
+                        <LogoButton type="login" />
+                    </div>
                     <div className="hidden md:block">
                         <LogoButton type="notifications" />
                     </div>

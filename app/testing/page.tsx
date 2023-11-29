@@ -1,4 +1,5 @@
 "use client";
+import LoginLogo from "@/components/Auth/LoginLogo";
 import NoJobs from "@/components/NoJobs";
 import { useAppState } from "@/state/state";
 
@@ -9,6 +10,7 @@ const Testing = (props: Props) => {
 
     return (
         <div className="flex flex-col items-center justify-center w-full h-full">
+            <LoginLogo />
             <NoJobs />
             {/* <button
                 className="p-4 bg-primary hover:bg-blue-700 text-white font-bold rounded w-full"
