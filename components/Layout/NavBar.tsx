@@ -1,6 +1,6 @@
-import FetchJobsButton from "./FetchJobsButton";
-import LogoButton from "./LogoButton";
-import SearchBar from "./SearchBar";
+import FetchJobsButton from "../FetchJobsButton";
+import LogoButton from "../LogoButton";
+import SearchBar from "../SearchBar";
 
 export default function NavBar() {
     return (
@@ -11,10 +11,16 @@ export default function NavBar() {
                 </div>
                 <div className="flex gap-1 px-1 grow items-center">
                     <div className="w-full">
-                        <SearchBar placeholder="Job" logo="search" />
+                        <SearchBar
+                            placeholder="Job"
+                            logo="search"
+                        />
                     </div>
                     <div className="w-full hidden md:block">
-                        <SearchBar placeholder="Where" logo="pindrop" />
+                        <SearchBar
+                            placeholder="Where"
+                            logo="pindrop"
+                        />
                     </div>
                     <div className="">
                         <FetchJobsButton />
