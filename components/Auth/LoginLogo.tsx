@@ -2,12 +2,14 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useState } from "react";
 import { TbUserHexagon } from "react-icons/tb"; // Make sure to import your icons.
+import DroplistMenuItem from "../Droplist/DroplistMenuItem";
 
 export default function LoginLogo() {
     const { data: session } = useSession();
     const [dropdownStatus, setDropdownStatus] = useState(false);
 
     const toggleDropdown = () => setDropdownStatus(!dropdownStatus);
+
 
     return (
         <div className="relative inline-block text-left">
@@ -32,36 +34,14 @@ export default function LoginLogo() {
                             {/* Dropdown menu items */}
                             <div className="py-1">
                                 {/* Add menu items here */}
-                                <a
-                                    href="#"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        signOut();
-                                    }}
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                >
-                                    Logout
-                                </a>
-                                <a
-                                    href="#"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        signOut();
-                                    }}
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                >
-                                    Logout
-                                </a>
-                                <a
-                                    href="#"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        signOut();
-                                    }}
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                >
-                                    Logout
-                                </a>
+                                <DroplistMenuItem
+                                    text="Logout"
+                                    action={() => signOut()}
+                                />
+                                <DroplistMenuItem
+                                    text="Logout"
+                                    action={() => signOut()}
+                                />
                             </div>
                         </div>
                     )}
