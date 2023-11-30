@@ -10,7 +10,6 @@ export default function LoginLogo() {
 
     const toggleDropdown = () => setDropdownStatus(!dropdownStatus);
 
-
     return (
         <div className="relative inline-block text-left">
             {!session ? (
@@ -30,7 +29,7 @@ export default function LoginLogo() {
                     </button>
 
                     {dropdownStatus && (
-                        <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
+                        <div className=" absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white  z-10">
                             {/* Dropdown menu items */}
                             <div className="py-1">
                                 {/* Add menu items here */}
