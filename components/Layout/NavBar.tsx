@@ -28,9 +28,6 @@ export default function NavBar() {
                     </div>
                 </div>
                 <div className="flex gap-1 items-center ">
-                    <div className="">
-                        <LogoButton type="work" />
-                    </div>
                     <div className="hidden md:block">
                         <LogoButton type="notifications" />
                     </div>
