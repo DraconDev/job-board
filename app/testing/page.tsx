@@ -1,6 +1,4 @@
 "use client";
-import LoginLogo from "@/components/Auth/LoginLogo";
-import NoJobs from "@/components/NoJobs";
 import { useAppState } from "@/state/state";
 
 type Props = {};
@@ -9,9 +7,10 @@ const Testing = (props: Props) => {
     const state = useAppState((state) => state);
 
     return (
-        <div className="flex flex-col items-center justify-center w-full h-full">
-            <LoginLogo />
-            <NoJobs />
+        <div className="flex flex-col  w-full h-full    ">
+            {/* <LoginLogo /> */}
+            {/* <NoJobs /> */}
+
             {/* <button
                 className="p-4 bg-primary hover:bg-blue-700 text-white font-bold rounded w-full"
                 // onClick={() => state.setSelectedOptions("name", "field.value")}

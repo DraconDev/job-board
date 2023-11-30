@@ -1,20 +1,20 @@
+import Link from "next/link";
+
 type Props = {
     text: string;
-    action: () => void;
+    action?: () => void;
+    route?: string;
 };
 
-const DroplistMenuItem = ({ text, action }: Props) => {
+const DroplistMenuItem = ({ text, action, route }: Props) => {
     return (
-        <a
-            href="#"
-            onClick={(e) => {
-                e.preventDefault();
-                action();
-            }}
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+        <Link
+            href={route ? route : "#"}
+            onClick={action ?? action}
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-white  "
         >
             {text}
-        </a>
+        </Link>
     );
 };
 

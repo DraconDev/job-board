@@ -10,6 +10,11 @@ export default function LoginLogo() {
 
     const toggleDropdown = () => setDropdownStatus(!dropdownStatus);
 
+    const dropDownItems = [
+        { name: "Profile", route: "/profile" },
+        { name: "Logout", action: () => signOut() },
+    ];
+
     return (
         <div className="relative inline-block text-left">
             {!session ? (
@@ -29,19 +34,14 @@ export default function LoginLogo() {
                     </button>
 
                     {dropdownStatus && (
-                        <div className=" absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white  z-10">
-                            {/* Dropdown menu items */}
-                            <div className="py-1">
-                                {/* Add menu items here */}
+                        <div className=" absolute right-0 mt-2 w-56 rounded-md  bg-white z-10 border-[3px] border-accent">
+                            {dropDownItems.map((item, index) => (
                                 <DroplistMenuItem
-                                    text="Logout"
-                                    action={() => signOut()}
+                                    key={index}
+                                    text={item.name}
+                                    action={item.action}
                                 />
-                                <DroplistMenuItem
-                                    text="Logout"
-                                    action={() => signOut()}
-                                />
-                            </div>
+                            ))}
                         </div>
                     )}
                 </>
