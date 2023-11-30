@@ -27,7 +27,6 @@ export default function NavBar() {
                         <FetchJobsButton />
                     </div>
                 </div>
-                <LoginLogo />
                 <div className="flex gap-1 items-center ">
                     <div className="">
                         <LogoButton type="work" />
@@ -39,6 +38,7 @@ export default function NavBar() {
                         <LogoButton type="postjob" />
                     </div>
                 </div>
+                <LoginLogo />
             </div>
         </div>
     );
