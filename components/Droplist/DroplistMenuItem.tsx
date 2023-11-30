@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 
 type Props = {
@@ -7,15 +8,25 @@ type Props = {
 };
 
 const DroplistMenuItem = ({ text, action, route }: Props) => {
-    return (
-        <Link
-            href={route ? route : "#"}
-            onClick={action ?? action}
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-white  "
-        >
-            {text}
-        </Link>
-    );
+    if (route) {
+        return (
+            <Link
+                href={`${route}`}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-white"
+            >
+                {text}
+            </Link>
+        );
+    } else {
+        return (
+            <button
+                onClick={action}
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-white w-full text-left"
+            >
+                {text}
+            </button>
+        );
+    }
 };
 
 export default DroplistMenuItem;
