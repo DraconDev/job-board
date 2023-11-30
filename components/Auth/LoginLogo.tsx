@@ -40,6 +40,7 @@ export default function LoginLogo() {
                                     key={index}
                                     text={item.name}
                                     action={item.action}
+                                    route={item.route}
                                 />
                             ))}
                         </div>

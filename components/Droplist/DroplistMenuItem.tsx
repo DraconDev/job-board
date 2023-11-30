@@ -11,7 +11,7 @@ const DroplistMenuItem = ({ text, action, route }: Props) => {
     if (route) {
         return (
             <Link
-                href={`${route}`}
+                href={route}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-white"
             >
                 {text}
