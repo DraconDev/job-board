@@ -1,3 +1,4 @@
+import LoginLogo from "../Auth/LoginLogo";
 import FetchJobsButton from "../FetchJobsButton";
 import LogoButton from "../LogoButton";
 import SearchBar from "../SearchBar";
@@ -26,12 +27,10 @@ export default function NavBar() {
                         <FetchJobsButton />
                     </div>
                 </div>
+                <LoginLogo />
                 <div className="flex gap-1 items-center ">
                     <div className="">
                         <LogoButton type="work" />
-                    </div>
-                    <div className="">
-                        <LogoButton type="login" />
                     </div>
                     <div className="hidden md:block">
                         <LogoButton type="notifications" />
