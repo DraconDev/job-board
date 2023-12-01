@@ -3,9 +3,16 @@ import { useState } from "react";
 
 export default function BuildCV() {
     const [workExperiences, setWorkExperiences] = useState([
-        { position: "", company: "", description: "" },
+        { position: "", company: "", description: "", date: "" },
     ]);
     const [skills, setSkills] = useState([""]);
+
+    const addWorkExperience = () => {
+        setWorkExperiences([
+            ...workExperiences,
+            { position: "", company: "", description: "", date: "" },
+        ]);
+    };
     const addSkill = () => {
         setSkills([...skills, ""]);
     };
@@ -20,13 +27,6 @@ export default function BuildCV() {
             }
         );
         setWorkExperiences(updatedWorkExperiences);
-    };
-
-    const addWorkExperience = () => {
-        setWorkExperiences([
-            ...workExperiences,
-            { position: "", company: "", description: "" },
-        ]);
     };
 
     const handleSkillChange = (index: any, e: any) => {
@@ -124,6 +124,17 @@ export default function BuildCV() {
                                     handleWorkExperienceChange(index, e)
                                 }
                                 required
+                            />
+
+                            <input
+                                className="w-full p-2 mb-4 border rounded"
+                                type="text"
+                                placeholder="Date"
+                                name="date"
+                                value={experience.date}
+                                onChange={(e) =>
+                                    handleWorkExperienceChange(index, e)
+                                }
                             />
                             <textarea
                                 className="w-full p-2 mb-4 border rounded"
