@@ -41,7 +41,7 @@ export default function PostJob() {
     const state = useAppState((state) => state);
 
     return (
-        <div className="justify-center flex flex-col items-center w-full">
+        <div className="justify-center flex flex-col items-center w-full h-full">
             <p className="text-3xl">Post job</p>
             <div className="flex flex-wrap w-full justify-center">
                 <div className="max-w-lg w-full p-4 text-black ">

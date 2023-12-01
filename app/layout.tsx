@@ -26,8 +26,8 @@ export default function RootLayout({
                     <div className="flex w-full h-full flex-col mt-1">
                         <NavBar />
                         {/* <ThemeSwitcher /> */}
-                        <div className="flex justify-center h-full w-full ">
-                            <div className="flex  justify-center h-full max-w-5xl w-full flex-col items-center">
+                        <div className="flex justify-center h-full w-full bg-primary">
+                            <div className="flex  justify-center h-screen max-w-5xl w-full ">
                                 {children}
                             </div>
                         </div>
