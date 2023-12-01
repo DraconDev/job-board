@@ -19,7 +19,7 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className=""
+            className="overflow-hidden"
         >
             <AuthProvider>
                 <body className={`${inter.className} overflow-hiddens`}>
