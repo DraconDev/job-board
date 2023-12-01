@@ -19,15 +19,15 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className="overflow-hidden"
+            className=""
         >
             <AuthProvider>
                 <body className={`${inter.className} overflow-hiddens`}>
-                    <div className="flex w-full h-full flex-col">
+                    <div className="flex w-full h-full flex-col mt-1">
                         <NavBar />
                         {/* <ThemeSwitcher /> */}
-                        <div className="flex justify-center h-screen w-full mt-1">
-                            <div className="flex  justify-center h-screen max-w-5xl w-full ">
+                        <div className="flex justify-center h-full w-full ">
+                            <div className="flex  justify-center h-full max-w-5xl w-full flex-col items-center">
                                 {children}
                             </div>
                         </div>
