@@ -4,7 +4,7 @@ type Props = {};
 
 const Profile = (props: Props) => {
     return (
-        <div className="  w-screen justify-center items-center flex flex-col ">
+        <div className=" justify-center items-center flex flex-col ">
             <BuildCV />
         </div>
     );

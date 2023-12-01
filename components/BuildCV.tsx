@@ -40,11 +40,11 @@ export default function BuildCV() {
     };
 
     return (
-        <div className="max-w-md  p-4 text-black  ">
+        <div className="max-w-md flex flex-col p-4 text-black  ">
             <h1 className="text-white text-3xl font-bold text-center mb-6">
                 Build Your CV
             </h1>
-            <form>
+            <form className="flex flex-col">
                 {/* Personal Information Section */}
                 <section className="mb-6">
                     <h2 className="text-white text-xl font-semibold mb-4">
