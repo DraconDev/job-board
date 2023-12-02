@@ -9,7 +9,7 @@ export default function JobPanel() {
             <div className="flex flex-col grow w-2/5">
                 <JobList />
             </div>
-            <div className="flex hidden flex-col grow w-3/5 md:block ">
+            <div className="flex hidden flex-col grow w-3/5 md:block p-1">
                 <Description />
             </div>
         </div>
