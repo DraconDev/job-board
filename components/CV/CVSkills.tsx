@@ -2,16 +2,16 @@ import { FieldValues, UseFormRegister } from "react-hook-form";
 
 type Props = {
     title: string;
-    items: string[];
+    skills: string[];
     register: UseFormRegister<FieldValues>;
     addItem: () => void;
 };
 
-const CVAdding = ({ title, items, register, addItem }: Props) => {
+const CVAdding = ({ title, skills, register, addItem }: Props) => {
     return (
         <section className="mb-6">
             <h2 className="text-white text-xl font-semibold mb-4">{title}</h2>
-            {items.map((item, index) => (
+            {skills.map((item, index) => (
                 <div
                     key={index}
                     className="mb-4"
@@ -20,7 +20,7 @@ const CVAdding = ({ title, items, register, addItem }: Props) => {
                         className="w-full p-2 mb-4 border rounded"
                         type="text"
                         placeholder="Position"
-                        {...register(`items[${index}]`, { required: true })}
+                        {...register(`skills[${index}]`, { required: true })}
                     />
                 </div>
             ))}

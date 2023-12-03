@@ -56,13 +56,13 @@ export default function BuildCV() {
                 <CVEducation register={register} />
                 <CVAdding
                     title="Work Experience"
-                    items={workExperiences}
+                    workExperiences={workExperiences}
                     addItem={addWorkExperience}
                     register={register}
                 />
                 <CVSkills
                     title="Skills"
-                    items={skills}
+                    skills={skills}
                     addItem={addSkill}
                     register={register}
                 />
