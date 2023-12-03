@@ -22,7 +22,7 @@ export default function RootLayout({
             className=" h-screen w-screen  bg-primary"
         >
             <AuthProvider>
-                <body className={`${inter.className} overflow-hidden`}>
+                <body className={`${inter.className} `}>
                     <div className="flex w-full h-full flex-col ">
                         <NavBar />
                         {/* <ThemeSwitcher /> */}

@@ -12,6 +12,7 @@ const FetchJobsButton = (props: Props) => {
     const handleSearch = async () => {
         const jobs = await fetch("/api/joblist");
         const data = await jobs.json();
+
         state.setJobList([...data]);
         state.activeJobPost = data[0];
         router.push("/");

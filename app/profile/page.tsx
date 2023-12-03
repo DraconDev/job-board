@@ -1,4 +1,4 @@
-import BuildCV from "@/components/BuildCV";
+import BuildCV from "@/components/CV/BuildCV";
 
 type Props = {};
 
