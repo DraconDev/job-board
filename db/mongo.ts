@@ -1,6 +1,6 @@
-import { Job } from "@/type/types";
+import { Job, UserType } from "@/type/types";
 import mongoose from "mongoose";
-import { JobPost } from "./schema";
+import { JobPost, User } from "./schema";
 
 const uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.cc5lbfe.mongodb.net/?retryWrites=true&w=majority`;
 
@@ -24,6 +24,16 @@ export async function fetchJobs() {
     try {
         const jobs = await JobPost.find();
         return jobs;
+    } finally {
+        await mongoose.disconnect();
+    }
+}
+
+// * register user with CV
+export async function registerUser(user: UserType) {
+    await mongoose.connect(uri);
+    try {
+        await User.create(user);
     } finally {
         await mongoose.disconnect();
     }
