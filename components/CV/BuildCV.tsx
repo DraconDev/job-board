@@ -1,14 +1,36 @@
 "use client";
 import { useState } from "react";
-import CVAdding from "./CVAdding";
+import { SubmitHandler, useForm } from "react-hook-form";
 import CVEducation from "./CVEducation";
 import CVPersonal from "./CVPersonal";
 import CVSkills from "./CVSkills";
+import CVAdding from "./CVWork";
 
 export default function BuildCV() {
+    const { register, handleSubmit } = useForm();
+
+    const [submitting, setSubmitting] = useState(false);
+    const onSubmit: SubmitHandler<any> = async (data) => {
+        setSubmitting(true);
+        try {
+            const response = await fetch("/api/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ ...data }),
+            });
+        } catch (error) {
+            console.error("Error:", error);
+        }
+
+        setSubmitting(false);
+    };
+
     const [workExperiences, setWorkExperiences] = useState([
         { position: "", company: "", description: "", date: "" },
     ]);
+
     const [skills, setSkills] = useState([""]);
 
     const addWorkExperience = () => {
@@ -21,47 +43,28 @@ export default function BuildCV() {
         setSkills([...skills, ""]);
     };
 
-    const handleWorkExperienceChange = (index: any, e: any) => {
-        const updatedWorkExperiences = workExperiences.map(
-            (experience, expIndex) => {
-                if (index === expIndex) {
-                    return { ...experience, [e.target.name]: e.target.value };
-                }
-                return experience;
-            }
-        );
-        setWorkExperiences(updatedWorkExperiences);
-    };
-
-    const handleSkillChange = (index: any, e: any) => {
-        const updatedSkills = skills.map((skill, skillIndex) => {
-            if (index === skillIndex) {
-                return e.target.value;
-            }
-            return skill;
-        });
-        setSkills(updatedSkills);
-    };
-
     return (
         <div className="max-w-md flex flex-col p-4 text-black  ">
             <h1 className="text-white text-3xl font-bold text-center mb-6">
                 Build Your CV
             </h1>
-            <form className="flex flex-col">
-                <CVPersonal />
-                <CVEducation />
+            <form
+                className="flex flex-col"
+                onSubmit={handleSubmit(onSubmit)}
+            >
+                <CVPersonal register={register} />
+                <CVEducation register={register} />
                 <CVAdding
                     title="Work Experience"
                     items={workExperiences}
-                    handleChange={handleWorkExperienceChange}
                     addItem={addWorkExperience}
+                    register={register}
                 />
                 <CVSkills
                     title="Skills"
                     items={skills}
-                    handleChange={handleSkillChange}
                     addItem={addSkill}
+                    register={register}
                 />
                 <button
                     type="submit"

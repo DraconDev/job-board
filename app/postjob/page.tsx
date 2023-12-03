@@ -7,9 +7,9 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function PostJob() {
     const { register, handleSubmit } = useForm();
-    const [submitting, setSubmitting] = useState(false);
-    const [formExperience, setFormExperience] = useState("");
 
+    const [formExperience, setFormExperience] = useState("");
+    const [submitting, setSubmitting] = useState(false);
     const onSubmit: SubmitHandler<any> = async (data) => {
         const currentDate = new Date();
         setSubmitting(true);

@@ -1,6 +1,10 @@
-type Props = {};
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
-const cvPersonal = (props: Props) => {
+type Props = {
+    register: UseFormRegister<FieldValues>;
+};
+
+const CvPersonal = ({ register }: Props) => {
     return (
         <section className="mb-6">
             <h2 className="text-white text-xl font-semibold mb-4">
@@ -10,21 +14,22 @@ const cvPersonal = (props: Props) => {
                 className="w-full p-2 mb-4 border rounded"
                 type="text"
                 placeholder="Full Name"
-                required
+                {...register("fullName", { required: true })}
             />
             <input
                 className="w-full p-2 mb-4 border rounded"
                 type="email"
                 placeholder="Email"
-                required
+                {...register("email", { required: true })}
             />
             <input
                 className="w-full p-2 mb-4 border rounded"
                 type="tel"
                 placeholder="Phone Number"
+                {...register("phoneNumber")}
             />
         </section>
     );
 };
 
-export default cvPersonal;
+export default CvPersonal;

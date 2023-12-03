@@ -1,11 +1,13 @@
+import { FieldValues, UseFormRegister } from "react-hook-form";
+
 type Props = {
     title: string;
     items: string[];
-    handleChange: (index: any, e: any) => void;
+    register: UseFormRegister<FieldValues>;
     addItem: () => void;
 };
 
-const CVAdding = ({ title, items, handleChange, addItem }: Props) => {
+const CVAdding = ({ title, items, register, addItem }: Props) => {
     return (
         <section className="mb-6">
             <h2 className="text-white text-xl font-semibold mb-4">{title}</h2>
@@ -18,10 +20,7 @@ const CVAdding = ({ title, items, handleChange, addItem }: Props) => {
                         className="w-full p-2 mb-4 border rounded"
                         type="text"
                         placeholder="Position"
-                        name="position"
-                        value={item}
-                        onChange={(e) => handleChange(index, e)}
-                        required
+                        {...register(`items[${index}]`, { required: true })}
                     />
                 </div>
             ))}
