@@ -14,7 +14,7 @@ const jobSchema = new Schema({
 
 export const JobPost = mongoose.model("Job", jobSchema);
 
-export const userSchema = new mongoose.Schema({
+export const userSchema = new Schema({
     fullName: String,
     email: String,
     phoneNumber: String,
@@ -32,5 +32,3 @@ export const userSchema = new mongoose.Schema({
 });
 
 export const User = mongoose.model("User", userSchema);
-
-module.exports = User;

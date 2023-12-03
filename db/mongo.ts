@@ -1,4 +1,4 @@
-import { Job, UserType } from "@/type/types";
+import { Job } from "@/type/types";
 import mongoose from "mongoose";
 import { JobPost, User } from "./schema";
 
@@ -30,7 +30,8 @@ export async function fetchJobs() {
 }
 
 // * register user with CV
-export async function registerUser(user: UserType) {
+export async function registerUser(user: any) {
+    console.log(user);
     await mongoose.connect(uri);
     try {
         await User.create(user);
