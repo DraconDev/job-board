@@ -35,9 +35,9 @@ export async function fetchJobs() {
 export async function fetchJobsByFilter({ title }: { title: string | "" }) {
     await mongoose.connect(uri);
     try {
-        // * only 2 jobs
-        // const jobs = await JobPost.find(title).limit(2);
-        // * find only jobs with software in the title
+        // * only 2 jobs - works
+        // const jobs = await JobPost.find().limit(2);
+        // * find only jobs with software in the title - works
         const jobs = await JobPost.find({
             title: { $regex: "software", $options: "i" },
         });

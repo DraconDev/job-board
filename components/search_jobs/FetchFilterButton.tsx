@@ -21,7 +21,8 @@ const FetchFilterButton = (props: Props) => {
     });
     // * GET joblist from server joblist route
     const handleSearch = async () => {
-        const jobs = await fetch(`/api/filterjobs${queryParams.toString()}`);
+        const jobs = await fetch(`/api/filterjobs`);
+        // const jobs = await fetch(`/api/filterjobs${queryParams.toString()}`);
         const data = await jobs.json();
         state.setJobList([...data]);
         state.activeJobPost = data[0];
