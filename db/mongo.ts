@@ -18,11 +18,22 @@ export async function addJob(job: Job) {
     }
 }
 
-// * fetch jobs
+// * fetch most recent jobs
 export async function fetchJobs() {
     await mongoose.connect(uri);
     try {
         const jobs = await JobPost.find();
+        return jobs;
+    } finally {
+        await mongoose.disconnect();
+    }
+}
+
+// * fetched jobs by filter
+export async function fetchJobsByFilter(filter: {}) {
+    await mongoose.connect(uri);
+    try {
+        const jobs = await JobPost.find({ jobType: "software" });
         return jobs;
     } finally {
         await mongoose.disconnect();
