@@ -21,8 +21,10 @@ export async function addJob(job: Job) {
 // * fetch most recent jobs
 export async function fetchJobs() {
     await mongoose.connect(uri);
+
     try {
         const jobs = await JobPost.find();
+
         return jobs;
     } finally {
         await mongoose.disconnect();
@@ -30,10 +32,16 @@ export async function fetchJobs() {
 }
 
 // * fetched jobs by filter
-export async function fetchJobsByFilter(filter: {}) {
+export async function fetchJobsByFilter({ title }: { title: string | "" }) {
     await mongoose.connect(uri);
     try {
-        const jobs = await JobPost.find({ jobType: "software" });
+        // * only 2 jobs
+        // const jobs = await JobPost.find(title).limit(2);
+        // * find only jobs with software in the title
+        const jobs = await JobPost.find({
+            title: { $regex: "software", $options: "i" },
+        });
+
         return jobs;
     } finally {
         await mongoose.disconnect();

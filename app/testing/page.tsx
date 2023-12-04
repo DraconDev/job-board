@@ -12,6 +12,7 @@ const Testing = (props: Props) => {
         <div className="flex flex-col  w-full h-full    ">
             <div className="">Account</div>
             {JSON.stringify(session)}
+            <FetchFilterButton />
             {/* <LoginLogo /> */}
             {/* <NoJobs /> */}
 

@@ -1,7 +1,7 @@
 import LoginLogo from "../Auth/LoginLogo";
-import FetchJobsButton from "../FetchJobsButton";
 import LogoButton from "../LogoButton";
 import SearchBar from "../SearchBar";
+import FetchJobsButton from "../search_jobs/FetchJobsButton";
 
 export default function NavBar() {
     return (
