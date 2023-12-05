@@ -1,9 +1,14 @@
+"use client";
 export default function Search({
     placeholder,
     logo,
+    value,
+    set,
 }: {
     placeholder: string;
     logo: string;
+    value: string;
+    set: (e: any) => void;
 }) {
     return (
         <div className="flex items-center justify-center w-full h-full grow bg-primary rounded px-1 py-1">
@@ -16,9 +21,10 @@ export default function Search({
                 className=" flex grow bg-primary p-1
                 outline-none rounded
                 w-full
-
                 "
+                value={value}
                 placeholder={`${placeholder}`}
+                onChange={set}
             />
         </div>
     );
