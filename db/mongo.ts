@@ -25,7 +25,9 @@ export async function fetchRecentJobs() {
     // serach by date
 
     try {
-        const jobs = await JobPost.find().sort({ date: -1 }).limit(50);
+        // const jobs = await JobPost.find().sort({ date: -1 }).limit(50);
+        const jobs = await JobPost.find().limit(50);
+
         return jobs;
     } finally {
         await mongoose.disconnect();

@@ -47,7 +47,7 @@ const FetchJobsButton = ({ filterTitle, filterLocation }: Props) => {
             );
             const data = await jobs.json();
             state.setJobList([...data]);
-            state.activeJobPost = data[0];
+            state.updateActiveJobPost(data[0]);
             router.push("/");
         }
     }
