@@ -3,26 +3,55 @@ import { useAppState } from "@/state/state";
 
 import { useRouter } from "next/navigation";
 
-type Props = {};
+type Props = {
+    filterTitle: string;
+    filterLocation: string;
+};
 
-const FetchJobsButton = (props: Props) => {
+const FetchJobsButton = ({ filterTitle, filterLocation }: Props) => {
     const state = useAppState((state) => state);
     const router = useRouter();
 
+    const queryParams = new URLSearchParams({
+        title: filterTitle,
+        location: filterLocation,
+        experience:
+            state.selectedOptions.experience == "Any role"
+                ? ""
+                : state.selectedOptions.experience,
+        date:
+            state.selectedOptions.date == "Any date"
+                ? ""
+                : state.selectedOptions.date,
+        salary:
+            state.selectedOptions.salary == "Any salary"
+                ? ""
+                : state.selectedOptions.salary,
+        jobLocation:
+            state.selectedOptions.jobLocation == "Any location"
+                ? ""
+                : state.selectedOptions.jobLocation,
+    });
+
     // * GET joblist from server joblist route
-    async function fetchJobs() {
-        const jobs = await fetch("/api/joblist");
-        const data = await jobs.json();
-        state.setJobList([...data]);
-        state.activeJobPost = data[0];
-        router.push("/");
+    async function fetchRecentJobs() {
+        if (filterTitle.length < 3) {
+        } else {
+            const jobs = await fetch(
+                `/api/filterjobs?${queryParams.toString()}`
+            );
+            const data = await jobs.json();
+            state.setJobList([...data]);
+            state.activeJobPost = data[0];
+            router.push("/");
+        }
     }
 
     return (
         <div>
             <button
                 //  href="/"
-                onClick={fetchJobs}
+                onClick={fetchRecentJobs}
                 className="p-2  bg-primary  text-white font-bold rounded w-full border border-accent hover:bg-blue-700 h-full"
             >
                 Search

@@ -11,7 +11,7 @@ export default function JobContainer() {
     const [isClient, setIsClient] = useState(false);
     const router = useRouter();
 
-    async function fetchJobs() {
+    async function fetchRecentJobs() {
         const jobs = await fetch("/api/joblist");
         const data = await jobs.json();
         state.setJobList([...data]);
@@ -20,7 +20,7 @@ export default function JobContainer() {
     }
 
     if (state.jobList.length == 0) {
-        fetchJobs();
+        fetchRecentJobs();
     }
 
     useEffect(() => {

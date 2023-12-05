@@ -19,27 +19,37 @@ export async function addJob(job: Job) {
 }
 
 // * fetch most recent jobs
-export async function fetchJobs() {
+export async function fetchRecentJobs() {
     await mongoose.connect(uri);
 
-    try {
-        const jobs = await JobPost.find();
+    // serach by date
 
+    try {
+        const jobs = await JobPost.find().sort({ date: -1 }).limit(50);
         return jobs;
     } finally {
         await mongoose.disconnect();
     }
 }
 
+type FilterType = {
+    title: string;
+    location?: string;
+    experience?: string;
+    date?: string;
+    salary?: string;
+    jobLocation?: string;
+};
+
 // * fetched jobs by filter
-export async function fetchJobsByFilter({ title }: { title: string | "" }) {
+export async function fetchJobsByFilter(filter: FilterType) {
     await mongoose.connect(uri);
     try {
         // * only 2 jobs - works
         // const jobs = await JobPost.find().limit(2);
         // * find only jobs with software in the title - works
         const jobs = await JobPost.find({
-            title: { $regex: title, $options: "i" },
+            title: { $regex: filter.title, $options: "i" },
         });
 
         return jobs;

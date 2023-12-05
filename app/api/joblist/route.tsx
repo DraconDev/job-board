@@ -1,7 +1,7 @@
-import { fetchJobs } from "@/db/mongo";
+import { fetchRecentJobs } from "@/db/mongo";
 
 export async function GET() {
-    const jobs = await fetchJobs();
+    const jobs = await fetchRecentJobs();
     // const jobs = await fetchJobsByFilter({});
 
     // * return jobs

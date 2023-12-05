@@ -1,5 +1,5 @@
 "use client";
-import FetchFilterButton from "@/components/search_jobs/FetchFilterButton";
+import FetchFilterButton from "@/components/unused/FetchFilterButton";
 import { useAppState } from "@/state/state";
 import { useSession } from "next-auth/react";
 

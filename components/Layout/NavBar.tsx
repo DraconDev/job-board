@@ -1,5 +1,6 @@
 "use client";
 import { useAppState } from "@/state/state";
+import { useState } from "react";
 import LoginLogo from "../Auth/LoginLogo";
 import LogoButton from "../LogoButton";
 import SearchBar from "../SearchBar";
@@ -7,6 +8,9 @@ import FetchJobsButton from "../search_jobs/FetchJobsButton";
 
 export default function NavBar() {
     const state = useAppState((state) => state);
+
+    const [filterTitle, setFilterTitle] = useState("");
+    const [filterLocation, setFilterLocation] = useState("");
 
     return (
         <div className="bg-secondary justify-center flex items-center ">
@@ -19,25 +23,27 @@ export default function NavBar() {
                         <SearchBar
                             placeholder="Job"
                             logo="search"
-                            value={state.searchTitle}
+                            value={filterTitle}
                             set={(e) => {
-                                state.searchTitle = e.target.value;
+                                setFilterTitle(e.target.value);
                             }}
-                            // update={}
                         />
                     </div>
                     <div className="w-full hidden md:block">
                         <SearchBar
                             placeholder="Where"
                             logo="pindrop"
-                            value={state.searchLocation}
+                            value={filterLocation}
                             set={(e) => {
-                                state.searchLocation = e.target.value;
+                                setFilterLocation(e.target.value);
                             }}
                         />
                     </div>
                     <div className="">
-                        <FetchJobsButton />
+                        <FetchJobsButton
+                            filterTitle={filterTitle}
+                            filterLocation={filterLocation}
+                        />
                     </div>
                 </div>
                 <div className="flex gap-1 items-center ">
