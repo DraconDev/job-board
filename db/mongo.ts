@@ -39,7 +39,7 @@ export async function fetchJobsByFilter({ title }: { title: string | "" }) {
         // const jobs = await JobPost.find().limit(2);
         // * find only jobs with software in the title - works
         const jobs = await JobPost.find({
-            title: { $regex: "software", $options: "i" },
+            title: { $regex: title, $options: "i" },
         });
 
         return jobs;
