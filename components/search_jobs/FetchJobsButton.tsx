@@ -38,7 +38,12 @@ const FetchJobsButton = ({ filterTitle, filterLocation }: Props) => {
         if (filterTitle.length < 3) {
         } else {
             const jobs = await fetch(
-                `/api/filterjobs?${queryParams.toString()}`
+                `/api/filterjobs?${queryParams.toString()}`,
+                {
+                    next: {
+                        revalidate: 3,
+                    },
+                }
             );
             const data = await jobs.json();
             state.setJobList([...data]);
