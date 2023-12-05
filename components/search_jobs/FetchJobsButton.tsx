@@ -25,7 +25,7 @@ const FetchJobsButton = ({ filterTitle, filterLocation }: Props) => {
                 : state.selectedOptions.date,
         salary:
             state.selectedOptions.salary == "Any salary"
-                ? ""
+                ? "0"
                 : state.selectedOptions.salary,
         jobLocation:
             state.selectedOptions.jobLocation == "Any location"

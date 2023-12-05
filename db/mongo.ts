@@ -37,19 +37,19 @@ type FilterType = {
     location?: string;
     experience?: string;
     date?: string;
-    salary?: string;
+    salary: string;
     jobLocation?: string;
 };
 
 // * fetched jobs by filter
 export async function fetchJobsByFilter(filter: FilterType) {
     await mongoose.connect(uri);
+
+    const salary = parseInt(filter.salary.replace(/\D/g, ""));
     try {
-        // * only 2 jobs - works
-        // const jobs = await JobPost.find().limit(2);
-        // * find only jobs with software in the title - works
         const jobs = await JobPost.find({
             title: { $regex: filter.title, $options: "i" },
+            salaryMin: { $gte: salary },
         });
 
         return jobs;
