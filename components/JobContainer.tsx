@@ -1,6 +1,6 @@
 "use client";
 import { useAppState } from "@/state/state";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Filter from "./Filter";
 import JobPanel from "./JobPanel";
@@ -9,6 +9,7 @@ import NoJobs from "./NoJobs";
 export default function JobContainer() {
     const state = useAppState((state) => state);
     const [isClient, setIsClient] = useState(false);
+    const router = useRouter();
 
     async function fetchJobs() {
         const jobs = await fetch("/api/joblist");

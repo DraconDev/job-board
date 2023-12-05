@@ -19,9 +19,9 @@ export default function NavBar() {
                         <SearchBar
                             placeholder="Job"
                             logo="search"
-                            value={state.searchQuery.title}
+                            value={state.searchTitle}
                             set={(e) => {
-                                state.searchQuery.title = e.target.value;
+                                state.searchTitle = e.target.value;
                             }}
                             // update={}
                         />
@@ -30,9 +30,9 @@ export default function NavBar() {
                         <SearchBar
                             placeholder="Where"
                             logo="pindrop"
-                            value={state.searchQuery.location}
+                            value={state.searchLocation}
                             set={(e) => {
-                                state.searchQuery.location = e.target.value;
+                                state.searchLocation = e.target.value;
                             }}
                         />
                     </div>

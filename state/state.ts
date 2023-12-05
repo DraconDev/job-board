@@ -13,10 +13,8 @@ export type AppState = {
     setJobList: (jobList: Job[]) => void;
     activeJobPost?: Job;
     updateActiveJobPost: (job: Job) => void;
-    searchQuery: {
-        title: string;
-        location: string;
-    };
+    searchTitle: string;
+    searchLocation: string;
 };
 export const useAppState = create<AppState>()(
     devtools(
@@ -26,10 +24,8 @@ export const useAppState = create<AppState>()(
                 updateActiveJobPost: (job: Job) => set({ activeJobPost: job }),
                 jobList: [],
                 setJobList: (jobList: Job[]) => set({ jobList }),
-                searchQuery: {
-                    title: "",
-                    location: "",
-                },
+                searchTitle: "",
+                searchLocation: "",
                 selectedOptions: {
                     experience: "Any role",
                     date: "Any time",
