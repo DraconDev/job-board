@@ -7,8 +7,8 @@ export default function Description() {
 
     return (
         state.activeJobPost && (
-            <div className="flex bg-primary flex-col gap-1 overflow-hidden rounded">
-                <div className="flex rounded p-2 shadow-md bg-secondary w-full gap-2 flex-col min-h-[400px] hover:scale-[1.01] duration-150 transition-transform">
+            <div className="flex bg-primary flex-col gap-1 overflow-hidden rounded hover:scale-[1.01] duration-150 transition-transform">
+                <div className="flex rounded p-2 shadow-md bg-secondary w-full gap-2 flex-col min-h-[400px] ">
                     <div className="text-xl rounded font-semibold">
                         {state?.activeJobPost?.title}
                     </div>
