@@ -11,7 +11,6 @@ const FetchJobsButton = () => {
     return (
         <div>
             <button
-                //  href="/"
                 onClick={() => searchJobs(state)}
                 className="p-2  bg-primary  text-white font-bold rounded w-full border border-accent hover:bg-blue-700 h-full"
             >

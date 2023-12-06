@@ -1,7 +1,7 @@
 "use client";
-import { fetchRecentJobs } from "@/db/mongo";
 import { useAppState } from "@/state/state";
-import { useEffect } from "react";
+import { searchJobs } from "@/utils/searchJobs";
+import { useCallback, useEffect } from "react";
 import LoginLogo from "../Auth/LoginLogo";
 import LogoButton from "../LogoButton";
 import SearchBar from "../SearchBar";
@@ -10,21 +10,22 @@ import FetchJobsButton from "../search_jobs/FetchJobsButton";
 export default function NavBar() {
     const state = useAppState((state) => state);
 
-    const handleKeyDown = (event: any) => {
-        if (event.key === "Enter") {
-            fetchRecentJobs();
-        }
-    };
+    const handleKeyDown = useCallback(
+        (event: any) => {
+            if (event.key === "Enter") {
+                searchJobs(state);
+            }
+        },
+        [state]
+    );
 
-    // Use effect hook to attach the event listener when the component mounts
     useEffect(() => {
         window.addEventListener("keydown", handleKeyDown);
 
-        // Cleanup the event listener when the component unmounts
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, []);
+    }, [handleKeyDown]);
 
     return (
         <div className="bg-secondary justify-center flex items-center ">
