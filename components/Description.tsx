@@ -1,5 +1,6 @@
 "use client";
 import { useAppState } from "@/state/state";
+import { useApplyJob } from "@/utils/applyJob";
 import CustomButton from "./CustomButton";
 
 export default function Description() {
@@ -18,7 +19,10 @@ export default function Description() {
 
                 <div className="flex gap-1">
                     <CustomButton text="Save" />
-                    <CustomButton text="Apply" />
+                    <CustomButton
+                        text="Apply"
+                        action={useApplyJob}
+                    />
                 </div>
             </div>
         )
