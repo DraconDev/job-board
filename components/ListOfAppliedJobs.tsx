@@ -8,9 +8,9 @@ const ListOfAppliedJobs = (props: Props) => {
 
     useEffect(() => {
         const jobIds = state?.user?.jobs?.jobsApplied;
-        // if (jobIds && jobIds.length > 0) {
-        //     return;
-        // }
+        if (!jobIds || jobIds.length === 0) {
+            return;
+        }
         console.log(jobIds, "JobIds");
 
         fetch("/api/find_job_by_id", {
@@ -33,7 +33,7 @@ const ListOfAppliedJobs = (props: Props) => {
             <div className="w-full h-[2px] bg-blue-600">
                 {state?.listOfAppliedJobs &&
                     state.listOfAppliedJobs.map((job, index) => (
-                        <div key={index}>{job.title}</div>
+                        <div key={index}>{/* {job.title} */}</div>
                     ))}
             </div>
         </div>
