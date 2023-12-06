@@ -1,5 +1,17 @@
-import { addJob } from "@/db/mongo";
+import { uri } from "@/db/mongo";
+import { JobPost } from "@/db/schema";
 import { Job } from "@/type/types";
+import mongoose from "mongoose";
+
+async function addJob(job: Job) {
+    console.log(job);
+    await mongoose.connect(uri);
+    try {
+        await JobPost.create(job);
+    } finally {
+        await mongoose.disconnect();
+    }
+}
 
 export async function POST(request: Request) {
     const data = await request.json();

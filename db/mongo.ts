@@ -8,15 +8,7 @@ export const uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONG
 //     await mongoose.connect(uri);
 // }
 
-export async function addJob(job: Job) {
-    console.log(job);
-    await mongoose.connect(uri);
-    try {
-        await JobPost.create(job);
-    } finally {
-        await mongoose.disconnect();
-    }
-}
+
 
 // * fetch most recent jobs
 
