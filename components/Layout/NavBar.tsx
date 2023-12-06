@@ -1,6 +1,7 @@
 "use client";
+import { fetchRecentJobs } from "@/db/mongo";
 import { useAppState } from "@/state/state";
-import { useState } from "react";
+import { useEffect } from "react";
 import LoginLogo from "../Auth/LoginLogo";
 import LogoButton from "../LogoButton";
 import SearchBar from "../SearchBar";
@@ -9,8 +10,24 @@ import FetchJobsButton from "../search_jobs/FetchJobsButton";
 export default function NavBar() {
     const state = useAppState((state) => state);
 
-    const [filterTitle, setFilterTitle] = useState("");
-    const [filterLocation, setFilterLocation] = useState("");
+    // const [filterTitle, setFilterTitle] = useState("");
+    // const [filterLocation, setFilterLocation] = useState("");
+
+    const handleKeyDown = (event: any) => {
+        if (event.key === "Enter") {
+            fetchRecentJobs();
+        }
+    };
+
+    // Use effect hook to attach the event listener when the component mounts
+    useEffect(() => {
+        window.addEventListener("keydown", handleKeyDown);
+
+        // Cleanup the event listener when the component unmounts
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
 
     return (
         <div className="bg-secondary justify-center flex items-center ">
@@ -23,9 +40,9 @@ export default function NavBar() {
                         <SearchBar
                             placeholder="Job"
                             logo="search"
-                            value={filterTitle}
+                            value={state.searchTitle}
                             set={(e) => {
-                                setFilterTitle(e.target.value);
+                                state.setSearchTitle(e.target.value);
                             }}
                         />
                     </div>
@@ -33,17 +50,14 @@ export default function NavBar() {
                         <SearchBar
                             placeholder="Where"
                             logo="pindrop"
-                            value={filterLocation}
+                            value={state.searchLocation}
                             set={(e) => {
-                                setFilterLocation(e.target.value);
+                                state.setSearchLocation(e.target.value);
                             }}
                         />
                     </div>
                     <div className="">
-                        <FetchJobsButton
-                            filterTitle={filterTitle}
-                            filterLocation={filterLocation}
-                        />
+                        <FetchJobsButton />
                     </div>
                 </div>
                 <div className="flex gap-1 items-center ">

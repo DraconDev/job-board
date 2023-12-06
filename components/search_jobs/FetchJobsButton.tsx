@@ -3,18 +3,13 @@ import { useAppState } from "@/state/state";
 
 import { useRouter } from "next/navigation";
 
-type Props = {
-    filterTitle: string;
-    filterLocation: string;
-};
-
-const FetchJobsButton = ({ filterTitle, filterLocation }: Props) => {
+const FetchJobsButton = () => {
     const state = useAppState((state) => state);
     const router = useRouter();
 
     const queryParams = new URLSearchParams({
-        title: filterTitle,
-        location: filterLocation,
+        title: state.searchTitle,
+        location: state.searchLocation,
         experience:
             state.selectedOptions.experience == "Any role"
                 ? ""
@@ -35,7 +30,7 @@ const FetchJobsButton = ({ filterTitle, filterLocation }: Props) => {
 
     // * GET joblist from server joblist route
     async function fetchRecentJobs() {
-        if (filterTitle.length < 3) {
+        if (state.searchTitle.length < 3) {
         } else {
             const jobs = await fetch(
                 `/api/filterjobs?${queryParams.toString()}`,
