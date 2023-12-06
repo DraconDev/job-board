@@ -19,13 +19,14 @@ const Notifications = (props: Props) => {
                 )}`
             )
                 .then((res) => res.json())
-                .then((data) => (state.user = data));
+                .then((data) => state.updateUser(data));
     }, [session?.data?.user?.email, state]);
 
     return (
         <div>
             <h1>Applied jobs</h1>
-            {JSON.stringify(state)}
+            {JSON.stringify(state.user)}
+            {/* {JSON.stringify(test)} */}
         </div>
     );
 };

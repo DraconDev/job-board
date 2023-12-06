@@ -18,6 +18,7 @@ export type AppState = {
     setSearchTitle: (searchTitle: string) => void;
     setSearchLocation: (searchLocation: string) => void;
     user: UserType;
+    updateUser: (user: UserType) => void;
 };
 
 export const useAppState = create<AppState>()(
@@ -82,6 +83,7 @@ export const useAppState = create<AppState>()(
                     { id: 10, value: "100,000+" },
                 ],
                 user: {},
+                updateUser: (user: UserType) => set({ user }),
             }),
             {
                 name: "appState",
