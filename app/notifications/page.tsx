@@ -18,7 +18,6 @@ const Notifications = (props: Props) => {
         if (state.user) {
             return;
         }
-        console.log("fetching user profile");
         fetch(`/api/fetchuserprofile?email=${session.data.user.email}`)
             .then((res) => res.json())
             .then((data) => state.updateUser(data));
@@ -28,7 +27,7 @@ const Notifications = (props: Props) => {
         <div>
             <h1>Applied jobs</h1>
             {JSON.stringify(state.user)}
-            {/* {JSON.stringify(test)} */}
+            {/* <ListOfAppliedJobs /> */}
         </div>
     );
 };

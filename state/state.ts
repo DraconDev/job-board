@@ -19,6 +19,8 @@ export type AppState = {
     setSearchLocation: (searchLocation: string) => void;
     user: UserType;
     updateUser: (user: UserType) => void;
+    listOfAppliedJobs: Job[];
+    setListOfAppliedJobs: (listOfAppliedJobs: Job[]) => void;
 };
 
 export const useAppState = create<AppState>()(
@@ -84,7 +86,11 @@ export const useAppState = create<AppState>()(
                 ],
                 user: {},
                 updateUser: (user: UserType) => set({ user }),
+                listOfAppliedJobs: [],
+                setListOfAppliedJobs: (listOfAppliedJobs: Job[]) =>
+                    set({ listOfAppliedJobs }),
             }),
+
             {
                 name: "appState",
             }
