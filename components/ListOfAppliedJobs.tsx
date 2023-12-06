@@ -8,9 +8,10 @@ const ListOfAppliedJobs = (props: Props) => {
 
     useEffect(() => {
         const jobIds = state?.user?.jobs?.jobsApplied;
-        if (!jobIds || jobIds.length === 0) {
-            return;
-        }
+        // if (jobIds && jobIds.length > 0) {
+        //     return;
+        // }
+        console.log(jobIds, "JobIds");
 
         fetch("/api/find_job_by_id", {
             method: "POST",
@@ -24,7 +25,7 @@ const ListOfAppliedJobs = (props: Props) => {
                 state.setListOfAppliedJobs(data);
             })
             .catch((error) => console.error("Error fetching jobs:", error));
-    }, [state?.user?.jobs?.jobsApplied, state]);
+    }, [state?.user?.jobs?.jobsApplied]);
 
     // // map over state user applied jobs
     return (

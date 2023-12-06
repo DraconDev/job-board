@@ -16,13 +16,13 @@ const Notifications = (props: Props) => {
         if (!session?.data?.user?.email) {
             return;
         }
-        if (state.user) {
-            return;
-        }
+        // if (state.user) {
+        //     return;
+        // }
         fetch(`/api/fetchuserprofile?email=${session.data.user.email}`)
             .then((res) => res.json())
             .then((data) => state.updateUser(data));
-    }, [session?.data?.user?.email, state]);
+    }, [session?.data?.user?.email]);
 
     return (
         <div className="flex flex-col gap-1  h-full p-1 justify-center items-center">
