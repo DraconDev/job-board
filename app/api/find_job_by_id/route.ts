@@ -16,7 +16,13 @@ async function getJobsByIds(jobIds: [string]) {
 }
 
 // * get list of jobs by array of ids from server
-export async function GET(req: Request) {
+export async function POST(req: Request) {
     const { searchParams } = new URL(req.url);
     const jobIds = searchParams.get("jobIds");
+
+    if (!jobIds) {
+        throw new Error("Missing jobIds in the request");
+    }
+
+    return getJobsByIds(JSON.parse(jobIds));
 }

@@ -30,9 +30,9 @@ const ListOfAppliedJobs = (props: Props) => {
     return (
         <div>
             <div className="w-full h-[2px] bg-blue-600">
-                {state?.user?.jobs?.jobsApplied &&
-                    state.user.jobs.jobsApplied.map((job, index) => (
-                        <div key={index}>{}</div>
+                {state?.listOfAppliedJobs &&
+                    state.listOfAppliedJobs.map((job, index) => (
+                        <div key={index}>{job.title}</div>
                     ))}
             </div>
         </div>
