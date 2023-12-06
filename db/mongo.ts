@@ -124,3 +124,13 @@ export async function updateUser(user: UserType) {
         await mongoose.disconnect();
     }
 }
+
+export async function fetchUserBasedOnEmail({ email }: { email: string }) {
+    await mongoose.connect(uri);
+    try {
+        const user = await User.findOne({ email });
+        return user;
+    } finally {
+        await mongoose.disconnect();
+    }
+}
