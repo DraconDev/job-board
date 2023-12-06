@@ -19,20 +19,7 @@ export async function addJob(job: Job) {
 }
 
 // * fetch most recent jobs
-export async function fetchRecentJobs() {
-    await mongoose.connect(uri);
 
-    // serach by date
-
-    try {
-        // const jobs = await JobPost.find().sort({ date: -1 }).limit(50);
-        const jobs = await JobPost.find();
-
-        return jobs;
-    } finally {
-        await mongoose.disconnect();
-    }
-}
 
 type FilterType = {
     title: string;
