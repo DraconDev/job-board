@@ -15,6 +15,9 @@ const Notifications = (props: Props) => {
         if (!session?.data?.user?.email) {
             return;
         }
+        if (state.user) {
+            return;
+        }
         console.log("fetching user profile");
         fetch(`/api/fetchuserprofile?email=${session.data.user.email}`)
             .then((res) => res.json())

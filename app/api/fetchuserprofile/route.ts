@@ -13,7 +13,10 @@ async function fetchUser({ email }: { email: string }) {
 }
 
 export async function GET(req: Request) {
-    const email = req.headers.get("email");
+    // get email from next request
+    const { searchParams } = new URL(req.url);
+    const email = searchParams.get("email");
+
     if (email === null || email.length < 6) {
         throw new Error("Missing email in the request");
     }
