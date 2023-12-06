@@ -1,4 +1,4 @@
-import { Job } from "@/type/types";
+import { Job, UserType } from "@/type/types";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
@@ -17,6 +17,7 @@ export type AppState = {
     searchLocation: string;
     setSearchTitle: (searchTitle: string) => void;
     setSearchLocation: (searchLocation: string) => void;
+    user: UserType;
 };
 
 export const useAppState = create<AppState>()(
@@ -80,6 +81,7 @@ export const useAppState = create<AppState>()(
                     { id: 9, value: "90,000+" },
                     { id: 10, value: "100,000+" },
                 ],
+                user: {},
             }),
             {
                 name: "appState",
