@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const jobSchema = new Schema({
+export const jobSchema = new Schema({
     title: String,
     description: String,
     salaryMin: Number,
