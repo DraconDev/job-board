@@ -114,3 +114,13 @@ export async function registerUser(user: UserType) {
         await mongoose.disconnect();
     }
 }
+
+// * update user profile or create it
+export async function updateUser(user: UserType) {
+    await mongoose.connect(uri);
+    try {
+        await User.findOneAndUpdate({ email: user.email }, user);
+    } finally {
+        await mongoose.disconnect();
+    }
+}
