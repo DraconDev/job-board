@@ -12,7 +12,7 @@ const ListOfAppliedJobs = (props: Props) => {
             return;
         }
 
-        fetch("/api/find_job_by_ids", {
+        fetch("/api/find_job_by_id", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
