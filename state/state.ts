@@ -18,6 +18,7 @@ export type AppState = {
     setSearchTitle: (searchTitle: string) => void;
     setSearchLocation: (searchLocation: string) => void;
 };
+
 export const useAppState = create<AppState>()(
     devtools(
         persist(

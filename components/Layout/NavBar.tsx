@@ -10,9 +10,6 @@ import FetchJobsButton from "../search_jobs/FetchJobsButton";
 export default function NavBar() {
     const state = useAppState((state) => state);
 
-    // const [filterTitle, setFilterTitle] = useState("");
-    // const [filterLocation, setFilterLocation] = useState("");
-
     const handleKeyDown = (event: any) => {
         if (event.key === "Enter") {
             fetchRecentJobs();
