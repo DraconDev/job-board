@@ -12,14 +12,13 @@ const Notifications = (props: Props) => {
     // fetch user profile
 
     useEffect(() => {
-        session?.data?.user?.email &&
-            fetch(
-                `/api/fetchuserprofile?email=${encodeURIComponent(
-                    session.data.user.email
-                )}`
-            )
-                .then((res) => res.json())
-                .then((data) => state.updateUser(data));
+        if (!session?.data?.user?.email) {
+            return;
+        }
+        console.log("fetching user profile");
+        fetch(`/api/fetchuserprofile?email=${session.data.user.email}`)
+            .then((res) => res.json())
+            .then((data) => state.updateUser(data));
     }, [session?.data?.user?.email, state]);
 
     return (
