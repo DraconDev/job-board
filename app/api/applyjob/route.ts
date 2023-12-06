@@ -1,5 +1,13 @@
+import { User } from "@/db/schema";
+
 function applyJob({ _id, email }: { _id: string; email: string }) {
-    // fetchUpdateUser({ email } as UserType);
+    User.updateOne({ email: email }, { $push: { jobs: _id } }, { upsert: true })
+        .then((result) => {
+            // Handle success
+        })
+        .catch((error) => {
+            // Handle error
+        });
 
     return;
 }

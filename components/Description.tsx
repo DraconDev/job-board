@@ -1,12 +1,25 @@
 "use client";
 import { useAppState } from "@/state/state";
-import { applyJob } from "@/utils/applyJob";
+
 import { useSession } from "next-auth/react";
 import CustomButton from "./CustomButton";
 
 export default function Description() {
     const state = useAppState((state) => state);
     const session = useSession();
+
+    function handleApply() {
+        fetch("/api/applyjob", {
+            method: "POST", // or another HTTP method
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                _id: state?.activeJobPost?._id,
+                email: session.data?.user?.email,
+            }),
+        });
+    }
 
     return (
         state.activeJobPost && (
@@ -23,12 +36,8 @@ export default function Description() {
                     <CustomButton text="Save" />
                     <CustomButton
                         text="Apply"
-                        action={() =>
-                            applyJob({
-                                id: state?.activeJobPost?._id,
-                                email: session.data?.user?.email,
-                            })
-                        }
+                        action={handleApply}
+
                     />
                 </div>
             </div>

@@ -17,3 +17,5 @@ function fetchUpdateUser(props: UserType) {
         body: JSON.stringify(profile),
     });
 }
+
+// TODO redo page
