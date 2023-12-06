@@ -1,20 +1,21 @@
-import { userSchema } from "@/db/schema";
+import { UserType } from "@/type/types";
+import { useSession } from "next-auth/react";
 
 type Props = {
     id: string;
 };
 
-function applyJob(params: Props) {
+function useApplyJob() {
+    const session = useSession();
     function fetchUpdateUser() {
         // * fetch update user of user type
-        const profile = userSchema;
-        profile.
-        profile.fetch("/api/updateuser", {
+        const profile = { email: session.data?.user?.email } as UserType;
+        fetch("/api/updateuser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(params),
+            body: JSON.stringify(profile),
         });
     }
     fetchUpdateUser();
