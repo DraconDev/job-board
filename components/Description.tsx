@@ -1,10 +1,12 @@
 "use client";
 import { useAppState } from "@/state/state";
-import { useApplyJob } from "@/utils/applyJob";
+import { applyJob } from "@/utils/applyJob";
+import { useSession } from "next-auth/react";
 import CustomButton from "./CustomButton";
 
 export default function Description() {
     const state = useAppState((state) => state);
+    const session = useSession();
 
     return (
         state.activeJobPost && (
@@ -21,7 +23,12 @@ export default function Description() {
                     <CustomButton text="Save" />
                     <CustomButton
                         text="Apply"
-                        action={useApplyJob}
+                        action={() =>
+                            applyJob({
+                                id: state?.activeJobPost?._id,
+                                email: session.data?.user?.email,
+                            })
+                        }
                     />
                 </div>
             </div>
