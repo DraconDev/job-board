@@ -1,15 +1,22 @@
+import { uri } from "@/db/mongo";
 import { User } from "@/db/schema";
+import mongoose from "mongoose";
 
-function applyJob({ _id, email }: { _id: string; email: string }) {
-    User.updateOne({ email: email }, { $push: { jobs: _id } }, { upsert: true })
-        .then((result) => {
-            // Handle success
-        })
-        .catch((error) => {
-            // Handle error
-        });
-
-    return;
+async function applyJob({ _id, email }: { _id: string; email: string }) {
+    await mongoose.connect(uri);
+    try {
+        await User.updateOne(
+            { email: email },
+            {
+                $addToSet: {
+                    "jobs.jobsApplied": new mongoose.Types.ObjectId(_id),
+                },
+            },
+            { upsert: true }
+        );
+    } finally {
+        await mongoose.disconnect();
+    }
 }
 
 export async function POST(req: Request) {
@@ -17,7 +24,7 @@ export async function POST(req: Request) {
     // get email and id front request
     const { _id, email } = data as { _id: string; email: string };
     if (!_id && !email) {
-        return;
+        throw new Error("Missing _id or email in the request");
     }
     applyJob({ _id, email });
 }

@@ -2,7 +2,7 @@ import { Job, UserType } from "@/type/types";
 import mongoose from "mongoose";
 import { JobPost, User } from "./schema";
 
-const uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.cc5lbfe.mongodb.net/?retryWrites=true&w=majority`;
+export const uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.cc5lbfe.mongodb.net/?retryWrites=true&w=majority`;
 
 // async function connectDb() {
 //     await mongoose.connect(uri);

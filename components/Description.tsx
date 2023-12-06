@@ -37,7 +37,6 @@ export default function Description() {
                     <CustomButton
                         text="Apply"
                         action={handleApply}
-
                     />
                 </div>
             </div>
