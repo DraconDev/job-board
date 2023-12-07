@@ -2,6 +2,7 @@
 import { useAppState } from "@/state/state";
 import { useState } from "react";
 import useSWR from "swr";
+import ListOfAppliedJobs from "./ListOfAppliedJobs";
 
 type Props = {};
 
@@ -48,47 +49,10 @@ const AllNotifications = (props: Props) => {
 
     const [fetching, setFetching] = useState(false);
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (!state?.user?.jobs?.jobsApplied) {
-    //             return;
-    //         }
-    //         if (fetching) {
-    //             return;
-    //         }
-    //         setFetching(true);
-
-    //         const jobIds = state.user.jobs.jobsApplied;
-    //         console.log(jobIds, "JobIds");
-
-    //         try {
-    //             const response = await fetch("/api/find_job_by_id", {
-    //                 method: "POST",
-    //                 headers: {
-    //                     "Content-Type": "application/json",
-    //                 },
-    //                 body: JSON.stringify({ ids: jobIds }),
-    //             });
-
-    //             if (!response.ok) {
-    //                 throw new Error(`HTTP error! Status: ${response.status}`);
-    //             }
-
-    //             const data = await response.json();
-    //             state.setListOfAppliedJobs(data);
-    //             setFetching(false);
-    //         } catch (error) {
-    //             console.error("Error fetching jobs:", error);
-    //         }
-    //     };
-
-    //     fetchData();
-    // }, []);
-
     // // map over state user applied jobs
     return (
         <div>
-            <AllNotifications />
+            <ListOfAppliedJobs />
         </div>
     );
 };

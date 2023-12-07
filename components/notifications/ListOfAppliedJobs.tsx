@@ -1,6 +1,6 @@
 "use client";
 import { useAppState } from "@/state/state";
-import JobCard from "../JobCard";
+import NotificationsCard from "./NotificationsCard";
 
 type Props = {};
 
@@ -12,7 +12,7 @@ const ListOfApplications = (props: Props) => {
                 {state?.listOfAppliedJobs &&
                     state?.listOfAppliedJobs.length > 0 &&
                     state.listOfAppliedJobs.map((job, index) => (
-                        <JobCard
+                        <NotificationsCard
                             key={index}
                             job={job}
                         />
