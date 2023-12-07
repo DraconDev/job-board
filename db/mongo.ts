@@ -1,17 +1,18 @@
-import { Job, UserType } from "@/type/types";
+import { UserType } from "@/type/types";
 import mongoose from "mongoose";
 import { JobPost, User } from "./schema";
 
 export const uri = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.cc5lbfe.mongodb.net/?retryWrites=true&w=majority`;
 
-// async function connectDb() {
-//     await mongoose.connect(uri);
-// }
+export async function connectDb() {
+    await mongoose.connect(uri);
+}
 
-
+export async function disconnectDb() {
+    await mongoose.disconnect();
+}
 
 // * fetch most recent jobs
-
 
 type FilterType = {
     title: string;
