@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 export const jobSchema = new Schema({
-    _id: String,
+    _id: Schema.Types.ObjectId,
     title: String,
     description: String,
     salaryMin: Number,
