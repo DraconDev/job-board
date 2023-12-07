@@ -1,6 +1,7 @@
 import { JobType, UserType } from "@/type/types";
+import zukeeper from "zukeeper";
 import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { persist } from "zustand/middleware";
 
 export type AppState = {
     experience: { id: number; value: string }[];
@@ -24,7 +25,7 @@ export type AppState = {
 };
 
 export const useAppState = create<AppState>()(
-    devtools(
+    zukeeper(
         persist(
             (set) => ({
                 activeJobPost: undefined,
@@ -34,10 +35,10 @@ export const useAppState = create<AppState>()(
                 setJobList: (jobList: JobType[]) => set({ jobList }),
                 searchTitle: "",
                 setSearchTitle: (searchTitle: string) =>
-                    set((state) => ({ searchTitle })),
+                    set((state: AppState) => ({ searchTitle })),
                 searchLocation: "",
                 setSearchLocation: (searchLocation: string) =>
-                    set((state) => ({ searchLocation })),
+                    set((state: AppState) => ({ searchLocation })),
 
                 selectedOptions: {
                     experience: "Any role",
@@ -45,8 +46,8 @@ export const useAppState = create<AppState>()(
                     jobLocation: "Any location",
                     salary: "Any salary",
                 },
-                setSelectedOptions: (key, value) =>
-                    set((state) => ({
+                setSelectedOptions: (key: string, value: string) =>
+                    set((state: AppState) => ({
                         selectedOptions: {
                             ...state.selectedOptions,
                             [key]: value,
@@ -88,8 +89,8 @@ export const useAppState = create<AppState>()(
                 user: {},
                 updateUser: (user: UserType) => set({ user }),
                 listOfAppliedJobs: [],
-                setListOfAppliedJobs: (jobs) =>
-                    set((state) => ({ listOfAppliedJobs: jobs })),
+                setListOfAppliedJobs: (jobs: JobType) =>
+                    set((state: AppState) => ({ listOfAppliedJobs: jobs })),
             }),
 
             {

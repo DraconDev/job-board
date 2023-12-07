@@ -22,9 +22,10 @@ async function getJobsByIds({ jobIds }: { jobIds: string[] }) {
         // const objectId = new mongoose.Types.ObjectId(jobIds);
 
         // const jobs = await JobPost.find({ _id: { $in: objectIds } });
-        const jobs = await JobPost.findById(jobIds[0]);
+        const jobs = await JobPost.findById(jobIds);
 
-        // const jobs = await JobPost.find();
+        // const jobs = await JobPost.findById(jobIds[0]);
+
 
         return jobs;
     } catch (error) {
