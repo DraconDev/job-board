@@ -13,19 +13,16 @@ async function getJobsByIds({ jobIds }: { jobIds: string[] }) {
         throw new Error("Failed to connect to MongoDB.");
     }
     try {
-        // connectDb();
+        // * works single id
+        // const jobs = await JobPost.findById(jobIds[0]);
 
+        // * works multiple ids
         // const objectIds = jobIds.map((id) => {
         //     return new mongoose.Types.ObjectId(id);
         // });
+        // const jobs2 = await JobPost.find({ _id: { $in: objectIds } });
 
-        // const objectId = new mongoose.Types.ObjectId(jobIds);
-
-        // const jobs = await JobPost.find({ _id: { $in: objectIds } });
-        const jobs = await JobPost.findById(jobIds);
-
-        // const jobs = await JobPost.findById(jobIds[0]);
-
+        const jobs = await JobPost.find({ _id: { $in: jobIds } });
 
         return jobs;
     } catch (error) {
