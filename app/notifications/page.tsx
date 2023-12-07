@@ -1,5 +1,5 @@
 "use client";
-import ListOfAppliedJobs from "@/components/ListOfAppliedJobs";
+import ListOfAppliedJobs from "@/components/notifications/ListOfAppliedJobs";
 import { useAppState } from "@/state/state";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";

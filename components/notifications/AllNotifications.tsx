@@ -5,7 +5,7 @@ import useSWR from "swr";
 
 type Props = {};
 
-const ListOfAppliedJobs = (props: Props) => {
+const AllNotifications = (props: Props) => {
     const state = useAppState((state) => state);
 
     const fetchData = async () => {
@@ -88,15 +88,9 @@ const ListOfAppliedJobs = (props: Props) => {
     // // map over state user applied jobs
     return (
         <div>
-            <div className="w-full h-[2px] bg-blue-600">
-                {false &&
-                    state?.listOfAppliedJobs &&
-                    state.listOfAppliedJobs.map((job, index) => (
-                        <div key={index}>{/* {job.title} */}</div>
-                    ))}
-            </div>
+            <AllNotifications />
         </div>
     );
 };
 
-export default ListOfAppliedJobs;
+export default AllNotifications;
