@@ -4,9 +4,7 @@ import { useState } from "react";
 import useSWR from "swr";
 import ListOfAppliedJobs from "./ListOfAppliedJobs";
 
-type Props = {};
-
-const AllNotifications = (props: Props) => {
+const AllNotifications = () => {
     const state = useAppState((state) => state);
 
     const fetchData = async () => {
@@ -44,7 +42,7 @@ const AllNotifications = (props: Props) => {
 
     const { data } = useSWR("/api/find_job_by_id", fetchData, {
         revalidateOnMount: true,
-        revalidateInterval: 60000, // Fetch data every 5 seconds
+        revalidateInterval: 60000, // Fetch data every minute
     });
 
     const [fetching, setFetching] = useState(false);
@@ -52,6 +50,7 @@ const AllNotifications = (props: Props) => {
     // // map over state user applied jobs
     return (
         <div>
+            
             <ListOfAppliedJobs />
         </div>
     );

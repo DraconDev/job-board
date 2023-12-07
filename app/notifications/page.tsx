@@ -49,10 +49,10 @@ const Notifications = (props: Props) => {
     }, [session?.data?.user?.email]);
 
     return (
-        <div className="flex flex-col gap-1  h-full p-1 justify-center items-center">
-            <h1>Notifications</h1>
-            {JSON.stringify(state.user)}
-            <h1>Applied jobs</h1>
+        <div className="flex flex-col gap-2  h-full p-1 justify-center items-center">
+            <h2 className="text-2xl ">Notifications</h2>
+            <div className="text-gray-400"> No current notifications</div>
+
             <AllNotifications />
         </div>
     );
