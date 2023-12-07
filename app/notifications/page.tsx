@@ -1,5 +1,6 @@
 "use client";
-import ListOfAppliedJobs from "@/components/notifications/ListOfAppliedJobs";
+
+import AllNotifications from "@/components/notifications/AllNotifications";
 import { useAppState } from "@/state/state";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
@@ -52,7 +53,7 @@ const Notifications = (props: Props) => {
             <h1>Notifications</h1>
             {JSON.stringify(state.user)}
             <h1>Applied jobs</h1>
-            <ListOfAppliedJobs />
+            <AllNotifications />
         </div>
     );
 };
