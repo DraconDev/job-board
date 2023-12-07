@@ -1,3 +1,4 @@
+"use client";
 import { useAppState } from "@/state/state";
 import { useEffect } from "react";
 
@@ -7,16 +8,20 @@ const ListOfAppliedJobs = (props: Props) => {
     const state = useAppState((state) => state);
 
     useEffect(() => {
-        const jobIds = state?.user?.jobs?.jobsApplied;
-        if (!jobIds || jobIds.length === 0) {
+        if (!state?.user?.jobs?.jobsApplied) {
             return;
         }
+        const jobIds = state.user.jobs.jobsApplied;
+
         console.log(jobIds, "JobIds");
 
         fetch("/api/find_job_by_id", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+            },
+            next: {
+                revalidate: 10,
             },
             body: JSON.stringify({ ids: jobIds }),
         })

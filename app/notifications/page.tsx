@@ -19,7 +19,11 @@ const Notifications = (props: Props) => {
         // if (state.user) {
         //     return;
         // }
-        fetch(`/api/fetchuserprofile?email=${session.data.user.email}`)
+        fetch(`/api/fetchuserprofile?email=${session.data.user.email}`, {
+            next: {
+                revalidate: 120,
+            },
+        })
             .then((res) => res.json())
             .then((data) => state.updateUser(data));
     }, [session?.data?.user?.email]);

@@ -5,12 +5,15 @@ async function getJobsByIds(jobIds: string[]) {
     await mongoose.connection;
 
     try {
-        // const objectIds = jobIds.map((id) => new mongoose.Types.ObjectId(id));
+        // const objectIds = await jobIds.map((id) => {
+        //     let temp = new mongoose.Types.ObjectId(id);
+        //     return temp;
+        // });
 
         // const jobsList = await JobPost.find({ _id: { $in: objectIds } });
-        const jobsList = await JobPost.find({ _id: { $in: jobIds } });
+        const jobs = await JobPost.find({ _id: { $in: jobIds } });
 
-        return jobsList;
+        return jobs;
     } catch (error) {
         console.error("Error fetching jobs:", error);
         throw error;
