@@ -1,11 +1,11 @@
 import { useAppState } from "@/state/state";
-import { Job } from "@/type/types";
+import { JobType } from "@/type/types";
 import { useState } from "react";
 import { FaMoneyBillAlt } from "react-icons/fa";
 import Description from "./Description";
 import MobileSlideWrapper from "./mobile/MobileSlideWrapper";
 
-const JobCard = ({ job }: { job: Job }) => {
+const JobCard = ({ job }: { job: JobType }) => {
     const state = useAppState((state) => state);
 
     const [isJobSidebarOpen, setIsJobSidebarOpen] = useState(false);

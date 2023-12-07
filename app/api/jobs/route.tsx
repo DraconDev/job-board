@@ -1,9 +1,9 @@
 import { uri } from "@/db/mongo";
 import { JobPost } from "@/db/schema";
-import { Job } from "@/type/types";
+import { JobType } from "@/type/types";
 import mongoose from "mongoose";
 
-async function addJob(job: Job) {
+async function addJob(job: JobType) {
     console.log(job);
     await mongoose.connect(uri);
     try {
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
         jobType,
         company,
         experience,
-    } = (await data) as Job;
+    } = (await data) as JobType;
 
     addJob({
         title,

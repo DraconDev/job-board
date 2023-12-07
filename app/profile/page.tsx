@@ -1,3 +1,4 @@
+"use client";
 import BuildCV from "@/components/CV/BuildCV";
 
 type Props = {};

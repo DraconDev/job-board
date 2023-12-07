@@ -1,4 +1,4 @@
-import { Job, UserType } from "@/type/types";
+import { JobType, UserType } from "@/type/types";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
@@ -9,10 +9,10 @@ export type AppState = {
     salary: { id: number; value: string }[];
     selectedOptions: Record<string, string>;
     setSelectedOptions: (key: string, value: string) => void;
-    jobList: Job[];
-    setJobList: (jobList: Job[]) => void;
-    activeJobPost?: Job;
-    updateActiveJobPost: (job: Job) => void;
+    jobList: JobType[];
+    setJobList: (jobList: JobType[]) => void;
+    activeJobPost?: JobType;
+    updateActiveJobPost: (job: JobType) => void;
     searchTitle: string;
     searchLocation: string;
     setSearchTitle: (searchTitle: string) => void;
@@ -28,9 +28,10 @@ export const useAppState = create<AppState>()(
         persist(
             (set) => ({
                 activeJobPost: undefined,
-                updateActiveJobPost: (job: Job) => set({ activeJobPost: job }),
+                updateActiveJobPost: (job: JobType) =>
+                    set({ activeJobPost: job }),
                 jobList: [],
-                setJobList: (jobList: Job[]) => set({ jobList }),
+                setJobList: (jobList: JobType[]) => set({ jobList }),
                 searchTitle: "",
                 setSearchTitle: (searchTitle: string) =>
                     set((state) => ({ searchTitle })),

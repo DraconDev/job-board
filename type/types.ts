@@ -13,6 +13,6 @@ import mongoose from "mongoose";
 //     experience: string;
 // }
 
-export type Job = mongoose.InferSchemaType<typeof jobSchema>;
+export type JobType = mongoose.InferSchemaType<typeof jobSchema>;
 
 export type UserType = mongoose.InferSchemaType<typeof userSchema>;

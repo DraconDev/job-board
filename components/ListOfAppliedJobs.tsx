@@ -8,28 +8,35 @@ const ListOfAppliedJobs = (props: Props) => {
     const state = useAppState((state) => state);
 
     useEffect(() => {
-        if (!state?.user?.jobs?.jobsApplied) {
-            return;
-        }
-        const jobIds = state.user.jobs.jobsApplied;
+        const fetchData = async () => {
+            if (!state?.user?.jobs?.jobsApplied) {
+                return;
+            }
 
-        console.log(jobIds, "JobIds");
+            const jobIds = state.user.jobs.jobsApplied;
+            console.log(jobIds, "JobIds");
 
-        fetch("/api/find_job_by_id", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            next: {
-                revalidate: 10,
-            },
-            body: JSON.stringify({ ids: jobIds }),
-        })
-            .then((response) => response.json())
-            .then((data) => {
+            try {
+                const response = await fetch("/api/find_job_by_id", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ ids: jobIds }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
                 state.setListOfAppliedJobs(data);
-            })
-            .catch((error) => console.error("Error fetching jobs:", error));
+            } catch (error) {
+                console.error("Error fetching jobs:", error);
+            }
+        };
+
+        fetchData();
     }, [state?.user?.jobs?.jobsApplied]);
 
     // // map over state user applied jobs

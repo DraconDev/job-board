@@ -11,21 +11,26 @@ export default function JobContainer() {
     const [isClient, setIsClient] = useState(false);
     const router = useRouter();
 
-    async function fetchRecentJobs() {
-        const jobs = await fetch("/api/joblist");
-        const data = await jobs.json();
-        state.setJobList([...data]);
-        state.activeJobPost = data[0];
-        router.push("/");
-    }
-
-    if (state.jobList.length == 0) {
-        fetchRecentJobs();
-    }
-
     useEffect(() => {
         setIsClient(true);
-    }, []);
+
+        async function fetchRecentJobs() {
+            try {
+                const jobs = await fetch("/api/joblist");
+                const data = await jobs.json();
+                state.setJobList([...data]);
+                state.activeJobPost = data[0];
+                router.push("/");
+            } catch (error) {
+                console.error("Error fetching recent jobs:", error);
+                // Handle the error as needed
+            }
+        }
+
+        if (state.jobList.length === 0) {
+            fetchRecentJobs();
+        }
+    }, []); // Empty dependency array to run only once on mount
 
     return state.jobList.length == 0 || !isClient ? (
         <div className="flex flex-col w-full h-full gap-2">

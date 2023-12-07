@@ -13,19 +13,34 @@ const Notifications = (props: Props) => {
     // fetch user profile
 
     useEffect(() => {
-        if (!session?.data?.user?.email) {
-            return;
-        }
-        // if (state.user) {
-        //     return;
-        // }
-        fetch(`/api/fetchuserprofile?email=${session.data.user.email}`, {
-            next: {
-                revalidate: 120,
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => state.updateUser(data));
+        const fetchData = async () => {
+            if (!session?.data?.user?.email) {
+                return;
+            }
+
+            try {
+                const res = await fetch(
+                    `/api/fetchuserprofile?email=${session.data.user.email}`,
+                    {
+                        next: {
+                            revalidate: 120,
+                        },
+                    }
+                );
+
+                if (!res.ok) {
+                    throw new Error("Failed to fetch user profile");
+                }
+
+                const data = await res.json();
+                state.updateUser(data);
+            } catch (error) {
+                console.error("Error fetching user profile:", error);
+                // Handle the error as needed
+            }
+        };
+
+        fetchData();
     }, [session?.data?.user?.email]);
 
     return (
