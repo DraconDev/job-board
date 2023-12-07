@@ -1,7 +1,6 @@
 import { JobType, UserType } from "@/type/types";
-import zukeeper from "zukeeper";
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { devtools, persist } from "zustand/middleware";
 
 export type AppState = {
     experience: { id: number; value: string }[];
@@ -20,12 +19,12 @@ export type AppState = {
     setSearchLocation: (searchLocation: string) => void;
     user: UserType;
     updateUser: (user: UserType) => void;
-    listOfAppliedJobs: string[];
-    setListOfAppliedJobs: (listOfAppliedJobs: string[]) => void;
+    listOfAppliedJobs: JobType[];
+    setListOfAppliedJobs: (listOfAppliedJobs: JobType[]) => void;
 };
 
 export const useAppState = create<AppState>()(
-    zukeeper(
+    devtools(
         persist(
             (set) => ({
                 activeJobPost: undefined,
@@ -89,8 +88,8 @@ export const useAppState = create<AppState>()(
                 user: {},
                 updateUser: (user: UserType) => set({ user }),
                 listOfAppliedJobs: [],
-                setListOfAppliedJobs: (jobs: JobType) =>
-                    set((state: AppState) => ({ listOfAppliedJobs: jobs })),
+                setListOfAppliedJobs: (jobs: JobType[]) =>
+                    set({ listOfAppliedJobs: jobs }),
             }),
 
             {
