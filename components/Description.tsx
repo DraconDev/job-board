@@ -2,6 +2,7 @@
 import { useAppState } from "@/state/state";
 
 import { useSession } from "next-auth/react";
+import { FaMoneyBillAlt } from "react-icons/fa";
 import CustomButton from "./CustomButton";
 
 export default function Description() {
@@ -29,7 +30,27 @@ export default function Description() {
                         {state?.activeJobPost?.title}
                     </h2>
                     <div className="w-full h-[2px] bg-blue-600"></div>
-                    <div className="">{state?.activeJobPost?.description}</div>
+                    <div className="gap-3">
+                        <div className="text-gl flex gap-2 items-center ">
+                            <div className="div p-1">
+                                <FaMoneyBillAlt />
+                            </div>
+                            <div className="div p-1">
+                                {state.activeJobPost?.salaryMin}-
+                                {state.activeJobPost?.salaryMax}
+                            </div>
+
+                            <div className=" bg-accent px-2 rounded-sm">
+                                {state.activeJobPost?.jobType}
+                            </div>
+                            <div className="bg-accent px-2 rounded-sm">
+                                {state.activeJobPost?.role}
+                            </div>
+                        </div>
+                        <div className="">
+                            {state?.activeJobPost?.description}
+                        </div>
+                    </div>
                 </div>
 
                 <div className="flex gap-1">

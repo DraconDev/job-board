@@ -84,26 +84,7 @@ export async function fetchJobsByFilter(filter: FilterType) {
     }
 }
 
-// * register user with CV
-export async function registerUser(user: UserType) {
-    console.log(user);
-    await mongoose.connect(uri);
-    try {
-        await User.create(user);
-    } finally {
-        await mongoose.disconnect();
-    }
-}
 
-// * update user profile or create it
-export async function updateUser(user: UserType) {
-    await mongoose.connect(uri);
-    try {
-        await User.findOneAndUpdate({ email: user.email });
-    } finally {
-        await mongoose.disconnect();
-    }
-}
 
 export async function fetchUserBasedOnEmail({ email }: { email: string }) {
     await mongoose.connect(uri);
