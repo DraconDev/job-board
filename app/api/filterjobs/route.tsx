@@ -5,7 +5,7 @@ export async function GET(request: Request) {
 
     const title = searchParams.get("title");
     const location = searchParams.get("location");
-    const experience = searchParams.get("experience");
+    const role = searchParams.get("role");
     const date = searchParams.get("date");
     const salary = searchParams.get("salary");
     const jobLocation = searchParams.get("jobLocation");
@@ -13,7 +13,7 @@ export async function GET(request: Request) {
     const jobs = await fetchJobsByFilter({
         title: title ?? "",
         location: location ?? "",
-        experience: experience ?? "",
+        role: role ?? "",
         date: date ?? "",
         salary: salary ?? "",
         jobLocation: jobLocation ?? "",

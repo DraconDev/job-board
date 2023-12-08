@@ -17,7 +17,7 @@ export async function disconnectDb() {
 type FilterType = {
     title: string;
     location?: string;
-    experience?: string;
+    role?: string;
     date?: string;
     salary: string;
     jobLocation?: string;
@@ -37,9 +37,9 @@ export async function fetchJobsByFilter(filter: FilterType) {
         query.location = { $regex: filter.location, $options: "i" };
     }
 
-    if (filter.experience !== undefined && filter.experience !== "") {
-        query.experience = {
-            $gte: filter.experience,
+    if (filter.role !== undefined && filter.role !== "") {
+        query.role = {
+            $gte: filter.role,
         };
     }
 

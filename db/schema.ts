@@ -10,7 +10,7 @@ export const jobSchema = new Schema({
     date: Date, // -
     jobType: String, //
     company: String, //
-    experience: String, // !
+    role: String, // !
 });
 
 export const JobPost = mongoose.model("Job", jobSchema);

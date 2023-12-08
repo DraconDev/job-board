@@ -13,10 +13,10 @@ export async function searchJobs(state: AppState) {
     }
 
     if (
-        state.selectedOptions.experience &&
-        state.selectedOptions.experience !== "Any role"
+        state.selectedOptions.role &&
+        state.selectedOptions.role !== "Any role"
     ) {
-        queryParams.append("experience", state.selectedOptions.experience);
+        queryParams.append("role", state.selectedOptions.role);
     }
 
     if (

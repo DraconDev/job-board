@@ -93,9 +93,9 @@ export default function PostJob() {
                             name="jobType"
                         />
                         <ListBoxCustom
-                            type={state.experience}
-                            {...register("experience")}
-                            name="experience"
+                            type={state.role}
+                            {...register("role")}
+                            name="role"
                         />
                         <button
                             type="submit"

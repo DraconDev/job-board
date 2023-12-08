@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
 export type AppState = {
-    experience: { id: number; value: string }[];
+    role: { id: number; value: string }[];
     date: { id: number; value: string }[];
     jobType: { id: number; value: string }[];
     salary: { id: number; value: string }[];
@@ -40,7 +40,7 @@ export const useAppState = create<AppState>()(
                     set((state: AppState) => ({ searchLocation })),
 
                 selectedOptions: {
-                    experience: "Any role",
+                    role: "Any role",
                     date: "Any time",
                     jobLocation: "Any location",
                     salary: "Any salary",
@@ -52,7 +52,7 @@ export const useAppState = create<AppState>()(
                             [key]: value,
                         },
                     })),
-                experience: [
+                role: [
                     { id: 1, value: "Any role" },
                     { id: 2, value: "Internship" },
                     { id: 3, value: "Entry level" },
