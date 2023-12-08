@@ -2,7 +2,7 @@ import { uri } from "@/db/mongo";
 import { JobPost } from "@/db/schema";
 import mongoose from "mongoose";
 
-export async function fetchRecentJobs() {
+async function fetchRecentJobs() {
     await mongoose.connect(uri);
 
     // serach by date
