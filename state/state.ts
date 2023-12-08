@@ -3,10 +3,11 @@ import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
 export type AppState = {
-    role: { id: number; value: string }[];
-    date: { id: number; value: string }[];
-    jobType: { id: number; value: string }[];
-    salary: { id: number; value: string }[];
+    role: string[];
+    date: string[];
+    jobType: string[];
+    salary: string[];
+    experience: string[];
     selectedOptions: Record<string, string>;
     setSelectedOptions: (key: string, value: string) => void;
     jobList: JobType[];
@@ -21,7 +22,6 @@ export type AppState = {
     updateUser: (user: UserType) => void;
     listOfAppliedJobs: JobType[];
     setListOfAppliedJobs: (listOfAppliedJobs: JobType[]) => void;
-    experience: { id: number; value: string }[];
 };
 
 export const useAppState = create<AppState>()(
@@ -56,50 +56,29 @@ export const useAppState = create<AppState>()(
                         },
                     })),
                 role: [
-                    { id: 1, value: "Any role" },
-                    { id: 2, value: "Internship" },
-                    { id: 3, value: "Entry level" },
-                    { id: 4, value: "Associate" },
-                    { id: 5, value: "Mid-Senior level" },
-                    { id: 6, value: "Director" },
-                    { id: 7, value: "Executive" },
+                    "Any role",
+                    "Internship",
+                    "Entry level",
+                    "Associate",
+                    "Mid-Senior level",
+                    "Director",
+                    "Executive",
                 ],
-                date: [
-                    { id: 1, value: "Any time" },
-                    { id: 2, value: "Past day" },
-                    { id: 3, value: "Past week" },
-                    { id: 4, value: "Past month" },
-                ],
-                jobType: [
-                    { id: 1, value: "Any location" },
-                    { id: 2, value: "Remote" },
-                    { id: 3, value: "Hybrid" },
-                    { id: 4, value: "On-site" },
-                ],
+                date: ["Any time", "Past day", "Past week", "Past month"],
+                jobType: ["Any location", "Remote", "Hybrid", "On-site"],
                 salary: [
-                    { id: 1, value: "Any salary" },
-                    { id: 2, value: "20,000+" },
-                    { id: 3, value: "30,000+" },
-                    { id: 4, value: "40,000+" },
-                    { id: 5, value: "50,000+" },
-                    { id: 6, value: "60,000+" },
-                    { id: 7, value: "70,000+" },
-                    { id: 8, value: "80,000+" },
-                    { id: 9, value: "90,000+" },
-                    { id: 10, value: "100,000+" },
+                    "Any salary",
+                    "20,000+",
+                    "30,000+",
+                    "40,000+",
+                    "50,000+",
+                    "60,000+",
+                    "70,000+",
+                    "80,000+",
+                    "90,000+",
+                    "100,000+",
                 ],
-                experience: [
-                    { id: 1, value: "1" },
-                    { id: 2, value: "2" },
-                    { id: 3, value: "3" },
-                    { id: 4, value: "4" },
-                    { id: 5, value: "5" },
-                    { id: 6, value: "6" },
-                    { id: 7, value: "7" },
-                    { id: 8, value: "8" },
-                    { id: 9, value: "9" },
-                    { id: 10, value: "10" },
-                ],
+                experience: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
                 user: {},
                 updateUser: (user: UserType) => set({ user }),
                 listOfAppliedJobs: [],

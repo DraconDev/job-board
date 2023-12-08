@@ -4,10 +4,7 @@ import { Listbox } from "@headlessui/react";
 
 type listOptions = {
     name: string;
-    type: {
-        id: number;
-        value: string;
-    }[];
+    type: string[];
 };
 
 const ListBoxCustom = ({ type, name }: listOptions) => {
@@ -23,21 +20,13 @@ const ListBoxCustom = ({ type, name }: listOptions) => {
         <div className="relative inline-block justify-center items-center rounded-3xl text-black min-w-60 w-full">
             <Listbox
                 value={state.selectedOptions[name]}
-                // onChange={(value: string) => {
-                //     setSelectedOptions(name, value);
-                // }}
-                onChange={(newValue) => {
-                    console.log(newValue);
-                    setSelectedOptions(name, newValue);
+                onChange={(choice: string) => {
+                    setSelectedOptions(name, choice);
                 }}
             >
                 <div className="relative">
                     <Listbox.Button className="py-2 px-4 bg-white border rounded-md shadow-sm w-full flex justify-between items-center w-50 ">
-                        <span>
-                            {state.selectedOptions[name]
-                                ? state.selectedOptions[name]
-                                : "Missing"}
-                        </span>
+                        <span>{state.selectedOptions[name]}</span>
                         <svg
                             className="w-5 h-5 text-gray-400"
                             fill="none"
@@ -61,18 +50,15 @@ const ListBoxCustom = ({ type, name }: listOptions) => {
                             marginTop: "10px",
                         }}
                     >
-                        {type.map((field) => (
+                        {type.map((field, index) => (
                             <Listbox.Option
-                                key={field.id}
+                                key={index}
                                 value={field}
                                 className="py-2 px-4 hover:bg-gray-200 flex justify-between items-center"
-                                onClick={() =>
-                                    setSelectedOptions(name, field.value)
-                                }
+                                onClick={() => setSelectedOptions(name, field)}
                             >
-                                <span>{field.value}</span>
-                                {state.selectedOptions[name] ===
-                                    field.value && (
+                                <span>{field}</span>
+                                {state.selectedOptions[name] === field && (
                                     <svg
                                         className="w-5 h-5 text-blue-600"
                                         fill="none"
