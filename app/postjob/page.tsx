@@ -8,10 +8,12 @@ import { SubmitHandler, useForm } from "react-hook-form";
 export default function PostJob() {
     const { register, handleSubmit } = useForm();
 
-    const [formExperience, setFormExperience] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const onSubmit: SubmitHandler<any> = async (data) => {
         const currentDate = new Date();
+        if (submitting) {
+            return;
+        }
         setSubmitting(true);
         try {
             const response = await fetch("/api/jobs", {
@@ -19,7 +21,13 @@ export default function PostJob() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ ...data, date: currentDate }),
+                body: JSON.stringify({
+                    ...data,
+                    date: currentDate,
+                    experience: state.selectedOptions["experience"],
+                    jobType: state.selectedOptions["jobType"],
+                    role: state.selectedOptions["role"],
+                }),
             });
 
             if (response.ok) {
@@ -32,10 +40,6 @@ export default function PostJob() {
         }
 
         setSubmitting(false);
-    };
-
-    const handleExperienceChange = (selectedOption: any) => {
-        setFormExperience(selectedOption.value);
     };
 
     const state = useAppState((state) => state);
@@ -86,17 +90,14 @@ export default function PostJob() {
                         <h1 className="text-xl text-white">Experience</h1>
                         <ListBoxCustom
                             type={state.experience}
-                            {...register("experience")}
                             name="experience"
                         />
                         <ListBoxCustom
                             type={state.jobType}
-                            {...register("jobType")}
                             name="jobType"
                         />
                         <ListBoxCustom
                             type={state.role}
-                            {...register("role")}
                             name="role"
                         />
                         <button

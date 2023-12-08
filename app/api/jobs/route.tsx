@@ -26,7 +26,26 @@ export async function POST(request: Request) {
         company,
         role,
         experience,
-    } = (await data) as JobType;
+    } = await data;
+
+    if (
+        !title ||
+        !description ||
+        !city ||
+        !salaryMin ||
+        !salaryMax ||
+        !date ||
+        !jobType ||
+        !company ||
+        !role ||
+        !experience
+    ) {
+        return new Response("Missing required fields", { status: 400 });
+    }
+
+    if (parseInt(salaryMin) > parseInt(salaryMax)) {
+        return new Response("Invalid salary range", { status: 400 });
+    }
 
     addJob({
         title,
