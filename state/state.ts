@@ -45,6 +45,8 @@ export const useAppState = create<AppState>()(
                     date: "Any time",
                     jobLocation: "Any location",
                     salary: "Any salary",
+                    jobType: "Any type",
+                    experience: "1",
                 },
                 setSelectedOptions: (key: string, value: string) =>
                     set((state: AppState) => ({

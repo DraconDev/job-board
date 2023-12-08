@@ -21,10 +21,23 @@ const ListBoxCustom = ({ type, name }: listOptions) => {
 
     return (
         <div className="relative inline-block justify-center items-center rounded-3xl text-black min-w-60 w-full">
-            <Listbox value={type}>
+            <Listbox
+                value={state.selectedOptions[name]}
+                // onChange={(value: string) => {
+                //     setSelectedOptions(name, value);
+                // }}
+                onChange={(newValue) => {
+                    console.log(newValue);
+                    setSelectedOptions(name, newValue);
+                }}
+            >
                 <div className="relative">
                     <Listbox.Button className="py-2 px-4 bg-white border rounded-md shadow-sm w-full flex justify-between items-center w-50 ">
-                        <span>{state.selectedOptions[name]}</span>
+                        <span>
+                            {state.selectedOptions[name]
+                                ? state.selectedOptions[name]
+                                : "Missing"}
+                        </span>
                         <svg
                             className="w-5 h-5 text-gray-400"
                             fill="none"
