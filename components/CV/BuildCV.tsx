@@ -19,6 +19,7 @@ export default function BuildCV() {
         if (submitting) {
             return;
         }
+        // console.log(data);
         setSubmitting(true);
         try {
             const response = await fetch("/api/updateuserprofile", {
@@ -26,10 +27,26 @@ export default function BuildCV() {
                 headers: {
                     "Content-Type": "application/json",
                 },
+                // send the data in UserType format
                 body: JSON.stringify({
-                    ...data,
                     email: session.data.user.email,
+                    profile: {
+                        fullName: data.fullName,
+                        education: [
+                            {
+                                degree: data.degree,
+                                institution: data.institution,
+                                endDate: data.yearOfGraduation,
+                            },
+                        ],
+                        skills: [...data.skills],
+                        workExperiences: [...data.work],
+                    },
                 }),
+                // body: JSON.stringify({
+                //     ...data,
+                //     email: session.data.user.email,
+                // }),
             });
         } catch (error) {
             console.error("Error:", error);
