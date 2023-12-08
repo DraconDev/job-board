@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const {
         title,
         description,
-        location,
+        city: location,
         salaryMin,
         salaryMax,
         date,
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     addJob({
         title,
         description,
-        location,
+        city: location,
         salaryMin,
         salaryMax,
         date,

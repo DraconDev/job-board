@@ -68,15 +68,15 @@ export default function PostJob() {
                             placeholder="Salary Max"
                         />
                         <input
-                            {...register("location")}
+                            {...register("city")}
                             className="p-2 rounded outline-none placeholder-gray-500 w-full"
-                            placeholder="Location"
+                            placeholder="city"
                         />
-                        <input
+                        {/* <input
                             {...register("jobType")}
                             className="p-2 rounded outline-none placeholder-gray-500 w-full"
                             placeholder="Job Type"
-                        />
+                        /> */}
                         <input
                             {...register("company")}
                             className="p-2 rounded outline-none placeholder-gray-500 w-full"
@@ -86,6 +86,11 @@ export default function PostJob() {
                             {...register("description")}
                             className="p-2 rounded outline-none h-60 w-full placeholder-gray-500"
                             placeholder="Description"
+                        />
+                        <ListBoxCustom
+                            type={state.jobType}
+                            {...register("jobType")}
+                            name="jobType"
                         />
                         <ListBoxCustom
                             type={state.experience}

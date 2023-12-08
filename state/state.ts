@@ -5,7 +5,7 @@ import { devtools, persist } from "zustand/middleware";
 export type AppState = {
     experience: { id: number; value: string }[];
     date: { id: number; value: string }[];
-    jobLocation: { id: number; value: string }[];
+    jobType: { id: number; value: string }[];
     salary: { id: number; value: string }[];
     selectedOptions: Record<string, string>;
     setSelectedOptions: (key: string, value: string) => void;
@@ -67,7 +67,7 @@ export const useAppState = create<AppState>()(
                     { id: 3, value: "Past week" },
                     { id: 4, value: "Past month" },
                 ],
-                jobLocation: [
+                jobType: [
                     { id: 1, value: "Any location" },
                     { id: 2, value: "Remote" },
                     { id: 3, value: "Hybrid" },

@@ -10,7 +10,7 @@ const ListBoxes = (props: Props) => {
     const menus = [
         { name: "date", type: state.date },
         { name: "experience", type: state.experience },
-        { name: "jobLocation", type: state.jobLocation },
+        { name: "jobLocation", type: state.jobType },
         { name: "salary", type: state.salary },
     ];
 

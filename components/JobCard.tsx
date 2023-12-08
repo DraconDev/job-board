@@ -41,7 +41,7 @@ const JobCard = ({ job }: { job: JobType }) => {
                     </div>
                     <p className="mt-2">{job.description}</p>
                     <div className="mt-4 flex justify-between items-center">
-                        <span className="text-gray-400">{job.location}</span>
+                        <span className="text-gray-400">{job.city}</span>
                     </div>
                 </div>
             )}
