@@ -16,12 +16,12 @@ const CvPersonal = ({ register }: Props) => {
                 placeholder="Full Name"
                 {...register("fullName", { required: true })}
             />
-            <input
+            {/* <input
                 className="w-full p-2 mb-4 border rounded"
                 type="email"
                 placeholder="Email"
                 {...register("email", { required: true })}
-            />
+            /> */}
             <input
                 className="w-full p-2 mb-4 border rounded"
                 type="tel"

@@ -1,4 +1,5 @@
 "use client";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import CVEducation from "./CVEducation";
@@ -8,9 +9,16 @@ import CVAdding from "./CVWork";
 
 export default function BuildCV() {
     const { register, handleSubmit } = useForm();
+    const session = useSession();
 
     const [submitting, setSubmitting] = useState(false);
     const onSubmit: SubmitHandler<any> = async (data) => {
+        if (!session || session.data?.user?.email === undefined) {
+            return;
+        }
+        if (submitting) {
+            return;
+        }
         setSubmitting(true);
         try {
             const response = await fetch("/api/updateuserprofile", {
@@ -18,7 +26,10 @@ export default function BuildCV() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ ...data }),
+                body: JSON.stringify({
+                    ...data,
+                    email: session.data.user.email,
+                }),
             });
         } catch (error) {
             console.error("Error:", error);
