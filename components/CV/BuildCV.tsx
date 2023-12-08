@@ -13,7 +13,7 @@ export default function BuildCV() {
     const onSubmit: SubmitHandler<any> = async (data) => {
         setSubmitting(true);
         try {
-            const response = await fetch("/api/register", {
+            const response = await fetch("/api/updateuserprofile", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
