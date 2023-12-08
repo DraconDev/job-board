@@ -1,83 +1,51 @@
 "use client";
-import { useAppState } from "@/state/state";
-import { Listbox } from "@headlessui/react";
 
-type listOptions = {
-    name: string;
+import { useAppState } from "@/state/state";
+import { useState } from "react";
+
+type ListBoxCustomProps = {
     type: string[];
+    name: string;
 };
 
-const ListBoxCustom = ({ type, name }: listOptions) => {
+const ListBoxCustom = ({ type, name }: ListBoxCustomProps) => {
     const state = useAppState((state) => state);
-    // console.log(state);
+    const [dropdownState, setDropdownState] = useState(false);
 
-    const setSelectedOptions = (key: string, value: string) => {
-        state.setSelectedOptions(key, value);
-        // console.log(state.selectedOptions);
+    const setSelectedOptions = (value: string) => {
+        state.setSelectedOptions(name, value);
     };
 
     return (
-        <div className="relative inline-block justify-center items-center rounded-3xl text-black min-w-60 w-full">
-            <Listbox
+        <div className="relative inline-block w-full">
+            <button
                 value={state.selectedOptions[name]}
-                onChange={(choice: string) => {
-                    setSelectedOptions(name, choice);
+                onClick={() => {
+                    setDropdownState(!dropdownState);
+                    console.log(state.selectedOptions[name]);
                 }}
+                className="p-2 bg-white border rounded-md shadow-sm w-full focus:outline-none focus:ring focus:border-accent text-black"
             >
-                <div className="relative">
-                    <Listbox.Button className="py-2 px-4 bg-white border rounded-md shadow-sm w-full flex justify-between items-center w-50 ">
-                        <span>{state.selectedOptions[name]}</span>
-                        <svg
-                            className="w-5 h-5 text-gray-400"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
+                {state.selectedOptions[name]}
+            </button>
+            {dropdownState && (
+                <div className="p-2">
+                    {type.map((field, index) => (
+                        <div
+                            key={index}
+                            className={`p-2 ${
+                                index % 2 === 0 ? "bg-gray-200" : "bg-white"
+                            }  text-primary cursor-pointer hover:invert`}
+                            onClick={() => {
+                                setSelectedOptions(field);
+                                setDropdownState(false);
+                            }}
                         >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                            />
-                        </svg>
-                    </Listbox.Button>
-                    {/*  */}
-                    <Listbox.Options
-                        className="dropdown-container"
-                        style={{
-                            maxHeight: "200px",
-                            overflowY: "scroll",
-                            marginTop: "10px",
-                        }}
-                    >
-                        {type.map((field, index) => (
-                            <Listbox.Option
-                                key={index}
-                                value={field}
-                                className="py-2 px-4 hover:bg-gray-200 flex justify-between items-center"
-                                onClick={() => setSelectedOptions(name, field)}
-                            >
-                                <span>{field}</span>
-                                {state.selectedOptions[name] === field && (
-                                    <svg
-                                        className="w-5 h-5 text-blue-600"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M5 13l4 4L19 7"
-                                        />
-                                    </svg>
-                                )}
-                            </Listbox.Option>
-                        ))}
-                    </Listbox.Options>
+                            {field}
+                        </div>
+                    ))}
                 </div>
-            </Listbox>
+            )}
         </div>
     );
 };
