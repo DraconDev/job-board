@@ -8,10 +8,26 @@ export const jobSchema = new Schema({
     salaryMax: Number, //
     city: String, //
     date: Date, // -
-    jobType: String, //
+    jobType: {
+        type: String,
+        enum: ["Remote", "Hybrid", "On-site"],
+    },
     company: String, //
-    role: String,
-    experience: String,
+    role: {
+        type: String,
+        enum: [
+            "Internship",
+            "Entry level",
+            "Associate",
+            "Mid-Senior level",
+            "Director",
+            "Executive",
+        ],
+    },
+    experience: {
+        type: String,
+        enum: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    },
 });
 
 export const JobPost = mongoose.model("Job", jobSchema);
