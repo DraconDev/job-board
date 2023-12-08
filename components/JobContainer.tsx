@@ -10,9 +10,11 @@ export default function JobContainer() {
     const state = useAppState((state) => state);
     const [isClient, setIsClient] = useState(false);
     const router = useRouter();
+    const [isFetching, setIsFetching] = useState(false);
 
     useEffect(() => {
         setIsClient(true);
+        setIsFetching(true);
 
         async function fetchRecentJobs() {
             try {
@@ -24,6 +26,8 @@ export default function JobContainer() {
             } catch (error) {
                 console.error("Error fetching recent jobs:", error);
                 // Handle the error as needed
+            } finally {
+                setIsFetching(false);
             }
         }
 
