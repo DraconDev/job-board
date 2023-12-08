@@ -3,7 +3,7 @@
 import AllNotifications from "@/components/notifications/AllNotifications";
 import { useAppState } from "@/state/state";
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
+import useSWR from "swr";
 
 type Props = {};
 
@@ -13,40 +13,41 @@ const Notifications = (props: Props) => {
 
     // fetch user profile
 
-    useEffect(() => {
-        const fetchData = async () => {
-            if (!session?.data?.user?.email) {
-                return;
-            }
+    const fetchUserProfile = async () => {
+        if (!session?.data?.user?.email) {
+            return;
+        }
 
-            if (state?.user) {
-                return;
-            }
+        // if (state?.user) {
+        //     return;
+        // }
 
-            try {
-                const res = await fetch(
-                    `/api/fetchuserprofile?email=${session.data.user.email}`,
-                    {
-                        next: {
-                            revalidate: 120,
-                        },
-                    }
-                );
-
-                if (!res.ok) {
-                    throw new Error("Failed to fetch user profile");
+        try {
+            const res = await fetch(
+                `/api/fetchuserprofile?email=${session.data.user.email}`,
+                {
+                    next: {
+                        revalidate: 120,
+                    },
                 }
+            );
 
-                const data = await res.json();
-                state.updateUser(data);
-            } catch (error) {
-                console.error("Error fetching user profile:", error);
-                // Handle the error as needed
+            if (!res.ok) {
+                throw new Error("Failed to fetch user profile");
             }
-        };
 
-        fetchData();
-    }, [session?.data?.user?.email]);
+            const data = await res.json();
+            state.updateUser(data);
+        } catch (error) {
+            console.error("Error fetching user profile:", error);
+            // Handle the error as needed
+        }
+    };
+
+    const { data } = useSWR("/api/fetchuserprofile", fetchUserProfile, {
+        revalidateOnMount: true,
+        revalidateInterval: 60000, // Fetch data every minute
+    });
 
     return (
         <div className="flex flex-col gap-2  h-full p-1 justify-center items-center">

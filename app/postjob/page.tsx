@@ -83,6 +83,7 @@ export default function PostJob() {
                             className="p-2 rounded outline-none h-60 w-full placeholder-gray-500"
                             placeholder="Description"
                         />
+                        <h1 className="text-xl text-white">Experience</h1>
                         <ListBoxCustom
                             type={state.experience}
                             {...register("experience")}

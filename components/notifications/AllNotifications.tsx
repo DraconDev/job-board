@@ -1,6 +1,5 @@
 "use client";
 import { useAppState } from "@/state/state";
-import { useState } from "react";
 import useSWR from "swr";
 import ListOfAppliedJobs from "./ListOfAppliedJobs";
 
@@ -11,10 +10,10 @@ const AllNotifications = () => {
         if (!state?.user?.jobs?.jobsApplied) {
             return;
         }
-        if (fetching) {
-            return;
-        }
-        setFetching(true);
+        // if (fetching) {
+        //     return;
+        // }
+        // setFetching(true);
 
         const jobIds = state.user.jobs.jobsApplied;
         console.log(jobIds, "JobIds");
@@ -34,7 +33,7 @@ const AllNotifications = () => {
 
             const data = await response.json();
             state.setListOfAppliedJobs(data);
-            setFetching(false);
+            // setFetching(false);
         } catch (error) {
             console.error("Error fetching jobs:", error);
         }
@@ -45,12 +44,11 @@ const AllNotifications = () => {
         revalidateInterval: 60000, // Fetch data every minute
     });
 
-    const [fetching, setFetching] = useState(false);
+    // const [fetching, setFetching] = useState(false);
 
     // // map over state user applied jobs
     return (
         <div>
-            
             <ListOfAppliedJobs />
         </div>
     );
