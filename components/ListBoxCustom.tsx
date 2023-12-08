@@ -54,13 +54,13 @@ const ListBoxCustom = ({ type, name }: ListBoxCustomProps) => {
                 {state.selectedOptions[name]}
             </button>
             {dropdownState && (
-                <div className="p-2 absolute z-10 bg-white border rounded-md shadow-sm">
+                <div className=" absolute z-10 bg-white border rounded-md shadow-sm w-full mt-2">
                     {type.map((field, index) => (
                         <div
                             key={index}
                             className={`p-2 ${
                                 index % 2 === 0 ? "bg-gray-200" : "bg-white"
-                            } text-primary cursor-pointer hover:invert`}
+                            } text-primary cursor-pointer hover:invert w-full`}
                             onClick={() => {
                                 setSelectedOptions(field);
                                 setDropdownState(false);
