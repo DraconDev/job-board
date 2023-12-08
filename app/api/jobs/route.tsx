@@ -48,6 +48,7 @@ export async function POST(request: Request) {
     }
 
     addJob({
+        _id: new mongoose.Types.ObjectId(),
         title,
         description,
         city,
