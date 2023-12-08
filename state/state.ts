@@ -96,7 +96,7 @@ export const useAppState = create<AppState>()(
                     { id: 7, value: "7" },
                     { id: 8, value: "8" },
                     { id: 9, value: "9" },
-                    { id: 10, value: "10+" },
+                    { id: 10, value: "10" },
                 ],
                 user: {},
                 updateUser: (user: UserType) => set({ user }),

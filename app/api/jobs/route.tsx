@@ -25,6 +25,7 @@ export async function POST(request: Request) {
         jobType,
         company,
         role,
+        experience,
     } = (await data) as JobType;
 
     addJob({
@@ -37,6 +38,7 @@ export async function POST(request: Request) {
         jobType,
         company,
         role,
+        experience,
     });
 
     return new Response("Job saved", {});
