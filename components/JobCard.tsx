@@ -39,7 +39,11 @@ const JobCard = ({ job }: { job: JobType }) => {
                             {job.salaryMin} - {job.salaryMax}
                         </div>
                     </div>
-                    <p className="mt-2">{job.description}</p>
+                    <p className="mt-2">
+                        {job?.description && job.description.length > 300
+                            ? job.description.slice(0, 300) + "..."
+                            : job?.description}
+                    </p>
                     <div className="mt-4 flex justify-between items-center">
                         <span className="text-gray-400">{job.city}</span>
                     </div>
