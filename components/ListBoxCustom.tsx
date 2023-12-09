@@ -1,4 +1,5 @@
 "use client";
+import { FaAngleDoubleDown } from "react-icons/fa";
 
 import { useAppState } from "@/state/state";
 import { useEffect, useRef, useState } from "react";
@@ -49,9 +50,12 @@ const ListBoxCustom = ({ type, name }: ListBoxCustomProps) => {
             <button
                 value={state.selectedOptions[name]}
                 onClick={toggleDropdown}
-                className="p-2 bg-secondary text-white border rounded-md shadow-sm w-full focus:outline-none focus:ring focus:border-accent border-primary"
+                className="p-2 bg-secondary text-white border rounded-md shadow-sm w-full focus:outline-none focus:ring focus:border-accent border-primary flex justify-center items-center"
             >
-                {state.selectedOptions[name]}
+                <div className="flex grow justify-center">
+                    {state.selectedOptions[name]}
+                </div>
+                <FaAngleDoubleDown className="h-5 w-5" />
             </button>
             {dropdownState && (
                 <div className=" absolute z-10 bg-primary border border-primary rounded-lg shadow-sm w-full mt-2">
