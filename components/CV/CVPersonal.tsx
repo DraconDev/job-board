@@ -11,7 +11,7 @@ const CvPersonal = ({ register }: Props) => {
                 Personal Information
             </h2>
             <input
-                className="w-full p-2 mb-4 border rounded"
+                className="w-full p-2 mb-4 border rounded bg-secondary text-white border-primary"
                 type="text"
                 placeholder="Full Name"
                 {...register("fullName", { required: true })}
@@ -23,7 +23,7 @@ const CvPersonal = ({ register }: Props) => {
                 {...register("email", { required: true })}
             /> */}
             <input
-                className="w-full p-2 mb-4 border rounded"
+                className="w-full p-2 mb-4 border rounded bg-secondary text-white border-primary"
                 type="tel"
                 placeholder="Phone Number"
                 {...register("phoneNumber")}
