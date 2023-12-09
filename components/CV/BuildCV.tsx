@@ -1,4 +1,5 @@
 "use client";
+import { useAppState } from "@/state/state";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -8,6 +9,7 @@ import CVSkills from "./CVSkills";
 import CVAdding from "./CVWork";
 
 export default function BuildCV() {
+    const state = useAppState((state) => state);
     const { register, handleSubmit } = useForm();
     const session = useSession();
 
@@ -36,7 +38,7 @@ export default function BuildCV() {
                             {
                                 degree: data.degree,
                                 institution: data.institution,
-                                endDate: data.yearOfGraduation,
+                                endDate: data.endDate,
                             },
                         ],
                         skills: [...data.skills],

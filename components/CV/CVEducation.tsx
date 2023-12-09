@@ -1,4 +1,5 @@
 import { FieldValues, UseFormRegister } from "react-hook-form";
+import DatePicker from "../DatePicker";
 
 type Props = {
     register: UseFormRegister<FieldValues>;
@@ -22,11 +23,15 @@ const CVEducation = ({ register }: Props) => {
                     required: "Institution is required.",
                 })}
             />
+            {/* <h2 className="text-white text-xl font-semibold mb-4">
+                Year of Graduation
+            </h2>
+            <DatePicker /> */}
             <input
                 className="w-full p-2 mb-4 border rounded"
                 type="text"
                 placeholder="Year of Graduation"
-                {...register("yearOfGraduation")} // Assuming this is optional, no validation rules are applied
+                {...register("yearOfGraduation")}
             />
         </section>
     );
