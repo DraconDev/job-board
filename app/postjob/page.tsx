@@ -46,9 +46,9 @@ export default function PostJob() {
 
     return (
         <div className="justify-center flex flex-col items-center w-full h-full">
-            <p className="text-3xl">Post job</p>
+            <p className="text-3xl p-2">Post job</p>
             <div className="flex flex-wrap w-full justify-center">
-                <div className="max-w-lg w-full p-4 text-black ">
+                <div className="max-w-lg w-full  text-black px-2 ">
                     <form
                         className="flex flex-col gap-2 w-full justify-center items-center placeholder-gray-500"
                         onSubmit={handleSubmit(onSubmit)}
@@ -57,34 +57,34 @@ export default function PostJob() {
                     >
                         <input
                             {...register("title")}
-                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="Title"
                         />
 
                         <input
                             {...register("salaryMin")}
-                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="Salary Min"
                         />
                         <input
                             {...register("salaryMax")}
-                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="Salary Max"
                         />
                         <input
                             {...register("city")}
-                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="city"
                         />
 
                         <input
                             {...register("company")}
-                            className="p-2 rounded outline-none placeholder-gray-500 w-full"
+                            className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="Company"
                         />
                         <textarea
                             {...register("description")}
-                            className="p-2 rounded outline-none h-60 w-full placeholder-gray-500"
+                            className="p-2 rounded outline-none h-60 w-full bg-secondary text-white placeholder-gray-500"
                             placeholder="Description"
                         />
                         <h1 className="text-xl text-white">Experience</h1>
