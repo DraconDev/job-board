@@ -34,7 +34,7 @@ export default function LoginLogo() {
                     </button>
 
                     {dropdownStatus && (
-                        <div className=" absolute right-0 mt-2 w-56 rounded-md  bg-white z-10 border-[3px] border-accent">
+                        <div className=" absolute right-0 mt-2 w-56 rounded-md  bg-white z-10 border-[3px] border-primary">
                             {dropDownItems.map((item, index) => (
                                 <DroplistMenuItem
                                     key={index}

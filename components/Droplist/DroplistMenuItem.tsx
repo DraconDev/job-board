@@ -12,7 +12,7 @@ const DroplistMenuItem = ({ text, action, route }: Props) => {
         return (
             <Link
                 href={route}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-white"
+                className="block px-4 py-2 text-sm hover:bg-secondary hover:invert  bg-secondary text-white border-primary"
             >
                 {text}
             </Link>
@@ -21,7 +21,7 @@ const DroplistMenuItem = ({ text, action, route }: Props) => {
         return (
             <button
                 onClick={action}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-white w-full text-left"
+                className="block px-4 py-2 text-sm hover:bg-secondary hover:invert w-full text-left bg-secondary text-white border-primary"
             >
                 {text}
             </button>
