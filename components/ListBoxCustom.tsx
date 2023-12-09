@@ -49,7 +49,7 @@ const ListBoxCustom = ({ type, name }: ListBoxCustomProps) => {
             <button
                 value={state.selectedOptions[name]}
                 onClick={toggleDropdown}
-                className="p-2 bg-white border rounded-md shadow-sm w-full focus:outline-none focus:ring focus:border-accent text-black"
+                className="p-2 bg-secondary text-white border rounded-md shadow-sm w-full focus:outline-none focus:ring focus:border-accent border-primary"
             >
                 {state.selectedOptions[name]}
             </button>
