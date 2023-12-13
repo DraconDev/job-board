@@ -28,7 +28,7 @@ export default function LoginLogo() {
                 <>
                     <button
                         onClick={toggleDropdown}
-                        className="bg-secondary hover:bg-accent text-white p-2 rounded-lg shadow-lg"
+                        className="bg-secondary hover:bg-accent hover:text-white text-accent2 p-2 rounded-lg "
                     >
                         <TbUserHexagon className="h-7 w-7" />
                     </button>
