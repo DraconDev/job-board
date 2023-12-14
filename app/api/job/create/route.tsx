@@ -4,8 +4,7 @@ import { JobType } from "@/type/types";
 import mongoose from "mongoose";
 
 async function addJob(job: JobType) {
-    console.log(job);
-    await mongoose.connect(uri);
+        await mongoose.connect(uri);
     try {
         await JobPost.create(job);
     } finally {

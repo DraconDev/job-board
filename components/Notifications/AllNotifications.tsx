@@ -16,7 +16,7 @@ const AllNotifications = () => {
         // setFetching(true);
 
         const jobIds = state.user.jobs.jobsApplied;
-        console.log(jobIds, "JobIds");
+        
 
         try {
             const response = await fetch("/api/job/find/by_id", {

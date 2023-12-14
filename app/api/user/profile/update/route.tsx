@@ -25,7 +25,7 @@ async function updateUser(user: UserType) {
 export async function POST(req: Request, res: Response) {
     try {
         const data = await req.json();
-        console.log(data);
+
 
         const updatedUser = await updateUser(data);
 
