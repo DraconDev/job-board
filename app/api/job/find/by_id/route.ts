@@ -3,19 +3,18 @@ import { JobPost } from "@/db/schema";
 import mongoose from "mongoose";
 
 async function getJobsByIds({ jobIds }: { jobIds: string[] }) {
-    await mongoose.connect(uri);
-
-    if (mongoose.connection.readyState !== 1) {
-        console.error(
-            "Failed to connect to MongoDB. State:",
-            mongoose.connection.readyState
-        );
-        throw new Error("Failed to connect to MongoDB.");
-    }
+    // if (mongoose.connection.readyState !== 1) {
+    //     console.error(
+    //         "Failed to connect to MongoDB. State:",
+    //         mongoose.connection.readyState
+    //     );
+    //     throw new Error("Failed to connect to MongoDB.");
+    // }
     try {
+        await mongoose.connect(uri);
         // * works single id
         // const jobs = await JobPost.findById(jobIds[0]);
-
+        console.log(mongoose.connection);
         // * works multiple ids
         // const objectIds = jobIds.map((id) => {
         //     return new mongoose.Types.ObjectId(id);

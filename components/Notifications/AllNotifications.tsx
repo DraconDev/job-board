@@ -16,7 +16,6 @@ const AllNotifications = () => {
         // setFetching(true);
 
         const jobIds = state.user.jobs.jobsApplied;
-        
 
         try {
             const response = await fetch("/api/job/find/by_id", {
@@ -41,7 +40,7 @@ const AllNotifications = () => {
 
     const { data } = useSWR("/api/job/find/by_id", fetchData, {
         revalidateOnMount: true,
-        revalidateInterval: 60000, // Fetch data every minute
+        revalidateInterval: 6000,
     });
 
     // const [fetching, setFetching] = useState(false);
