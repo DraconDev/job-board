@@ -102,7 +102,7 @@ export default function PostJob() {
                         />
                         <button
                             type="submit"
-                            className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded w-full "
+                            className="bg-accent-500 hover:bg-accent-700 text-white px-4 py-2 rounded w-full "
                         >
                             Submit
                         </button>

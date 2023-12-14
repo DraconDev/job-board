@@ -11,7 +11,7 @@ export default function MobileDescription({ toggleOverlayMenu }: any) {
                 <div className="text-xl rounded font-semibold">
                     {state?.activeJobPost?.title}
                 </div>
-                <div className="w-full h-[2px] bg-blue-600"></div>
+                <div className="w-full h-[2px] bg-accent-accent"></div>
                 <div className="p-1">{state?.activeJobPost?.description}</div>
             </div>
             <div className="flex gap-1">

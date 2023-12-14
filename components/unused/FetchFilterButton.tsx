@@ -26,7 +26,7 @@ const FetchFilterButton = (props: Props) => {
             <button
                 //  href="/"
                 onClick={handleSearch}
-                className="p-2  bg-primary  text-white font-bold rounded w-full border border-accent hover:bg-blue-700 h-full"
+                className="p-2  bg-primary  text-white font-bold rounded w-full border border-accent hover:bg-accent-700 h-full"
             >
                 FilterSearch
             </button>

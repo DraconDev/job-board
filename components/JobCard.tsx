@@ -31,7 +31,7 @@ const JobCard = ({ job }: { job: JobType }) => {
                     onClick={showDescription}
                 >
                     <h2 className="text-xl font-semibold">{job.title}</h2>
-                    <div className="w-full h-[2px] bg-blue-600"></div>
+                    <div className="w-full h-[2px] bg-accent"></div>
                     <div className="flex justify-between text-gray-400">
                         <p>{job.company}</p>
                         <div className="text-gl flex gap-2 items-center">
