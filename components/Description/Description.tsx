@@ -10,7 +10,7 @@ export default function Description() {
     const session = useSession();
 
     function handleApply() {
-        fetch("/api/applyjob", {
+        fetch("/api/job/apply", {
             method: "POST", // or another HTTP method
             headers: {
                 "Content-Type": "application/json",

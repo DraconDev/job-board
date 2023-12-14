@@ -24,7 +24,7 @@ export default function BuildCV() {
         // console.log(data);
         setSubmitting(true);
         try {
-            const response = await fetch("/api/updateuserprofile", {
+            const response = await fetch("/api/user/profile/update", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
