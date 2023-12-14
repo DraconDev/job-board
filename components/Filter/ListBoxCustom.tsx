@@ -55,7 +55,7 @@ const ListBoxCustom = ({ type, name }: ListBoxCustomProps) => {
                 <div className="flex grow justify-center">
                     {state.selectedOptions[name]}
                 </div>
-                <FaAngleDoubleDown className="h-5 w-5" />
+                <FaAngleDoubleDown className="h-5 w-5 text-accent" />
             </button>
             {dropdownState && (
                 <div className=" absolute z-10 bg-primary border border-primary rounded-lg shadow-sm w-full mt-2">
