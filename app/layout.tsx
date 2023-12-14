@@ -19,7 +19,7 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className=" h-screen w-screen  bg-primary"
+            className=" h-screen   bg-primary"
         >
             <AuthProvider>
                 <body className={`${inter.className} `}>
