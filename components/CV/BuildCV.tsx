@@ -98,7 +98,7 @@ export default function BuildCV() {
                 />
                 <button
                     type="submit"
-                    className="w-full bg-accent-500 text-black p-3 rounded hover:bg-accent-accent transition duration-200 text-white"
+                    className="w-full bg-accent-500 text-black p-3 rounded hover:bg-accent transition duration-200 text-white"
                 >
                     Submit CV
                 </button>

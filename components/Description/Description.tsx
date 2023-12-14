@@ -29,7 +29,7 @@ export default function Description() {
                     <h2 className="text-xl rounded font-semibold">
                         {state?.activeJobPost?.title}
                     </h2>
-                    <div className="w-full h-[2px] bg-accent-accent"></div>
+                    <div className="w-full h-[2px] bg-accent"></div>
                     <div className="gap-3">
                         <div className="text-gl flex gap-2 items-center ">
                             <div className="div p-1">
