@@ -32,7 +32,7 @@ const OverlayMenu = () => {
                         <div className="flex  flex-col gap-1 mt-2 w-2/3">
                             <ListBoxes />
                             <button
-                                className="p-2 bg-secondary hover:bg-accent-700 text-white font-bold rounded w-full"
+                                className="p-2 bg-secondary hover:bg-accent text-white font-bold rounded w-full"
                                 onClick={toggleOverlayMenu}
                             >
                                 Toggle Sidebar
