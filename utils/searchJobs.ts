@@ -45,9 +45,9 @@ export async function searchJobs(state: AppState) {
         const jobs = await fetch(
             `/api/job/find/filter?${queryParams.toString()}`,
             {
-                next: {
-                    revalidate: 3,
-                },
+                // next: {
+                //     revalidate: 3,
+                // },
             }
         );
         const data = await jobs.json();
