@@ -3,9 +3,9 @@ import { useAppState } from "@/state/state";
 import { searchJobs } from "@/utils/searchJobs";
 import { useCallback, useEffect } from "react";
 import LoginLogo from "../Auth/LoginLogo";
-import LogoButton from "../LogoButton";
-import SearchBar from "../SearchBar";
-import FetchJobsButton from "../search_jobs/FetchJobsButton";
+import LogoButton from "./LogoButton";
+import SearchBar from "./SearchBar";
+import FetchJobsButton from "./FetchJobsButton";
 
 export default function NavBar() {
     const state = useAppState((state) => state);

@@ -2,9 +2,9 @@
 import { useAppState } from "@/state/state";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Filter from "./Filter";
+import Filter from "../Filter/Filter";
+import NoJobs from "../Layout/NoJobs";
 import JobPanel from "./JobPanel";
-import NoJobs from "./NoJobs";
 
 export default function JobContainer() {
     const state = useAppState((state) => state);

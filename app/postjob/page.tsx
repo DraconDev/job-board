@@ -1,6 +1,6 @@
 "use client";
 
-import ListBoxCustom from "@/components/ListBoxCustom";
+import ListBoxCustom from "@/components/Filter/ListBoxCustom";
 import { useAppState } from "@/state/state";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";

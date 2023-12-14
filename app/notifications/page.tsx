@@ -1,6 +1,6 @@
 "use client";
 
-import AllNotifications from "@/components/notifications/AllNotifications";
+import AllNotifications from "@/components/Notifications/AllNotifications";
 import { useAppState } from "@/state/state";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";

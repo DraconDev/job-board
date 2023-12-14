@@ -1,4 +1,4 @@
-import JobContainer from "@/components/JobContainer";
+import JobContainer from "@/components/JobContainer/JobContainer";
 
 export default function Home() {
     return (

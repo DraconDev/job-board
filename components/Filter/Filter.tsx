@@ -1,5 +1,5 @@
+import OverlayMenu from "../mobile/OverlayMenu";
 import ListBoxes from "./ListBoxes";
-import OverlayMenu from "./OverlayMenu";
 
 export default function Filter() {
     return (

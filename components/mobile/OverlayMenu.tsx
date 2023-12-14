@@ -2,7 +2,7 @@
 import { useAppState } from "@/state/state";
 import { useState } from "react";
 import { BsSliders } from "react-icons/bs";
-import ListBoxes from "./ListBoxes";
+import ListBoxes from "../Filter/ListBoxes";
 
 const OverlayMenu = () => {
     const [isOpen, setIsOpen] = useState(false);

@@ -1,4 +1,4 @@
-import Description from "./Description";
+import Description from "../Description/Description";
 import JobList from "./JobList";
 
 type Props = {};

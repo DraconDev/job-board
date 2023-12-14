@@ -1,6 +1,6 @@
 "use client";
 import { useAppState } from "@/state/state";
-import CustomButton from "../CustomButton";
+import CustomButton from "../Layout/CustomButton";
 
 export default function MobileDescription({ toggleOverlayMenu }: any) {
     const state = useAppState((state) => state);

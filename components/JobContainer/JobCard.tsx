@@ -2,8 +2,8 @@ import { useAppState } from "@/state/state";
 import { JobType } from "@/type/types";
 import { useState } from "react";
 import { FaMoneyBillAlt } from "react-icons/fa";
-import Description from "./Description";
-import MobileSlideWrapper from "./mobile/MobileSlideWrapper";
+import Description from "../Description/Description";
+import MobileSlideWrapper from "../mobile/MobileSlideWrapper";
 
 const JobCard = ({ job }: { job: JobType }) => {
     const state = useAppState((state) => state);
