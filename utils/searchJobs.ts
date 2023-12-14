@@ -42,11 +42,14 @@ export async function searchJobs(state: AppState) {
 
     if (state.searchTitle.length < 3) {
     } else {
-        const jobs = await fetch(`/api/filterjobs?${queryParams.toString()}`, {
-            next: {
-                revalidate: 3,
-            },
-        });
+        const jobs = await fetch(
+            `/api/job/find/filter?${queryParams.toString()}`,
+            {
+                next: {
+                    revalidate: 3,
+                },
+            }
+        );
         const data = await jobs.json();
         state.setJobList([...data]);
         state.updateActiveJobPost(data[0]);
