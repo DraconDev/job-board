@@ -24,7 +24,7 @@ const Notifications = (props: Props) => {
 
         try {
             const res = await fetch(
-                `/api/fetchuserprofile?email=${session.data.user.email}`,
+                `/api/user/profile/get?email=${session.data.user.email}`,
                 {
                     next: {
                         revalidate: 120,
@@ -44,7 +44,7 @@ const Notifications = (props: Props) => {
         }
     };
 
-    const { data } = useSWR("/api/fetchuserprofile", fetchUserProfile, {
+    const { data } = useSWR("/api/user/profile/get", fetchUserProfile, {
         revalidateOnMount: true,
         revalidateInterval: 60000, // Fetch data every minute
     });

@@ -16,7 +16,7 @@ export default function PostJob() {
         }
         setSubmitting(true);
         try {
-            const response = await fetch("/api/jobs", {
+            const response = await fetch("/api/job/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export default function PostJob() {
                     <form
                         className="flex flex-col gap-2 w-full justify-center items-center placeholder-gray-500"
                         onSubmit={handleSubmit(onSubmit)}
-                        action="/api/jobs"
+                        action="/api/job/create"
                         method="POST"
                     >
                         <input

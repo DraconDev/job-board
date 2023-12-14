@@ -19,7 +19,7 @@ const AllNotifications = () => {
         console.log(jobIds, "JobIds");
 
         try {
-            const response = await fetch("/api/find_job_by_id", {
+            const response = await fetch("/api/job/find/by_id", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -39,7 +39,7 @@ const AllNotifications = () => {
         }
     };
 
-    const { data } = useSWR("/api/find_job_by_id", fetchData, {
+    const { data } = useSWR("/api/job/find/by_id", fetchData, {
         revalidateOnMount: true,
         revalidateInterval: 60000, // Fetch data every minute
     });
