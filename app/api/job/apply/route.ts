@@ -14,6 +14,9 @@ async function applyJob({ _id, email }: { _id: string; email: string }) {
             },
             { upsert: true }
         );
+        // write error
+    } catch (error) {
+        console.error("Error applying job:", error);
     } finally {
         await mongoose.disconnect();
     }
@@ -27,4 +30,5 @@ export async function POST(req: Request) {
         throw new Error("Missing _id or email in the request");
     }
     applyJob({ _id, email });
+    return new Response("Job applied successfully", { status: 200 });
 }
