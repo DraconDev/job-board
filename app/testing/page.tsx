@@ -1,6 +1,4 @@
 "use client";
-import DatePicker from "@/components/unused/DatePicker";
-import FetchFilterButton from "@/components/unused/FetchFilterButton";
 import { useAppState } from "@/state/state";
 import { useSession } from "next-auth/react";
 
@@ -14,8 +12,6 @@ const Testing = (props: Props) => {
         <div className="flex flex-col  w-full h-full    ">
             <div className="">Account</div>
             {JSON.stringify(session)}
-            <FetchFilterButton />
-            <DatePicker />
         </div>
     );
 };
