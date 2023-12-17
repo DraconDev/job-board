@@ -19,10 +19,10 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className=" h-screen   bg-primary"
+            className="    bg-primary"
         >
             <AuthProvider>
-                <body className={`${inter.className} `}>
+                <body className={`${inter.className} min-h-[100vh]`}>
                     <div className="flex w-full h-full flex-col ">
                         <NavBar />
                         {/* <ThemeSwitcher /> */}
