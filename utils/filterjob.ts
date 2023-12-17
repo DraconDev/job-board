@@ -3,6 +3,8 @@ import { AppState } from "@/state/state";
 export async function searchJobs(state: AppState) {
     const queryParams = new URLSearchParams();
 
+    console.log(state);
+
     if (state.searchTitle) {
         queryParams.append("title", state.searchTitle);
     }
@@ -41,17 +43,25 @@ export async function searchJobs(state: AppState) {
 
     if (state.searchTitle.length < 3) {
     } else {
-        const jobs = await fetch(
-            `/api/job/find/filter?${queryParams.toString()}`,
-            {
-                // next: {
-                //     revalidate: 3,
-                // },
-            }
-        );
-        const data = await jobs.json();
-        state.setJobSearchList([...data]);
-        state.updateActiveJobPost(data[0]);
-        // router.push("/");
+        try {
+            const jobs = await fetch(
+                `/api/job/find/filter?${queryParams.toString()}`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            const data = await jobs.json();
+            state.setJobSearchList([...data]);
+            state.updateActiveJobPost(data[0]);
+            // router.push("/search/" + state.searchTitle);
+        } catch (error) {
+            console.error("Error fetching jobs:", error);
+        } finally {
+            // Code to run regardless of success or failure
+            // ...
+        }
     }
 }
