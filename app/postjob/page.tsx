@@ -52,7 +52,7 @@ export default function PostJob() {
                 <div className="max-w-lg w-full  text-black px-2 ">
                     <form
                         className="flex flex-col gap-3 w-full justify-center items-center placeholder-gray-500"
-                        onSubmit={handleSubmit(onSubmit)}
+                        onSubmit={() => handleSubmit(onSubmit)}
                         action="/api/job/create"
                         method="POST"
                     >
