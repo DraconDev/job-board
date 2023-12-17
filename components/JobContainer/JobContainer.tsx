@@ -20,6 +20,7 @@ export default function JobContainer() {
             try {
                 const jobs = await fetch("/api/job/find/recent");
                 const data = await jobs.json();
+                state.setJobList([]);
                 state.setJobList([...data]);
                 state.activeJobPost = data[0];
                 router.push("/");

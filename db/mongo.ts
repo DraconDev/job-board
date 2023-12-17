@@ -1,4 +1,3 @@
-import { UserType } from "@/type/types";
 import mongoose from "mongoose";
 import { JobPost, User } from "./schema";
 
@@ -79,12 +78,13 @@ export async function fetchJobsByFilter(filter: FilterType) {
     try {
         const jobs = await JobPost.find(query);
         return jobs;
+    } catch (error) {
+        console.error("Error fetching jobs:", error);
+        throw error;
     } finally {
         await mongoose.disconnect();
     }
 }
-
-
 
 export async function fetchUserBasedOnEmail({ email }: { email: string }) {
     await mongoose.connect(uri);
