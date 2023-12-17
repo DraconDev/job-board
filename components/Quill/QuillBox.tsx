@@ -1,7 +1,7 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import ReactQuill from "react-quill";
 
 import "react-quill/dist/quill.snow.css";
 // or 'quill.bubble.css' for bubble theme
@@ -16,6 +16,11 @@ export function QuillBox({ userText, setUserText }: IAppProps) {
     useEffect(() => {
         setLoaded(true);
     }, []);
+
+    const ReactQuill = dynamic(() => import("react-quill"), {
+        ssr: false,
+        loading: () => <p>Loading...</p>,
+    });
 
     return (
         loaded && (
