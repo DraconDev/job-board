@@ -47,7 +47,7 @@ export default function JobContainer() {
         <div className="flex flex-col w-full h-full ">
             {/* {isClient && <Filter />} */}
             <Filter />
-            <JobPanel />
+            <JobPanel jobs={state.jobList}/>
         </div>
     );
 }
