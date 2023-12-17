@@ -7,9 +7,10 @@ import { useEffect, useRef, useState } from "react";
 type ListBoxCustomProps = {
     type: string[];
     name: string;
+    flavor?: string;
 };
 
-const ListBoxCustom = ({ type, name }: ListBoxCustomProps) => {
+const ListBoxCustom = ({ type, name, flavor }: ListBoxCustomProps) => {
     const state = useAppState((state) => state);
     const [dropdownState, setDropdownState] = useState(false);
     const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -54,6 +55,7 @@ const ListBoxCustom = ({ type, name }: ListBoxCustomProps) => {
             >
                 <div className="flex grow justify-center">
                     {state.selectedOptions[name]}
+                    {flavor && ` ${flavor}`}
                 </div>
                 <FaAngleDoubleDown className="h-5 w-5 text-accent" />
             </button>
@@ -73,6 +75,7 @@ const ListBoxCustom = ({ type, name }: ListBoxCustomProps) => {
                             }}
                         >
                             {field}
+                            {flavor && ` ${flavor}`}
                         </div>
                     ))}
                 </div>

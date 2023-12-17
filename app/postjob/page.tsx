@@ -46,12 +46,12 @@ export default function PostJob() {
     const state = useAppState((state) => state);
 
     return (
-        <div className="justify-center flex flex-col items-center w-full h-full">
+        <div className="pt-2 justify-center flex flex-col items-center w-full h-full">
             <p className="text-3xl p-2">Post job</p>
             <div className="flex flex-wrap w-full justify-center">
                 <div className="max-w-lg w-full  text-black px-2 ">
                     <form
-                        className="flex flex-col gap-2 w-full justify-center items-center placeholder-gray-500"
+                        className="flex flex-col gap-3 w-full justify-center items-center placeholder-gray-500"
                         onSubmit={handleSubmit(onSubmit)}
                         action="/api/job/create"
                         method="POST"
@@ -81,9 +81,22 @@ export default function PostJob() {
                             className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="Company"
                         />
-                        <div className="text-white text-lg">
-                            Job Description
-                        </div>
+
+                        <h1 className="text-3xl text-white">Experience</h1>
+                        <ListBoxCustom
+                            type={state.experience}
+                            name="experience"
+                            flavor=" years of experience"
+                        />
+                        <ListBoxCustom
+                            type={state.jobType.slice(1)}
+                            name="jobType"
+                        />
+                        <ListBoxCustom
+                            type={state.role.slice(1)}
+                            name="role"
+                        />
+                        <div className="text-white text-3xl">Description</div>
                         <QuillBox
                             userText={userText}
                             setUserText={setUserText}
@@ -93,21 +106,6 @@ export default function PostJob() {
                             className="p-2 rounded outline-none h-60 w-full bg-secondary text-white placeholder-gray-500"
                             placeholder="Description"
                         /> */}
-                        <h1 className="text-xl text-white">
-                            Experience in years
-                        </h1>
-                        <ListBoxCustom
-                            type={state.experience}
-                            name="experience"
-                        />
-                        <ListBoxCustom
-                            type={state.jobType}
-                            name="jobType"
-                        />
-                        <ListBoxCustom
-                            type={state.role}
-                            name="role"
-                        />
                         <button
                             type="submit"
                             className="bg-accent hover:bg-secondary border-2 border-accent  text-white px-4 py-2 rounded w-full "
