@@ -30,10 +30,11 @@ export default function JobContainer() {
                 setIsFetching(false);
             }
         }
+        fetchRecentJobs();
 
-        if (state.jobList.length === 0) {
-            fetchRecentJobs();
-        }
+        // if (state.jobList.length === 0) {
+        //     fetchRecentJobs();
+        // }
     }, []); // Empty dependency array to run only once on mount
 
     return state.jobList.length == 0 || !isClient ? (
