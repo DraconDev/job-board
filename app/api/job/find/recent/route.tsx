@@ -3,15 +3,17 @@ import { JobPost } from "@/db/schema";
 import mongoose from "mongoose";
 
 async function fetchRecentJobs() {
-    await mongoose.connect(uri);
-
     // serach by date
 
     try {
+        await mongoose.connect(uri);
         // const jobs = await JobPost.find().sort({ date: -1 }).limit(50);
         const jobs = await JobPost.find();
 
         return jobs;
+    } catch (error) {
+        console.error("Error fetching recent jobs:", error);
+        // Handle the error as needed
     } finally {
         await mongoose.disconnect();
     }
