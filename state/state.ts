@@ -11,12 +11,13 @@ export type AppState = {
     selectedOptions: Record<string, string>;
     setSelectedOptions: (key: string, value: string) => void;
     jobList: JobType[];
-    jobSearchList: JobType[];
     setJobList: (jobList: JobType[]) => void;
-    setJobSearchList: (jobSearchList: JobType[]) => void;
     activeJobPost?: JobType;
-    activeSearchJobPost: JobType;
     updateActiveJobPost: (job: JobType) => void;
+    jobSearchList: JobType[];
+    setJobSearchList: (jobSearchList: JobType[]) => void;
+    activeSearchJobPost?: JobType;
+    updateActiveSearchJobPost: (job: JobType) => void;
     searchTitle: string;
     searchLocation: string;
     setSearchTitle: (searchTitle: string) => void;
@@ -38,9 +39,11 @@ export const useAppState = create<AppState>()(
 
                 setJobList: (jobList: JobType[]) => set({ jobList }),
                 jobSearchList: [],
-                activeSearchJobPost: [],
+                activeSearchJobPost: undefined,
                 setJobSearchList: (jobSearchList: JobType[]) =>
                     set({ jobSearchList }),
+                updateActiveSearchJobPost: (job: JobType) =>
+                    set({ activeSearchJobPost: job }),
                 searchTitle: "",
                 setSearchTitle: (searchTitle: string) =>
                     set((state: AppState) => ({ searchTitle })),
