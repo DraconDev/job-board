@@ -1,9 +1,9 @@
 "use client";
 import ListBoxCustom from "@/components/Filter/ListBoxCustom";
+import { QuillBox } from "@/components/QuillBox";
 import { useAppState } from "@/state/state";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import ReactQuill from "react-quill";
 
 export default function PostJob() {
     const { register, handleSubmit } = useForm();
@@ -61,7 +61,6 @@ export default function PostJob() {
                             className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="Title"
                         />
-
                         <input
                             {...register("salaryMin")}
                             className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
@@ -77,16 +76,14 @@ export default function PostJob() {
                             className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="city"
                         />
-
                         <input
                             {...register("company")}
                             className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="Company"
                         />
-                        <ReactQuill
-                            theme="snow"
-                            value={userText}
-                            onChange={setUserText}
+                        <QuillBox
+                            userText={userText}
+                            setUserText={setUserText}
                         />
                         {/* <textarea
                             {...register("description")}
