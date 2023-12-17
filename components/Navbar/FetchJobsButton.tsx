@@ -1,6 +1,6 @@
 "use client";
-import { searchJobs } from "@/app/api/job/find/filter/route";
 import { useAppState } from "@/state/state";
+import { searchJobs } from "@/utils/filterjob";
 
 import { useRouter } from "next/navigation";
 

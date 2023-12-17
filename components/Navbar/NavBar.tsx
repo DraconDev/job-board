@@ -1,7 +1,7 @@
 "use client";
 import { useAppState } from "@/state/state";
 
-import { searchJobs } from "@/app/api/job/find/filter/route";
+import { searchJobs } from "@/utils/filterjob";
 import { useCallback, useEffect } from "react";
 import LoginLogo from "../Auth/LoginLogo";
 import FetchJobsButton from "./FetchJobsButton";
