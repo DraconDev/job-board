@@ -48,9 +48,9 @@ export default function Description() {
                                 {state.activeJobPost?.role}
                             </div>
                         </div>
-                        <div className="">
+                        {/* <div className="">
                             {state?.activeJobPost?.description}
-                        </div>
+                        </div> */}
                         <ShowHtml
                             userText={
                                 state?.activeJobPost?.description
