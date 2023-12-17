@@ -2,7 +2,6 @@
 import { useAppState } from "@/state/state";
 
 import { useSession } from "next-auth/react";
-import { FaMoneyBillAlt } from "react-icons/fa";
 import CustomButton from "../Layout/CustomButton";
 import { ShowHtml } from "../Quill/ShowHtml";
 
@@ -26,7 +25,7 @@ export default function Description() {
     return (
         state.activeJobPost && (
             <div className="flex bg-primary flex-col gap-1 overflow-hidden rounded  transition-transform hover:transform hover:scale-[1.005] duration-150 ">
-                <div className="flex rounded p-2 shadow-md bg-secondary w-full  flex-col min-h-[400px]  ">
+                <div className="flex rounded p-3 shadow-md bg-secondary w-full  flex-col min-h-[400px]  ">
                     <h2 className="text-xl rounded font-semibold">
                         {state?.activeJobPost?.title}
                     </h2>
@@ -34,10 +33,7 @@ export default function Description() {
                     <div className="gap-3">
                         <div className="text-gl flex gap-2 items-center ">
                             <div className="div p-1">
-                                <FaMoneyBillAlt />
-                            </div>
-                            <div className="div p-1">
-                                {state.activeJobPost?.salaryMin}-
+                                ${state.activeJobPost?.salaryMin}-
                                 {state.activeJobPost?.salaryMax}
                             </div>
 
