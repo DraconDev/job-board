@@ -4,6 +4,7 @@ import { useAppState } from "@/state/state";
 import { useSession } from "next-auth/react";
 import { FaMoneyBillAlt } from "react-icons/fa";
 import CustomButton from "../Layout/CustomButton";
+import { ShowHtml } from "../Quill/ShowHtml";
 
 export default function Description() {
     const state = useAppState((state) => state);
@@ -50,6 +51,13 @@ export default function Description() {
                         <div className="">
                             {state?.activeJobPost?.description}
                         </div>
+                        <ShowHtml
+                            userText={
+                                state?.activeJobPost?.description
+                                    ? state?.activeJobPost?.description
+                                    : ""
+                            }
+                        />
                     </div>
                 </div>
 

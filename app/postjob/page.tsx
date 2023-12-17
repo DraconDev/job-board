@@ -1,6 +1,6 @@
 "use client";
 import ListBoxCustom from "@/components/Filter/ListBoxCustom";
-import { QuillBox } from "@/components/QuillBox";
+import { QuillBox } from "@/components/Quill/QuillBox";
 import { useAppState } from "@/state/state";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
