@@ -81,6 +81,9 @@ export default function PostJob() {
                             className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="Company"
                         />
+                        <div className="text-white text-lg">
+                            Job Description
+                        </div>
                         <QuillBox
                             userText={userText}
                             setUserText={setUserText}
@@ -90,7 +93,9 @@ export default function PostJob() {
                             className="p-2 rounded outline-none h-60 w-full bg-secondary text-white placeholder-gray-500"
                             placeholder="Description"
                         /> */}
-                        <h1 className="text-xl text-white">Experience</h1>
+                        <h1 className="text-xl text-white">
+                            Experience in years
+                        </h1>
                         <ListBoxCustom
                             type={state.experience}
                             name="experience"
