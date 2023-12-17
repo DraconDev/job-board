@@ -12,11 +12,12 @@ const FetchJobsButton = () => {
         <div>
             <button
                 onClick={() => searchJobs(state)}
-                className="p-2  bg-primary  text-white font-bold rounded w-full  hover:text-accent  h-full"
+                className="p-2  bg-primary  text-white font-bold rounded w-full  hover:bg-accent hover:text-primary  h-full"
             >
                 {/* <IoSearchOutline className="h-8 w-8" /> */}
                 Search
             </button>
+ 
         </div>
     );
 };
