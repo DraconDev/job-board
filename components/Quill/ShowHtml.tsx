@@ -1,3 +1,4 @@
+"use client";
 export function ShowHtml({ userText }: { userText: string }) {
     return (
         <div className="description">
