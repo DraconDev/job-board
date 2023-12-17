@@ -22,7 +22,7 @@ export default function RootLayout({
             className="    bg-primary"
         >
             <AuthProvider>
-                <body className={`${inter.className} min-h-[100vh]`}>
+                <body className={`${inter.className} h-[100vh]`}>
                     <div className="flex w-full h-full flex-col ">
                         <NavBar />
                         {/* <ThemeSwitcher /> */}

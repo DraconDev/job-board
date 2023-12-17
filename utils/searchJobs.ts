@@ -52,7 +52,7 @@ export async function searchJobs(state: AppState) {
         );
         const data = await jobs.json();
         state.setJobSearchList([...data]);
-        state.updateActiveSearchJobPost(data[0]);
+        state.updateActiveJobPost(data[0]);
         // router.push("/");
     }
 }

@@ -14,6 +14,13 @@ const SearchPage = (props: Props) => {
 
     const state = useAppState((state) => state);
 
+    useEffect(() => {
+        if (!state.jobSearchList.length) {
+            return;
+        }
+        state.updateActiveJobPost(state.jobSearchList[0]);
+    }, []);
+
     return active ? (
         <div className="flex flex-col w-full h-full ">
             {/* {isClient && <Filter />} */}

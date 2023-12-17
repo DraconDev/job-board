@@ -14,6 +14,9 @@ export default function JobContainer() {
 
     useEffect(() => {
         setIsClient(true);
+        if (isFetching) {
+            return;
+        }
         setIsFetching(true);
 
         async function fetchRecentJobs() {
@@ -22,7 +25,7 @@ export default function JobContainer() {
                 const data = await jobs.json();
                 state.setJobList([]);
                 state.setJobList([...data]);
-                state.activeJobPost = data[0];
+                state.updateActiveJobPost(data[0]);
                 router.push("/");
             } catch (error) {
                 console.error("Error fetching recent jobs:", error);
@@ -47,7 +50,7 @@ export default function JobContainer() {
         <div className="flex flex-col w-full h-full ">
             {/* {isClient && <Filter />} */}
             <Filter />
-            <JobPanel jobs={state.jobList}/>
+            <JobPanel jobs={state.jobList} />
         </div>
     );
 }
