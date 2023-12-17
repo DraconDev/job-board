@@ -8,9 +8,11 @@ const FetchFilterButton = (props: Props) => {
     const state = useAppState((state) => state);
     const router = useRouter();
 
+    // !! todo
     const queryParams = new URLSearchParams({
         title: "market",
     });
+    
     // * GET joblist from server joblist route
     const handleSearch = async () => {
         // const jobs = await fetch(`/api/filterjobs`);
@@ -18,7 +20,7 @@ const FetchFilterButton = (props: Props) => {
         const data = await jobs.json();
         state.setJobList([...data]);
         state.activeJobPost = data[0];
-        router.push("/");
+        router.push("/search/" + queryParams.toString());
     };
 
     return (
