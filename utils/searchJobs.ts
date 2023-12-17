@@ -51,7 +51,7 @@ export async function searchJobs(state: AppState) {
             }
         );
         const data = await jobs.json();
-        state.setJobList([...data]);
+        state.setJobSearchList([...data]);
         state.updateActiveJobPost(data[0]);
         // router.push("/");
     }
