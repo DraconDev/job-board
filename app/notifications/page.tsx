@@ -18,10 +18,6 @@ const Notifications = (props: Props) => {
             return;
         }
 
-        // if (state?.user) {
-        //     return;
-        // }
-
         try {
             const res = await fetch(
                 `/api/user/profile/get?email=${session.data.user.email}`,

@@ -1,13 +1,13 @@
 "use client";
-
 import ListBoxCustom from "@/components/Filter/ListBoxCustom";
 import { useAppState } from "@/state/state";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import ReactQuill from "react-quill";
 
 export default function PostJob() {
     const { register, handleSubmit } = useForm();
-
+    const [userText, setUserText] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const onSubmit: SubmitHandler<any> = async (data) => {
         const currentDate = new Date();
@@ -23,6 +23,7 @@ export default function PostJob() {
                 },
                 body: JSON.stringify({
                     ...data,
+                    description: userText,
                     date: currentDate,
                     experience: state.selectedOptions["experience"],
                     jobType: state.selectedOptions["jobType"],
@@ -82,11 +83,16 @@ export default function PostJob() {
                             className="p-2 rounded outline-none placeholder-gray-500 w-full bg-secondary text-white"
                             placeholder="Company"
                         />
-                        <textarea
+                        <ReactQuill
+                            theme="snow"
+                            value={userText}
+                            onChange={setUserText}
+                        />
+                        {/* <textarea
                             {...register("description")}
                             className="p-2 rounded outline-none h-60 w-full bg-secondary text-white placeholder-gray-500"
                             placeholder="Description"
-                        />
+                        /> */}
                         <h1 className="text-xl text-white">Experience</h1>
                         <ListBoxCustom
                             type={state.experience}
