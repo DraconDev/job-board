@@ -1,6 +1,6 @@
 "use client";
+import { searchJobs } from "@/app/api/job/find/filter/route";
 import { useAppState } from "@/state/state";
-import { searchJobs } from "@/utils/searchJobs";
 
 import { useRouter } from "next/navigation";
 
@@ -17,7 +17,6 @@ const FetchJobsButton = () => {
                 {/* <IoSearchOutline className="h-8 w-8" /> */}
                 Search
             </button>
- 
         </div>
     );
 };

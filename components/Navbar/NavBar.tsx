@@ -1,11 +1,12 @@
 "use client";
 import { useAppState } from "@/state/state";
-import { searchJobs } from "@/utils/searchJobs";
+
+import { searchJobs } from "@/app/api/job/find/filter/route";
 import { useCallback, useEffect } from "react";
 import LoginLogo from "../Auth/LoginLogo";
+import FetchJobsButton from "./FetchJobsButton";
 import LogoButton from "./LogoButton";
 import SearchBar from "./SearchBar";
-import FetchJobsButton from "./FetchJobsButton";
 
 export default function NavBar() {
     const state = useAppState((state) => state);
