@@ -83,3 +83,85 @@ body {
 .inverse-hover:hover {
     filter: invert(100%);
 }
+
+.description {
+    /* Basic reset styles for the dangerous HTML content */
+    /* overflow: hidden; */
+    /* scroll-behavior: auto;
+    height: 20vh; */
+}
+
+.description h1 {
+    font-size: 1.8em;
+}
+
+.description h2 {
+    font-size: 1.6em;
+}
+
+.description h3 {
+    font-size: 1.4em;
+}
+
+.description h4 {
+    font-size: 1.2em;
+}
+
+/* Paragraphs */
+.description p {
+    margin-bottom: 1em;
+}
+
+/* Links */
+.description a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.description a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+.description ul,
+.description ol {
+    padding-left: 20px;
+    margin-bottom: 1em;
+}
+
+.description li {
+    margin-bottom: 0.5em;
+}
+
+/* Images */
+.description img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevents inline gaps */
+    margin: 0 auto; /* Center images */
+}
+
+/* Tables */
+.description table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.description th,
+.description td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.description th {
+    background-color: #f0f0f0;
+}
+
+/* Blockquote for quotes */
+.description blockquote {
+    border-left: 4px solid #ccc;
+    margin: 1em 0;
+    padding-left: 1em;
+    font-style: italic;
+    background-color: #f9f9f9;
+}
