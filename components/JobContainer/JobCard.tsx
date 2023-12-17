@@ -45,7 +45,7 @@ const JobCard = ({ job }: { job: JobType }) => {
                     </p> */}
                     <div className=" flex justify-between items-center">
                         <span className="text-gray-400">
-                            {job.date?.slice(0, 10).toString()}
+                            {job.date?.toString().slice(0, 10)}
                         </span>
                     </div>
                 </div>
