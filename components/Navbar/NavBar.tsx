@@ -1,7 +1,7 @@
 "use client";
 import { useAppState } from "@/state/state";
 
-import { searchJobs } from "@/utils/filterjob";
+import { useSearchJobs } from "@/utils/filterjob";
 import { useCallback, useEffect } from "react";
 import LoginLogo from "../Auth/LoginLogo";
 import FetchJobsButton from "./FetchJobsButton";
@@ -10,11 +10,12 @@ import SearchBar from "./SearchBar";
 
 export default function NavBar() {
     const state = useAppState((state) => state);
+    const searchJobs = useSearchJobs();
 
     const handleKeyDown = useCallback(
         (event: any) => {
             if (event.key === "Enter") {
-                searchJobs(state);
+                searchJobs();
             }
         },
         [state]
