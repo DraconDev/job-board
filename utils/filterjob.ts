@@ -9,7 +9,7 @@ export function useSearchJobs() {
         console.log(state);
 
         if (state.searchTitle) {
-            queryParams.append("title", state.searchTitle);
+            queryParams.append("title", state.searchTitle.trim().toLowerCase());
         }
 
         if (state.searchLocation) {
