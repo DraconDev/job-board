@@ -30,7 +30,7 @@ export const jobSchema = new Schema({
     },
 });
 
-export const JobPost = mongoose.model("Job", jobSchema);
+export const JobPost = mongoose.models.Job || mongoose.model("Job", jobSchema);
 
 export const userSchema = new Schema({
     email: String,
@@ -54,4 +54,4 @@ export const userSchema = new Schema({
     },
 });
 
-export const User = mongoose.model("User", userSchema);
+export const User = mongoose.models.User || mongoose.model("User", userSchema);
