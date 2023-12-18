@@ -46,7 +46,7 @@ const Notifications = (props: Props) => {
     });
 
     return (
-        <div className="flex flex-col gap-2  h-full p-1 justify-center items-center">
+        <div className="flex flex-col gap-2  h-full w-full p-1 justify-center items-center">
             <h2 className="text-2xl ">Notifications</h2>
             <div className="text-gray-400"> No current notifications</div>
 

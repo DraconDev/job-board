@@ -47,7 +47,7 @@ const AllNotifications = () => {
 
     // // map over state user applied jobs
     return (
-        <div>
+        <div className="w-full h-full p-3 gap-3 flex flex-col justify-center items-center">
             <ListOfAppliedJobs />
         </div>
     );
