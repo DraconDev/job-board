@@ -53,11 +53,6 @@ export function useSearchJobs() {
         try {
             const jobs = await fetch(
                 `/api/job/find/filter?${queryParams.toString()}`
-                // {
-                //     headers: {
-                //         "Content-Type": "application/json",
-                //     },
-                // }
             );
 
             const data = await jobs.json();
