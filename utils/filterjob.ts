@@ -54,9 +54,20 @@ export async function searchJobs(state: AppState) {
             );
 
             const data = await jobs.json();
+            console.log(data);
             state.setJobSearchList([...data]);
             state.updateActiveJobPost(data[0]);
-            router.push(`/search/${encodeURIComponent(state.searchTitle)}`);
+
+            // ! todo: redirect
+            await router
+                .push(`/search/terminator`)
+                // .push(`/search/${encodeURIComponent(state.searchTitle)}`)
+                .then(() => {
+                    console.log("Redirected successfully!");
+                })
+                .catch((error) => {
+                    console.error("Failed to redirect:", error);
+                });
         } catch (error) {
             console.error("Error fetching jobs:", error);
         } finally {
