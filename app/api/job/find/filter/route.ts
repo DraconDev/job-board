@@ -3,18 +3,17 @@ import { JobPost } from "@/db/schema";
 import mongoose from "mongoose";
 
 type FilterType = {
-    title: string;
-    location?: string;
-    role?: string;
-    date?: string;
-    salary: string;
-    jobLocation?: string;
+    // title: string;
+    // location?: string;
+    // role?: string;
+    // date?: string;
+    // salary?: string;
+    // jobLocation?: string;
+    [key: string]: string;
 };
 
 export async function fetchJobsByFilter(filter: FilterType) {
     await mongoose.connect(uri);
-
-    const salary = parseInt(filter.salary.replace(/\D/g, ""));
 
     const query: any = {
         title: { $regex: filter.title, $options: "i" },
@@ -56,6 +55,7 @@ export async function fetchJobsByFilter(filter: FilterType) {
     }
 
     if (filter.salary !== undefined && filter.salary !== "") {
+        const salary = parseInt(filter.salary.replace(/\D/g, ""));
         query.salaryMin = { $gte: salary };
     }
 
@@ -74,25 +74,57 @@ export async function fetchJobsByFilter(filter: FilterType) {
     }
 }
 
+// export async function GET(request: Request) {
+//     const { searchParams } = new URL(request.url);
+
+//     const title = searchParams.get("title");
+//     const location = searchParams.get("location");
+//     const role = searchParams.get("role");
+//     const date = searchParams.get("date");
+//     const salary = searchParams.get("salary");
+//     const jobLocation = searchParams.get("jobLocation");
+
+//     const jobs = await fetchJobsByFilter({
+//         title: title ?? "",
+//         location: location ?? "",
+//         role: role ?? "",
+//         date: date ?? "",
+//         salary: salary ?? "",
+//         jobLocation: jobLocation ?? "",
+//     });
+
+//     // * return jobs
+//     return new Response(JSON.stringify(jobs));
+// }
+
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
 
-    const title = searchParams.get("title");
-    const location = searchParams.get("location");
-    const role = searchParams.get("role");
-    const date = searchParams.get("date");
-    const salary = searchParams.get("salary");
-    const jobLocation = searchParams.get("jobLocation");
+    // Only include parameters if they are provided
+    const filter: FilterType = {
+        title: searchParams.get("title") ?? "",
+    };
 
-    const jobs = await fetchJobsByFilter({
-        title: title ?? "",
-        location: location ?? "",
-        role: role ?? "",
-        date: date ?? "",
-        salary: salary ?? "",
-        jobLocation: jobLocation ?? "",
+    const optionalParams = [
+        "location",
+        "role",
+        "date",
+        "salary",
+        "jobLocation",
+    ];
+    optionalParams.forEach((param) => {
+        const value = searchParams.get(param);
+        if (value) {
+            filter[param] = value;
+        }
     });
 
+    const jobs = await fetchJobsByFilter(filter);
+
     // * return jobs
-    return new Response(JSON.stringify(jobs));
+    return new Response(JSON.stringify(jobs), {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
 }
