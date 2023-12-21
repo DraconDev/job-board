@@ -68,7 +68,7 @@ const ListBoxCustom = ({ type, name, flavor }: ListBoxCustomProps) => {
                                 index % 2 === 0
                                     ? "brightness-100"
                                     : "brightness-[85%]"
-                            } cursor-pointer hover:invert w-full bg-secondary text-white border-primary`}
+                            } cursor-pointer hover:bg-accent  w-full bg-secondary text-white border-primary`}
                             onClick={() => {
                                 setSelectedOptions(field);
                                 setDropdownState(false);
