@@ -51,7 +51,10 @@ export default function NavBar() {
                             <GiCycle className="w-7 h-7" />
                         </button>
                         <SearchBar
-                            placeholder={searchType}
+                            placeholder={
+                                searchType[0].toUpperCase() +
+                                searchType.slice(1)
+                            }
                             logo="search"
                             value={state.searchTitle}
                             set={(e) => {
