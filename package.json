@@ -15,6 +15,7 @@
         "@headlessui/react": "^1.7.17",
         "@mdi/js": "^7.2.96",
         "@mdi/react": "^1.6.1",
+        "@next/font": "^14.0.4",
         "@radix-ui/react-slot": "^1.0.2",
         "@redux-devtools/extension": "^3.2.6",
         "@types/node": "20.4.1",

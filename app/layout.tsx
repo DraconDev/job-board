@@ -1,10 +1,9 @@
 import AuthProvider from "@/components/Auth/AuthProvider";
 import NavBar from "@/components/Navbar/NavBar";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Roboto({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Job Board",
@@ -22,7 +21,7 @@ export default function RootLayout({
             className="    bg-primary"
         >
             <AuthProvider>
-                <body className={`${inter.className} h-[100vh]`}>
+                <body className={`${font.className} h-[100vh]`}>
                     <div className="flex w-full h-full flex-col ">
                         <NavBar />
                         {/* <ThemeSwitcher /> */}
