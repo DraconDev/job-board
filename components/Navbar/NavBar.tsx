@@ -33,13 +33,13 @@ export default function NavBar() {
     }, [handleKeyDown]);
 
     return (
-        <div className="bg-secondary justify-center flex items-center h-full">
+        <div className="bg-secondary justify-center flex items-center ">
             <div className="max-w-5xl p-1 gap-1 justify-between w-full flex items-center">
                 <div className="flex gap-1 items-center">
                     <LogoButton type="home" />
                 </div>
-                <div className="flex gap-1 px-1 grow items-center h-full">
-                    <div className="w-full flex h-full ">
+                <div className="flex gap-1 px-1 grow items-center ">
+                    <div className="w-full flex  ">
                         <button
                             className="w-10 h-10  bg-primary text-accent text-lg flex items-center justify-center  "
                             onClick={() =>

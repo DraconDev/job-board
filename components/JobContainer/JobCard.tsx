@@ -27,7 +27,7 @@ const JobCard = ({ job }: { job: JobType }) => {
                 </MobileSlideWrapper>
             ) : (
                 <div
-                    className="hover-outline-transition outline-transition"
+                    className="p-2 flex flex-col gap-1 bg-secondary  rounded-md cursor-pointer   w-full outline-accent outline-2 hover:outline"
                     onClick={showDescription}
                 >
                     <h2 className="text-xl font-semibold">{job.title}</h2>

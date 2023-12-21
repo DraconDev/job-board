@@ -11,9 +11,6 @@
     --foreground-rgb: "#141414";
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
-    --primary: #242424;
-    --secondary: #383838;
-    --accent: #08f;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,11 +34,11 @@ body {
 .hover-outline-transition {
     @apply p-2 flex flex-col gap-1 bg-secondary shadow-md rounded-md cursor-pointer transform duration-500 ease-in-out  w-full;
     outline: 2px solid transparent;
-    transition: outline 0.5s ease-in-out;
+    transition: outline 0.4s ease-in-out;
 }
 
 .outline-transition:hover {
-    outline: 2px solid #4f46e5; /* Change #4F46E5 to your desired hover outline color */
+    outline: 2px solid var(--accent); /* Change #4F46E5 to your desired hover outline color */
 }
 
 .dark {
