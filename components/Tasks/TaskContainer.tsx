@@ -31,7 +31,7 @@ const TaskContainer = (props: Props) => {
         },
     ];
     return (
-        <div className="flex  ">
+        <div className="flex gap-2 w-full flex-wrap">
             {dummyTasks.map((task) => (
                 <TaskCard
                     key={task.title}
