@@ -41,7 +41,7 @@ export default function NavBar() {
                 <div className="flex gap-1 px-1 grow items-center ">
                     <div className="w-full flex  ">
                         <button
-                            className="w-10 h-10  bg-primary text-accent text-lg flex items-center justify-center  "
+                            className="p-1 w-10 h-10  bg-primary text-accent text-lg flex items-center justify-center  "
                             onClick={() =>
                                 setSearchType(
                                     searchType == "jobs" ? "tasks" : "jobs"
