@@ -13,9 +13,9 @@ module.exports = {
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
             colors: {
-                primary: "#242424", // Use CSS variable for primary color
-                secondary: "#383838", // Use CSS variable for secondary color
-                accent: "#08f", // Use CSS variable for accent color
+                primary: "#191919", // Use CSS variable for primary color
+                secondary: "#333", // Use CSS variable for secondary color
+                accent: "hsl(210, 100%, 50%)", // Use CSS variable for accent color
             },
         },
     },

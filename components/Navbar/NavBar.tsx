@@ -3,7 +3,7 @@ import { useAppState } from "@/state/state";
 
 import { useSearchJobs } from "@/utils/filterjob";
 import { useCallback, useEffect, useState } from "react";
-import { FaAngleDoubleDown } from "react-icons/fa";
+import { GiCycle } from "react-icons/gi";
 import LoginLogo from "../Auth/LoginLogo";
 import FetchJobsButton from "./FetchJobsButton";
 import LogoButton from "./LogoButton";
@@ -48,10 +48,10 @@ export default function NavBar() {
                                 )
                             }
                         >
-                            <FaAngleDoubleDown className="w-6 h-6" />
+                            <GiCycle className="w-7 h-7" />
                         </button>
                         <SearchBar
-                            placeholder="Job"
+                            placeholder={searchType}
                             logo="search"
                             value={state.searchTitle}
                             set={(e) => {

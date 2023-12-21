@@ -27,26 +27,28 @@ const JobCard = ({ job }: { job: JobType }) => {
                 </MobileSlideWrapper>
             ) : (
                 <div
-                    className="p-2 flex flex-col gap-1 bg-secondary  rounded-md cursor-pointer   w-full outline-accent outline-2 hover:outline"
+                    className="p-2 flex flex-col gap-1 bg-secondary  rounded-md cursor-pointer   w-full outline-accent outline-2 hover:outline "
                     onClick={showDescription}
                 >
-                    <h2 className="text-xl font-semibold">{job.title}</h2>
-                    <div className="w-full h-[2px] bg-accent"></div>
-                    <div className="flex justify-between text-gray-400">
-                        <p>{job.company}</p>
-                    </div>
-                    <div className="text-lg flex   items-center">
-                        ${job.salaryMin} - ${`${job.salaryMax}`}
-                    </div>
-                    {/* <p className="mt-2">
+                    <div className="flex flex-col gap-1 ">
+                        <h2 className="text-xl font-semibold">{job.title}</h2>
+                        <div className="w-full h-[2px] bg-accent"></div>
+                        <div className="flex justify-between text-gray-400">
+                            <p>{job.company}</p>
+                        </div>
+                        <div className="text-lg flex   items-center">
+                            ${job.salaryMin} - ${`${job.salaryMax}`}
+                        </div>
+                        {/* <p className="mt-2">
                         {job?.description && job.description.length > 300
                             ? job.description.slice(0, 300) + "..."
                             : job?.description}
                     </p> */}
-                    <div className=" flex justify-between items-center">
-                        <span className="text-gray-400">
-                            {job.date?.toString().slice(0, 10)}
-                        </span>
+                        <div className=" flex justify-between items-center">
+                            <span className="text-gray-400">
+                                {job.date?.toString().slice(0, 10)}
+                            </span>
+                        </div>
                     </div>
                 </div>
             )}

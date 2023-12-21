@@ -24,7 +24,7 @@ export default function Description() {
 
     return (
         state.activeJobPost && (
-            <div className="flex bg-primary flex-col gap-1 overflow-hidden rounded-lg   ">
+            <div className="flex bg-primary flex-col gap-1 overflow-hidden rounded-lg  ">
                 <div className="flex rounded p-3 shadow-md bg-secondary w-full  flex-col min-h-[400px]  max-h-[83.5vh] overflow-y-auto ">
                     <h2 className="text-xl rounded font-semibold">
                         {state?.activeJobPost?.title}

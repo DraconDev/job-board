@@ -11,7 +11,7 @@ export default function Search({
     set: (e: any) => void;
 }) {
     return (
-        <div className="flex items-center justify-center w-full h-full grow bg-primary rounded px-1 py-1">
+        <div className="flex items-center justify-center w-full h-full grow bg-primary  px-1 py-1">
             {/* <LogoButton type={`${logo}`} /> */}
             {/* {logo === "search" && <AiOutlineSearch size={27} />}
             {logo === "pindrop" && <RiPushpin2Line size={27} />} */}
