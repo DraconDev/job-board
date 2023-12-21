@@ -1,9 +1,10 @@
 import AuthProvider from "@/components/Auth/AuthProvider";
 import NavBar from "@/components/Navbar/NavBar";
 import type { Metadata } from "next";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const font = Roboto({ subsets: ["latin"] });
+const font = Kanit({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Job Board",
