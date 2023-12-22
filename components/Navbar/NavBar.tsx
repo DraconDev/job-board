@@ -1,9 +1,8 @@
 "use client";
 import { useAppState } from "@/state/state";
 
-import { useClickOutside } from "@/lib/click";
 import { useSearchJobs } from "@/utils/filterjob";
-import { LegacyRef, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { GiCycle } from "react-icons/gi";
 import LoginLogo from "../Auth/LoginLogo";
 import FetchJobsButton from "./FetchJobsButton";
@@ -36,10 +35,6 @@ export default function NavBar() {
 
     const [searchTypeSelecting, setSearchTypeSelecting] = useState(false);
 
-    const [boxref, buttonref] = useClickOutside({
-        close: () => setSearchTypeSelecting(false),
-    });
-
     return (
         <div className="bg-secondary justify-center flex items-center fixed left-0 top-0 w-full z-10">
             <div className="max-w-5xl p-1 gap-1 justify-between w-full flex items-center">
@@ -53,7 +48,6 @@ export default function NavBar() {
                             onClick={() =>
                                 setSearchTypeSelecting(!searchTypeSelecting)
                             }
-                            ref={buttonref as LegacyRef<HTMLButtonElement>}
                         >
                             <GiCycle className="w-7 h-7" />
                         </button>
@@ -61,7 +55,6 @@ export default function NavBar() {
                             <SearchTypesDropdown
                                 searchOptions={searchOptions}
                                 setSearchType={setSearchType}
-                                ref={boxref}
                             />
                         )}
 

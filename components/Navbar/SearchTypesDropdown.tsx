@@ -1,9 +1,12 @@
 "use client";
+
+import react from "react";
+
 type Props = {
     searchOptions: string[];
     setSearchType: (type: "jobs" | "tasks") => void;
 
-    ref: any;
+    ref: react.RefObject<HTMLDivElement>;
 };
 
 const SearchTypesDropdown = ({
