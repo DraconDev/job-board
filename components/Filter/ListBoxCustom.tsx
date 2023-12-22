@@ -45,13 +45,13 @@ const ListBoxCustom = ({ type, name, flavor }: ListBoxCustomProps) => {
 
     return (
         <div
-            className="relative inline-block w-full"
+            className="relative inline-block w-full "
             ref={dropdownRef}
         >
             <button
                 value={state.selectedOptions[name]}
                 onClick={toggleDropdown}
-                className="p-2 bg-secondary text-white border rounded-md shadow-sm w-full focus:outline-none focus:ring focus:border-accent border-primary flex justify-center items-center"
+                className="p-2 bg-secondary text-white border rounded-md shadow-sm w-full focus:outline-none focus:ring focus:border-accent border-primary flex justify-center items-center "
             >
                 <div className="flex grow justify-center">
                     {state.selectedOptions[name]}

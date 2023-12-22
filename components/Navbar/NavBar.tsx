@@ -39,7 +39,7 @@ export default function NavBar() {
                     <LogoButton type="home" />
                 </div>
                 <div className="flex gap-1 px-1 grow items-center ">
-                    <div className="w-full flex  ">
+                    <div className="w-full flex  relative">
                         <button
                             className="p-1 w-10 h-10  bg-primary text-accent text-lg flex items-center justify-center  "
                             onClick={() =>
@@ -50,6 +50,7 @@ export default function NavBar() {
                         >
                             <GiCycle className="w-7 h-7" />
                         </button>
+
                         <SearchBar
                             placeholder={
                                 searchType[0].toUpperCase() +
