@@ -18,7 +18,7 @@ const OverlayBoard = ({ isOpen, toggleOverlayMenu }: Props) => {
                 <div className="flex justify-center mt-2 md:max-w-5xl w-full">
                     <div
                         className="flex  flex-col gap-1 mt-2 w-2/3 h-fit"
-                        ref={box}
+                        ref={box as any}
                     >
                         <ListBoxes />
                         <button

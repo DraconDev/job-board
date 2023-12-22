@@ -1,13 +1,15 @@
 "use client";
 import { useAppState } from "@/state/state";
 
+import { useClickOutside } from "@/lib/click";
 import { useSearchJobs } from "@/utils/filterjob";
-import { useCallback, useEffect, useState } from "react";
+import { LegacyRef, useCallback, useEffect, useState } from "react";
 import { GiCycle } from "react-icons/gi";
 import LoginLogo from "../Auth/LoginLogo";
 import FetchJobsButton from "./FetchJobsButton";
 import LogoButton from "./LogoButton";
 import SearchBar from "./SearchBar";
+import SearchTypesDropdown from "./SearchTypesDropdown";
 
 export default function NavBar() {
     const searchOptions = ["jobs", "tasks"];
@@ -32,8 +34,14 @@ export default function NavBar() {
         };
     }, [handleKeyDown]);
 
+    const [searchTypeSelecting, setSearchTypeSelecting] = useState(false);
+
+    const [boxref, buttonref] = useClickOutside({
+        close: () => setSearchTypeSelecting(false),
+    });
+
     return (
-        <div className="bg-secondary justify-center flex items-center fixed left-0 top-0 w-full z-20">
+        <div className="bg-secondary justify-center flex items-center fixed left-0 top-0 w-full z-10">
             <div className="max-w-5xl p-1 gap-1 justify-between w-full flex items-center">
                 <div className="flex gap-1 items-center">
                     <LogoButton type="home" />
@@ -43,13 +51,19 @@ export default function NavBar() {
                         <button
                             className="p-1 w-10 h-10  bg-primary text-accent text-lg flex items-center justify-center  "
                             onClick={() =>
-                                setSearchType(
-                                    searchType == "jobs" ? "tasks" : "jobs"
-                                )
+                                setSearchTypeSelecting(!searchTypeSelecting)
                             }
+                            ref={buttonref as LegacyRef<HTMLButtonElement>}
                         >
                             <GiCycle className="w-7 h-7" />
                         </button>
+                        {searchTypeSelecting && (
+                            <SearchTypesDropdown
+                                searchOptions={searchOptions}
+                                setSearchType={setSearchType}
+                                ref={boxref}
+                            />
+                        )}
 
                         <SearchBar
                             placeholder={
