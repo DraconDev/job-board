@@ -45,13 +45,14 @@ const ListBoxCustom = ({ type, name, flavor }: ListBoxCustomProps) => {
 
     return (
         <div
-            className="relative inline-block w-full "
+            className="relative block w-full "
             ref={dropdownRef}
         >
             <button
                 value={state.selectedOptions[name]}
                 onClick={toggleDropdown}
-                className="p-2 bg-secondary text-white border rounded-md shadow-sm w-full focus:outline-none focus:ring focus:border-accent border-primary flex justify-center items-center "
+                className="p-2 bg-secondary text-white border rounded-md shadow-sm w-full focus:outline-none focus:ring focus:border-accent border-primary flex justify-center items-center"
+                style={{ zIndex: 0 }}
             >
                 <div className="flex grow justify-center">
                     {state.selectedOptions[name]}
@@ -60,7 +61,7 @@ const ListBoxCustom = ({ type, name, flavor }: ListBoxCustomProps) => {
                 <FaAngleDoubleDown className="h-5 w-5 text-accent" />
             </button>
             {dropdownState && (
-                <div className=" absolute z-10 bg-primary border border-primary rounded-lg shadow-sm w-full mt-2">
+                <div className=" absolute bg-primary border-2 border-primary rounded-lg shadow-sm w-full mt-2 z-10 ">
                     {type.map((field, index) => (
                         <div
                             key={index}
@@ -68,7 +69,7 @@ const ListBoxCustom = ({ type, name, flavor }: ListBoxCustomProps) => {
                                 index % 2 === 0
                                     ? "brightness-100"
                                     : "brightness-[85%]"
-                            } cursor-pointer hover:bg-accent  w-full bg-secondary text-white border-primary`}
+                            } cursor-pointer hover:bg-accent  w-full bg-secondary text-white border-primary `}
                             onClick={() => {
                                 setSelectedOptions(field);
                                 setDropdownState(false);

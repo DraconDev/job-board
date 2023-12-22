@@ -33,7 +33,7 @@ export default function NavBar() {
     }, [handleKeyDown]);
 
     return (
-        <div className="bg-secondary justify-center flex items-center fixed left-0 top-0 w-full">
+        <div className="bg-secondary justify-center flex items-center fixed left-0 top-0 w-full z-20">
             <div className="max-w-5xl p-1 gap-1 justify-between w-full flex items-center">
                 <div className="flex gap-1 items-center">
                     <LogoButton type="home" />
