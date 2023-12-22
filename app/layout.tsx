@@ -22,12 +22,12 @@ export default function RootLayout({
             className="    bg-primary"
         >
             <AuthProvider>
-                <body className={`${font.className} h-[100vh]`}>
+                <body className={`${font.className} h-[100vh] `}>
                     <div className="flex w-full h-full flex-col ">
                         <NavBar />
                         {/* <ThemeSwitcher /> */}
                         <div className="flex  justify-center h-full w-full bg-primary">
-                            <div className="flex  justify-center h-full max-w-5xl w-full  items-center flex-col">
+                            <div className="flex  justify-center h-full max-w-5xl w-full  items-center flex-col pt-[52px]">
                                 {children}
                             </div>
                         </div>
