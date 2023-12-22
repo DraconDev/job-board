@@ -48,8 +48,8 @@ export default function PostJob() {
     return (
         <div className="pt-2 justify-center flex flex-col items-center w-full h-full">
             <p className="text-3xl p-2">Post job</p>
-            <div className="flex flex-wrap w-full justify-center">
-                <div className="max-w-lg w-full  text-black px-2 ">
+            <div className="flex  w-full justify-center">
+                <div className="max-w-lg w-full h-full text-black px-2 ">
                     <form
                         className="flex flex-col gap-3 w-full justify-center items-center placeholder-gray-500"
                         onSubmit={() => handleSubmit(onSubmit)}

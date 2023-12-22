@@ -24,7 +24,7 @@ export function QuillBox({ userText, setUserText }: IAppProps) {
 
     return (
         loaded && (
-            <div className="  w-full h-[320px] mb-10 bg-white text-black ">
+            <div className="  w-full md:h-[320px] mb-10 bg-white text-black ">
                 <ReactQuill
                     theme="snow"
                     value={userText}
