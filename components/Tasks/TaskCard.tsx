@@ -12,9 +12,12 @@ const TaskCard = ({ task }: { task: TaskType }) => {
                 <div className="flex flex-col justify-between h-full grows">
                     <p className="">{task.description}</p>
                     <div className="text-gl gap-2  justify-between items-center flex">
-                        <div className="flex justify-between text-gray-400 gap-1 items-center">
-                            <GiMoneyStack className="h-7 w-7" />
-                            {task.bounty}
+                        <div className="flex justify-between text-gray-400 gap-1 items-center w-full">
+                            <div className="flex gap-1 ">
+                                <GiMoneyStack className="h-7 w-7" />
+                                {task.bounty}
+                            </div>
+                            {task.postDate && task.postDate.toDateString()}
                         </div>
                     </div>
                 </div>
