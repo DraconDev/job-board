@@ -10,7 +10,7 @@ const OverlayBoard = ({ isOpen, toggleOverlayMenu }: Props) => {
     const box = useClickOutside({ close: toggleOverlayMenu });
     return (
         <div
-            className={`fixed top-0 left-0 h-full bg-primary ${
+            className={`fixed top-[52px] left-0 h-full bg-primary ${
                 isOpen ? "w-full" : "w-0"
             } transition-width duration-50 flex justify-center`}
         >

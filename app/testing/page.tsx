@@ -3,7 +3,6 @@ import { useAppState } from "@/state/state";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 type Props = {};
 
@@ -13,9 +12,9 @@ const Testing = (props: Props) => {
 
     const router = useRouter();
 
-    useEffect(() => {
-        router.push(`/search/terminator`);
-    }, []);
+    // useEffect(() => {
+    //     router.push(`/search/terminator`);
+    // }, []);
 
     return (
         <div className="flex flex-col  w-full h-full    ">

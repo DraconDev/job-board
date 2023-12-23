@@ -17,7 +17,7 @@ const Dropmenu = ({ list, set, logo }: Props) => {
                 onClick={() => setToggle(!toggle)}
             >
                 {logo ? logo : null}
-                <GiCycle className="w-7 h-7" />
+                <GiCycle className="w-8 h-8" />
             </button>
             {toggle && (
                 <DropdownList

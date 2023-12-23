@@ -6,13 +6,13 @@ export default function Logo({ type }: { type: string }) {
         <>
             <Link href={type === "home" ? "/" : `/${type}`}>
                 {/* <Link href="work"> */}
-                <div className="p-2 hover:bg-accent rounded-lg">
-                    <div className="flex items-center justify-center w-7 h-7 ">
+                <div className="h-full px-1 hover:bg-accent rounded-lg">
+                    <div className="flex items-center justify-center ">
                         <Image
                             src={`${type}.svg`}
                             alt={type}
-                            width={30}
-                            height={30}
+                            width={32}
+                            height={32}
                             title={type}
                             className="invert "
                         />
