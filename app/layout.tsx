@@ -1,7 +1,8 @@
 import AuthProvider from "@/components/Auth/AuthProvider";
 import NavBar from "@/components/Navbar/NavBar";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+import QueryProvider from "@/components/ReactQuery/QueryProvider";
+import { QueryClient } from "@tanstack/react-query";
 import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "./globals.css";
@@ -25,8 +26,8 @@ export default function RootLayout({
             lang="en"
             className="    bg-primary "
         >
-            <AuthProvider>
-                <QueryClientProvider client={queryClient}>
+            <QueryProvider>
+                <AuthProvider>
                     <body className={`${font.className} h-[100vh]  `}>
                         <div className="flex w-full h-full flex-col ">
                             <NavBar />
@@ -38,9 +39,8 @@ export default function RootLayout({
                             </div>
                         </div>
                     </body>
-                    <ReactQueryDevtools initialIsOpen={false} />
-                </QueryClientProvider>
-            </AuthProvider>
+                </AuthProvider>
+            </QueryProvider>
         </html>
     );
 }
