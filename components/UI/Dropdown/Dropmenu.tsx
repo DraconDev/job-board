@@ -12,7 +12,7 @@ type Props = {
 const Dropmenu = ({ list, set, logo }: Props) => {
     const [toggle, setToggle] = useState(false);
     return (
-        <div className="flex  relative border-2 border-accent rounded-md">
+        <div className="flex  relative border-2 border-accent rounded-md ">
             <button
                 className="p-1 w-10 h-10  bg-primary text-accent text-lg flex items-center justify-center  "
                 onClick={() => setToggle(!on)}

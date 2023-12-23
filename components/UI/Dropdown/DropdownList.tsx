@@ -8,7 +8,7 @@ type Props = {
 
 const DropdownMenu = ({ list, set, close }: Props) => {
     return (
-        <div className="w-20 absolute left-0 top-0 mt-10 bg-secondary  border-2 border-primary text-lg  ">
+        <div className="w-20 absolute left-0 top-0 mt-[44px] bg-secondary  border-2 border-primary text-lg  ">
             {list.map((e, i) => (
                 <button
                     className="hover:bg-accent p-2 text-center w-full"
