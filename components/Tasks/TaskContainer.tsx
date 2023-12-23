@@ -1,4 +1,5 @@
 "use client";
+import { TaskType } from "@/type/types";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 import TaskCard from "./TaskCard";
@@ -13,19 +14,13 @@ const TaskContainer = () => {
     const router = useRouter();
     const getTasks = async () => {
         try {
-            const endpoint =
-                query !== undefined ||
-                query !== "" ||
-                query !== null ||
-                query !== "all"
-                    ? `/api/task/list?search=${encodeURIComponent(query)}`
-                    : "/api/task/list";
+            const endpoint =`/api/task/list?search=${encodeURIComponent(query)}`
 
             const tasks = await fetch(endpoint);
             const data = await tasks.json();
 
             await router.push(`/tasks/${query}`);
-            return data;
+            return data as TaskType[];
         } catch (error) {
             console.error("Error fetching tasks:", error);
             // Handle the error as needed
