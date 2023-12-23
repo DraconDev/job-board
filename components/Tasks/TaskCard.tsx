@@ -17,7 +17,8 @@ const TaskCard = ({ task }: { task: TaskType }) => {
                                 <GiMoneyStack className="h-7 w-7" />
                                 {task.bounty}
                             </div>
-                            {task.postDate && task.postDate.toDateString()}
+                            {task.postDate &&
+                                task.postDate.toString().slice(0, 10)}
                         </div>
                     </div>
                 </div>
