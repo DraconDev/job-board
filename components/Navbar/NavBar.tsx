@@ -35,7 +35,10 @@ export default function NavBar() {
     return (
         <div className="bg-secondary justify-center flex items-center fixed left-0 top-0 w-full z-10">
             <div className="max-w-5xl p-1 gap-1 justify-between w-full flex items-center">
-                <LogoButton type="home" />
+                <LogoButton
+                    type="home"
+                    route="/"
+                />
                 <div className="flex gap-1 px-1 grow items-center ">
                     <Dropmenu
                         list={searchOptions}

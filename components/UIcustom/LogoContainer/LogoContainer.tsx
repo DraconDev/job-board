@@ -7,7 +7,7 @@ const LogoContainer = (props: Props) => {
     return (
         <div className="flex gap-1 items-center ">
             <div className="">
-                <LogoButton type="tasks" />
+                <LogoButton type="tasks" route="/tasks/all" />
             </div>
             <div className="hidden md:block">
                 <LogoButton type="notifications" />

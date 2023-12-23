@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Logo({ type }: { type: string }) {
+export default function Logo({
+    type,
+    route,
+}: {
+    type: string;
+    route?: string;
+}) {
     return (
         <>
             <Link
-                href={type === "home" ? "/" : `/${type}`}
+                href={route ? `/${route}` : `/${type}`}
                 className="h-full"
             >
                 <div className="h-full p-1 hover:bg-accent rounded-lg">
