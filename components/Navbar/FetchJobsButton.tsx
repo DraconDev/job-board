@@ -12,7 +12,6 @@ const FetchJobsButton = ({ type }: { type: string }) => {
         try {
             const tasks = await fetch("/api/task/list");
             const data = await tasks.json();
-            state.setTasks(data);
             await router.push(
                 `/tasks/${encodeURIComponent(state.searchTitle)}`
             );

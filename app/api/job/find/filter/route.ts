@@ -12,7 +12,7 @@ type FilterType = {
     [key: string]: string;
 };
 
-export async function fetchJobsByFilter(filter: FilterType) {
+async function fetchJobsByFilter(filter: FilterType) {
     await mongoose.connect(uri);
 
     const query: any = {
