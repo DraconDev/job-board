@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DropdownList from "./DropdownList";
 
 type Props = {
-    set: (e: string) => void;
+    set?: (e: string) => void;
     list: string[];
     children?: React.ReactNode;
 };

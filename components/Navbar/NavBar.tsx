@@ -1,5 +1,6 @@
 "use client";
 import { useAppState } from "@/state/state";
+import { FaArrowsRotate } from "react-icons/fa6";
 
 import { useSearchJobs } from "@/utils/filterjob";
 import { useCallback, useEffect, useState } from "react";
@@ -43,7 +44,9 @@ export default function NavBar() {
                     <Dropmenu
                         list={searchOptions}
                         set={setSearchType}
-                    />
+                    >
+                        <FaArrowsRotate className="w-7 h-7" />
+                    </Dropmenu>
                     <div className="w-full ">
                         <SearchBar
                             placeholder={
