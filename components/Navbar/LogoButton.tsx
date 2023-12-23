@@ -11,8 +11,8 @@ export default function Logo({ type }: { type: string }) {
                         <Image
                             src={`${type}.svg`}
                             alt={type}
-                            width={32}
-                            height={32}
+                            width={36}
+                            height={36}
                             title={type}
                             className="invert "
                         />
