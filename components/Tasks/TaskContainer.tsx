@@ -1,12 +1,16 @@
 "use client";
 import { TaskType } from "@/type/types";
 import { useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import TaskCard from "./TaskCard";
 
 type Props = {};
 
-const TaskContainer = (props: Props) => {
+const TaskContainer = () => {
+    // Access the query parameters
+    const params = useParams();
+    const query = params.query as string;
+    console.log("query:", query);
     const router = useRouter();
     const getTasks = async () => {
         try {
