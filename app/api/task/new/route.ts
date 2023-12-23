@@ -5,9 +5,13 @@ import { TaskType } from "@/type/types";
 import mongoose from "mongoose";
 
 async function addTask(info: TaskType) {
+    console.log("add task info:", info);
     try {
         await mongoose.connect(uri);
-        const task = await Task.create({ ...info });
+        const task = await Task.create({
+            ...info,
+            postDate: new Date(),
+        });
         return task;
     } finally {
         await mongoose.disconnect();
@@ -20,7 +24,7 @@ export async function POST(request: Request) {
     if (!title || !description) {
         throw new Error("Missing title or description in the request");
     }
-    const task = await addTask({ ...data });
+    const task = await addTask(data);
     return new Response(JSON.stringify(task), {
         headers: {
             "Content-Type": "application/json",
