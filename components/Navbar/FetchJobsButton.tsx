@@ -8,17 +8,21 @@ const FetchJobsButton = ({ type }: { type: string }) => {
     const SearchJobs = useSearchJobs();
     const router = useRouter();
 
-    const getTasks = async () => {
-        try {
-            const tasks = await fetch("/api/task/list");
-            const data = await tasks.json();
-            await router.push(
-                `/tasks/${encodeURIComponent(state.searchTitle)}`
-            );
-        } catch (error) {
-            console.error("Error fetching tasks:", error);
-            // Handle the error as needed
-        }
+    // const getTasks = async () => {
+    //     try {
+    //         const tasks = await fetch("/api/task/list");
+    //         const data = await tasks.json();
+    //         await router.push(
+    //             `/tasks/${encodeURIComponent(state.searchTitle)}`
+    //         );
+    //     } catch (error) {
+    //         console.error("Error fetching tasks:", error);
+    //         // Handle the error as needed
+    //     }
+    // };
+
+    const getTasks = () => {
+        router.push(`/tasks/${encodeURIComponent(state.searchTitle)}`);
     };
 
     return (
