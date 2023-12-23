@@ -3,10 +3,8 @@ import { useAppState } from "@/state/state";
 
 import { useSearchJobs } from "@/utils/filterjob";
 import { useCallback, useEffect, useState } from "react";
-import { GiCycle } from "react-icons/gi";
-import LoginLogo from "../Auth/LoginLogo";
-import DropdownList from "../UI/Dropdown/DropdownList";
 import Dropmenu from "../UI/Dropdown/Dropmenu";
+import LogoContainer from "../UI/LogoContainer/LogoContainer";
 import FetchJobsButton from "./FetchJobsButton";
 import LogoButton from "./LogoButton";
 import SearchBar from "./SearchBar";
@@ -37,9 +35,7 @@ export default function NavBar() {
     return (
         <div className="bg-secondary justify-center flex items-center fixed left-0 top-0 w-full z-10">
             <div className="max-w-5xl p-1 gap-1 justify-between w-full flex items-center">
-                <div className="flex gap-1 items-center">
-                    <LogoButton type="home" />
-                </div>
+                <LogoButton type="home" />
                 <div className="flex gap-1 px-1 grow items-center ">
                     <Dropmenu
                         list={searchOptions}
@@ -68,19 +64,9 @@ export default function NavBar() {
                             }}
                         />
                     </div>
-                    <div className="">
-                        <FetchJobsButton />
-                    </div>
+                    <FetchJobsButton />
                 </div>
-                <div className="flex gap-1 items-center ">
-                    <div className="hidden md:block">
-                        <LogoButton type="notifications" />
-                    </div>
-                    <div className="">
-                        <LogoButton type="postjob" />
-                    </div>
-                </div>
-                <LoginLogo />
+                <LogoContainer />
             </div>
         </div>
     );
