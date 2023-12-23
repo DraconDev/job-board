@@ -4,7 +4,7 @@ import { useAppState } from "@/state/state";
 import { useSearchJobs } from "@/utils/filterjob";
 import { useCallback, useEffect, useState } from "react";
 import Dropmenu from "../UI/Dropdown/Dropmenu";
-import LogoContainer from "../UI/LogoContainer/LogoContainer";
+import LogoContainer from "../UIcustom/LogoContainer/LogoContainer";
 import FetchJobsButton from "./FetchJobsButton";
 import LogoButton from "./LogoButton";
 import SearchBar from "./SearchBar";
