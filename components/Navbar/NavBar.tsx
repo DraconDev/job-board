@@ -55,6 +55,7 @@ export default function NavBar() {
                             <SearchTypesDropdown
                                 searchOptions={searchOptions}
                                 setSearchType={setSearchType}
+                                close={() => setSearchTypeSelecting(false)}
                             />
                         )}
 
