@@ -1,4 +1,4 @@
-import { JobType, TaskType, UserType } from "@/type/types";
+import { JobType, UserType } from "@/type/types";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
@@ -26,18 +26,12 @@ export type AppState = {
     updateUser: (user: UserType) => void;
     listOfAppliedJobs: JobType[];
     setListOfAppliedJobs: (listOfAppliedJobs: JobType[]) => void;
-    // tasks and set tasks
-    tasks: TaskType[];
-    setTasks: (tasks: TaskType[]) => void;
 };
 
 export const useAppState = create<AppState>()(
     devtools(
         persist(
             (set) => ({
-                // tasks and set tasks
-                tasks: [],
-                setTasks: (tasks: TaskType[]) => set({ tasks }),
                 activeJobPost: undefined,
                 updateActiveJobPost: (job: JobType) =>
                     set({ activeJobPost: job }),
