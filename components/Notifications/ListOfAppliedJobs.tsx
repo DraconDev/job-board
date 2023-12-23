@@ -8,7 +8,7 @@ const ListOfApplications = (props: Props) => {
     const state = useAppState((state) => state);
 
     return (
-        <div className="w-3/4 h-full p-3 gap-3 flex flex-col justify-center items-center">
+        <div className="w-full h-full p-3 gap-3 flex flex-col justify-center items-center md:w-1/2">
             <h1 className="text-2xl ">Applied jobs</h1>
 
             {state?.listOfAppliedJobs && state?.listOfAppliedJobs.length > 0 ? (
