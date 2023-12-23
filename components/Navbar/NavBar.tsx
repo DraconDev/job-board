@@ -5,7 +5,8 @@ import { useSearchJobs } from "@/utils/filterjob";
 import { useCallback, useEffect, useState } from "react";
 import { GiCycle } from "react-icons/gi";
 import LoginLogo from "../Auth/LoginLogo";
-import DropdownList from "../UI/DropdownList";
+import DropdownList from "../UI/Dropdown/DropdownList";
+import Dropmenu from "../UI/Dropdown/Dropmenu";
 import FetchJobsButton from "./FetchJobsButton";
 import LogoButton from "./LogoButton";
 import SearchBar from "./SearchBar";
@@ -33,8 +34,6 @@ export default function NavBar() {
         };
     }, [handleKeyDown]);
 
-    const [searchTypeSelecting, setSearchTypeSelecting] = useState(false);
-
     return (
         <div className="bg-secondary justify-center flex items-center fixed left-0 top-0 w-full z-10">
             <div className="max-w-5xl p-1 gap-1 justify-between w-full flex items-center">
@@ -42,23 +41,11 @@ export default function NavBar() {
                     <LogoButton type="home" />
                 </div>
                 <div className="flex gap-1 px-1 grow items-center ">
-                    <div className="w-full flex  relative">
-                        <button
-                            className="p-1 w-10 h-10  bg-primary text-accent text-lg flex items-center justify-center  "
-                            onClick={() =>
-                                setSearchTypeSelecting(!searchTypeSelecting)
-                            }
-                        >
-                            <GiCycle className="w-7 h-7" />
-                        </button>
-                        {searchTypeSelecting && (
-                            <DropdownList
-                                list={searchOptions}
-                                set={setSearchType}
-                                close={() => setSearchTypeSelecting(false)}
-                            />
-                        )}
-
+                    <Dropmenu
+                        list={searchOptions}
+                        set={setSearchType}
+                    />
+                    <div className="w-full ">
                         <SearchBar
                             placeholder={
                                 searchType[0].toUpperCase() +
