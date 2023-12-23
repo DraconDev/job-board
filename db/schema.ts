@@ -55,3 +55,17 @@ export const userSchema = new Schema({
 });
 
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
+
+export const taskSchema = new Schema({
+    title: String,
+    description: String,
+    status: String,
+    dueDate: Date,
+    postDate: Date,
+    priority: String,
+    assignee: String,
+    reviewer: String,
+    bounty: Number,
+});
+
+export const Task = mongoose.models.Task || mongoose.model("Task", taskSchema);
