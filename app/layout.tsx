@@ -26,10 +26,10 @@ export default function RootLayout({
             lang="en"
             className="    bg-primary "
         >
-            <QueryProvider>
-                <AuthProvider>
-                    <body className={`${font.className} h-[100vh]  `}>
-                        <div className="flex w-full h-full flex-col ">
+            <AuthProvider>
+                <body className={`${font.className} h-[100vh]  `}>
+                    <div className="flex w-full h-full flex-col ">
+                        <QueryProvider>
                             <NavBar />
                             {/* <ThemeSwitcher /> */}
                             <div className="flex  justify-center h-full w-full bg-primary">
@@ -37,10 +37,10 @@ export default function RootLayout({
                                     {children}
                                 </div>
                             </div>
-                        </div>
-                    </body>
-                </AuthProvider>
-            </QueryProvider>
+                        </QueryProvider>
+                    </div>
+                </body>
+            </AuthProvider>
         </html>
     );
 }
