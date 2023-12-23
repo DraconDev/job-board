@@ -3,7 +3,7 @@ import { GiMoneyStack } from "react-icons/gi";
 
 const TaskCard = ({ task }: { task: TaskType }) => {
     return (
-        <div className="flex flex-col bg-secondary p-2 min-h-[250px] min-w-[250px] grow hover:bg-opacity-60 rounded-lg">
+        <div className="flex flex-col bg-secondary p-2 min-h-[250px] min-w-[250px] grow hover:bg-opacity-60 rounded-lg max-w-[350px]">
             <div className="flex flex-col hover:scale-[1.01] h-full">
                 <h2 className="text-xl items-center font-semibold text-center">
                     {task.title}

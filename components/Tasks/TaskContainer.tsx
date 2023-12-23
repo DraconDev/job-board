@@ -14,7 +14,9 @@ const TaskContainer = () => {
     const router = useRouter();
     const getTasks = async () => {
         try {
-            const endpoint =`/api/task/list?search=${encodeURIComponent(query)}`
+            const endpoint = `/api/task/list?search=${encodeURIComponent(
+                query
+            )}`;
 
             const tasks = await fetch(endpoint);
             const data = await tasks.json();
@@ -33,7 +35,7 @@ const TaskContainer = () => {
     });
 
     return (
-        <div className="flex gap-2 w-full flex-wrap">
+        <div className="flex gap-2 w-full flex-wrap justify-center items-center">
             {tasks &&
                 tasks.map((task) => (
                     <TaskCard
