@@ -1,7 +1,7 @@
-import { Task } from "@/type/types";
+import { TaskType } from "@/type/types";
 import { GiMoneyStack } from "react-icons/gi";
 
-const TaskCard = ({ task }: { task: Task }) => {
+const TaskCard = ({ task }: { task: TaskType }) => {
     return (
         <div className="flex flex-col bg-secondary p-2 min-h-[250px] min-w-[250px] grow hover:bg-opacity-60 rounded-lg">
             <div className="flex flex-col hover:scale-[1.01]">

@@ -1,10 +1,10 @@
-import { Task } from "@/type/types";
+import { TaskType } from "@/type/types";
 import TaskCard from "./TaskCard";
 
 type Props = {};
 
 const TaskContainer = (props: Props) => {
-    const dummyTasks: Task[] = [
+    const dummyTasks: TaskType[] = [
         {
             title: "Task 1",
             description: "Description 1",
