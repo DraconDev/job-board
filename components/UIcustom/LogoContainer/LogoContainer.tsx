@@ -24,7 +24,7 @@ const LogoContainer = (props: Props) => {
             <div className="relative">
                 {/* <LogoButton type="postjob" /> */}
                 <Dropmenu list={post}>
-                    <MdFileUpload />
+                    <MdFileUpload className="w-7 h-7 text-white" />
                 </Dropmenu>
             </div>
             <LoginLogo />
