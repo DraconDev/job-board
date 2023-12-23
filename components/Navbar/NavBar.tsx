@@ -45,7 +45,7 @@ export default function NavBar() {
                         list={searchOptions}
                         set={setSearchType}
                     >
-                        <FaArrowsRotate className="w-7 h-7 text-white" />
+                        <FaArrowsRotate className={`w-7 h-7 text-white `} />
                     </Dropmenu>
                     <div className="w-full ">
                         <SearchBar
