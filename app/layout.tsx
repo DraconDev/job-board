@@ -27,13 +27,13 @@ export default function RootLayout({
             className="    bg-primary "
         >
             <AuthProvider>
-                <body className={`${font.className} h-[100vh]  `}>
+                <body className={`${font.className} h-[100vh]  pt-[54px]`}>
                     <div className="flex w-full h-full flex-col ">
                         <QueryProvider>
                             <NavBar />
                             {/* <ThemeSwitcher /> */}
                             <div className="flex  justify-center h-full w-full bg-primary">
-                                <div className="flex  justify-center h-full max-w-5xl w-full  items-center flex-col pt-[52px]">
+                                <div className="flex  justify-center h-full max-w-5xl w-full  items-center flex-col ">
                                     {children}
                                 </div>
                             </div>
