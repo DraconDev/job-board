@@ -5,16 +5,16 @@ import { useSearchJobs } from "@/utils/filterjob";
 import { useCallback, useEffect, useState } from "react";
 import { GiCycle } from "react-icons/gi";
 import LoginLogo from "../Auth/LoginLogo";
+import DropdownList from "../UI/DropdownList";
 import FetchJobsButton from "./FetchJobsButton";
 import LogoButton from "./LogoButton";
 import SearchBar from "./SearchBar";
-import SearchTypesDropdown from "./SearchTypesDropdown";
 
 export default function NavBar() {
     const searchOptions = ["jobs", "tasks"];
     const state = useAppState((state) => state);
     const searchJobs = useSearchJobs();
-    const [searchType, setSearchType] = useState<"jobs" | "tasks">("jobs");
+    const [searchType, setSearchType] = useState("jobs");
 
     const handleKeyDown = useCallback(
         (event: any) => {
@@ -52,9 +52,9 @@ export default function NavBar() {
                             <GiCycle className="w-7 h-7" />
                         </button>
                         {searchTypeSelecting && (
-                            <SearchTypesDropdown
-                                searchOptions={searchOptions}
-                                setSearchType={setSearchType}
+                            <DropdownList
+                                list={searchOptions}
+                                set={setSearchType}
                                 close={() => setSearchTypeSelecting(false)}
                             />
                         )}
