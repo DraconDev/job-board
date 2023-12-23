@@ -1,4 +1,3 @@
-import { on } from "events";
 import React, { useState } from "react";
 import { GiCycle } from "react-icons/gi";
 import DropdownList from "./DropdownList";
@@ -15,7 +14,7 @@ const Dropmenu = ({ list, set, logo }: Props) => {
         <div className="flex  relative border-2 border-accent rounded-md ">
             <button
                 className="p-1 w-10 h-10  bg-primary text-accent text-lg flex items-center justify-center  "
-                onClick={() => setToggle(!on)}
+                onClick={() => setToggle(!toggle)}
             >
                 {logo ? logo : null}
                 <GiCycle className="w-7 h-7" />
