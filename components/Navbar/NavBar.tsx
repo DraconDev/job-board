@@ -64,7 +64,7 @@ export default function NavBar() {
                             }}
                         />
                     </div>
-                    <FetchJobsButton />
+                    <FetchJobsButton type={searchType} />
                 </div>
                 <LogoContainer />
             </div>

@@ -21,3 +21,4 @@ export async function GET() {
     const tasks = await fetchTasks();
     return new Response(JSON.stringify(tasks));
 }
+
