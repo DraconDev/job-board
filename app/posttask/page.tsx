@@ -1,4 +1,5 @@
 "use client";
+import { CustomForm } from "@/components/UI/Form/CustomForm";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -49,34 +50,47 @@ export default function PostTask() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register("title", { required: "Title is required." })} />
-            {errors.title && <p>{errors.title.message}</p>}
+        <div className="w-full h-full p-2 flex justify-center">
+            {/* <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col w-full  p-2 bg-secondary rounded-md md:w-1/2 gap-2"
+            >
+                <p className="">Title</p>
+                <input
+                    {...register("title", { required: "Title is required." })}
+                    className="bg-secondary p-2"
+                />
+                {errors.title && <p>{errors.title.message}</p>}
 
-            <textarea
-                {...register("description", {
-                    required: "Description is required.",
-                })}
-            />
-            {errors.description && <p>{errors.description.message}</p>}
+                <textarea
+                    {...register("description", {
+                        required: "Description is required.",
+                    })}
+                />
+                {errors.description && <p>{errors.description.message}</p>}
 
-            <input
-                type="date"
-                {...register("dueDate")}
-            />
+                <input
+                    type="date"
+                    {...register("dueDate")}
+                    className="bg-secondary p-2"
+                />
 
-            <input
-                type="number"
-                {...register("bounty", {
-                    min: { value: 0, message: "Bounty must be positive." },
-                })}
-            />
-            {errors.bounty && <p>{errors.bounty.message}</p>}
+                <input
+                    type="number"
+                    {...register("bounty", {
+                        min: { value: 0, message: "Bounty must be positive." },
+                    })}
+                    className="bg-secondary p-2"
+                />
+                {errors.bounty && <p>{errors.bounty.message}</p>}
 
-            <input
-                type="submit"
-                disabled={isSubmitting}
-            />
-        </form>
+                <input
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-secondary p-2"
+                />
+            </form> */}
+            <CustomForm send={onSubmit} />
+        </div>
     );
 }
