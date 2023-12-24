@@ -9,7 +9,11 @@ const FetchJobsButton = ({ type }: { type: string }) => {
     const router = useRouter();
 
     const getTasks = () => {
-        router.push(`/tasks/${encodeURIComponent(state.searchTitle)}`);
+        router.push(
+            `/tasks/${encodeURIComponent(
+                state.searchTitle ? state.searchTitle : "all"
+            )}`
+        );
     };
 
     return (
