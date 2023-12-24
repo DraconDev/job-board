@@ -21,7 +21,7 @@ export default function LoginLogo() {
             {!session ? (
                 <button
                     onClick={() => signIn()}
-                    className="bg-secondary hover:bg-accent text-white p-2 rounded-lg shadow-lg"
+                    className="flex justify-center items-center"
                 >
                     <TbUserHexagon className="h-9 w-9" />
                 </button>
@@ -36,8 +36,8 @@ export default function LoginLogo() {
                                 <Image
                                     src={session?.user?.image}
                                     alt={session?.user?.name ?? "User"}
-                                    width={40}
-                                    height={40}
+                                    width={36}
+                                    height={36}
                                     className="rounded-md"
                                 />
                                 <div className=""></div>

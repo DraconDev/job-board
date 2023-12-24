@@ -27,7 +27,7 @@ export default function RootLayout({
             className="    bg-primary "
         >
             <AuthProvider>
-                <body className={`${font.className} h-[100vh]  pt-[54px]`}>
+                <body className={`${font.className} h-[100vh]  pt-[52px]`}>
                     <div className="flex w-full h-full flex-col ">
                         <QueryProvider>
                             <NavBar />

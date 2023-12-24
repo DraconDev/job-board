@@ -14,13 +14,13 @@ export default function Logo({
                 href={route ? `/${route}` : `/${type}`}
                 className="h-full"
             >
-                <div className="h-full p-1 hover:bg-accent rounded-lg">
-                    <div className="flex items-center justify-center h-full ">
+                <div className=" p-1 hover:bg-accent rounded-lg">
+                    <div className="flex items-center justify-center  ">
                         <Image
                             src={`${type}.svg`}
                             alt={type}
-                            width={36}
-                            height={36}
+                            width={32}
+                            height={32}
                             title={type}
                             className="invert "
                         />
