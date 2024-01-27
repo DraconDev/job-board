@@ -1,4 +1,4 @@
-![Image Alt Text](public/thumbs/estore.png)
+![Image Alt Text](public/thumbs/job_board2.png)
 
 # Linked inspired job platform with bounties
 
@@ -9,10 +9,9 @@
 -   Search jobs by category or title and with various filters
 -   Clean responsive ui
 -   User login
-**WIP**
+    **WIP**
 -   User profile
 -   Bounties
-
 
 ## Getting started
 
