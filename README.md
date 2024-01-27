@@ -1,6 +1,6 @@
 ![Image Alt Text](public/thumbs/estore.png)
 
-# Amazon inspired ecom site
+# Linked inspired job platform with bounties
 
 ## Features
 
