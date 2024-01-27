@@ -9,7 +9,7 @@
 -   Search jobs by category or title and with various filters
 -   Clean responsive ui
 -   User login
-    **WIP**
+-   **WIP**
 -   User profile
 -   Bounties
 
